@@ -8,6 +8,7 @@ public class RaycastFromCamera : MonoBehaviour
 
     private Outline lastOutlinedObject = null;
 
+
     private void FixedUpdate()
     {
         Vector3 rayOrigin = targetObject.position;
@@ -18,7 +19,7 @@ public class RaycastFromCamera : MonoBehaviour
             if (hit.collider.CompareTag("ActionObject"))
             {
                 Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.green);
-
+                
                 if (hit.collider.TryGetComponent<Outline>(out Outline outline))
                 {
                     if (lastOutlinedObject != outline)
@@ -29,7 +30,6 @@ public class RaycastFromCamera : MonoBehaviour
                     outline.enabled = true;
                     lastOutlinedObject = outline;
                 }
-                
                 hit.collider.TryGetComponent<SolutionSystem>(out SolutionSystem solutionSystem);
                 if (Input.GetButton("Fire1"))
                 {
