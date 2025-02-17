@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: HeatSystem
   m_EditorClassIdentifier: 
   IncreaseRate: 0.2
-  DecreaseRate: 0.1
+  DecreaseRate: 0.15

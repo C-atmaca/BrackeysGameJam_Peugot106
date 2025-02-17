@@ -4,8 +4,13 @@ using UnityEngine;
 public class HeatModule : ConstantlyIncreasingSystem
 {
     [SerializeField] private float countdown = 2;
+    [SerializeField] private float startRotation = 50f;
+    [SerializeField] private float endRotation = -50f;
 
     private WaitForSeconds waitForSeconds;
+    private bool countdownHasStarted = false;
+
+    [SerializeField] private Transform heatNeedleTransform;
 
     private void Start()
     {
@@ -19,11 +24,24 @@ public class HeatModule : ConstantlyIncreasingSystem
             ModifyCurrentValue((data.DecreaseRate * Time.deltaTime) * -1);
             return;
         }
-        if (currentValue <= 0)
+
+        if (currentValue > 0)
         {
-            StartCoroutine(Countdown());
+            base.Update();
         }
-        base.Update();
+        else
+        {
+            if (countdownHasStarted) return;
+
+            StartCoroutine(Countdown());
+            countdownHasStarted = true;
+        }
+    }
+
+    private void LateUpdate()
+    {
+        float rotation = Mathf.Lerp(startRotation, endRotation, currentValue);
+        heatNeedleTransform.localRotation = Quaternion.Euler(0, rotation, 0);
     }
 
     private IEnumerator Countdown()
@@ -31,6 +49,11 @@ public class HeatModule : ConstantlyIncreasingSystem
         while (currentValue <= 0)
         {
             yield return waitForSeconds;
+
+            currentValue += Mathf.Epsilon;
+            countdownHasStarted = false;
+
+            yield break;
         }
     }
 }
