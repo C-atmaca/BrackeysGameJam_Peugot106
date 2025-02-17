@@ -9,6 +9,7 @@ public class HeatModule : ConstantlyIncreasingSystem
 
     private WaitForSeconds waitForSeconds;
     private bool countdownHasStarted = false;
+    private bool executeSolution = false;
 
     [SerializeField] private Transform heatNeedleTransform;
 
@@ -19,7 +20,7 @@ public class HeatModule : ConstantlyIncreasingSystem
 
     protected override void Update()
     {
-        if (Input.GetButton("Fire2"))
+        if (executeSolution)
         {
             ModifyCurrentValue((data.DecreaseRate * Time.deltaTime) * -1);
             return;
@@ -36,6 +37,16 @@ public class HeatModule : ConstantlyIncreasingSystem
             StartCoroutine(Countdown());
             countdownHasStarted = true;
         }
+    }
+
+    public override void SetExecuteSolution(bool value)
+    {
+        executeSolution = value;
+    }
+
+    public bool GetExecuteSolution()
+    {
+        return executeSolution;
     }
 
     private void LateUpdate()

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ConstantlyIncreasingSystem : MonoBehaviour
+public class ConstantlyIncreasingSystem : MechSystem
 {
     [SerializeField] protected ConstantlyIncreasingSystemSO data;
 
