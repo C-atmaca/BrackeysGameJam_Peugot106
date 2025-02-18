@@ -131,9 +131,9 @@ GameObject:
   - component: {fileID: 142645107}
   - component: {fileID: 142645106}
   - component: {fileID: 142645105}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mine
-  m_TagString: Mine
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,7 +221,7 @@ Transform:
   m_GameObject: {fileID: 142645104}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.6, y: -0.97, z: 4.18}
+  m_LocalPosition: {x: 1.6, y: 3.12, z: 4.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -478,6 +478,7 @@ MonoBehaviour:
   drillTransform: {fileID: 751728283}
   vacuumTransform: {fileID: 1503061893}
   mechCam: {fileID: 923409920}
+  switchArmType: 104
 --- !u!4 &898996952
 Transform:
   m_ObjectHideFlags: 0
@@ -487,7 +488,7 @@ Transform:
   m_GameObject: {fileID: 898996950}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.325, y: -3.128, z: 2.7701511}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
