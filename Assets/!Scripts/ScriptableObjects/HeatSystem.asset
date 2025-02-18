@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29fcc3534d5e79e4d80d8a80c5b6cdde, type: 3}
   m_Name: HeatSystem
   m_EditorClassIdentifier: 
-  IncreaseRate: 0.2
+  IncreaseRateMinInclusive: 0.1
+  IncreaseRateMaxExclusive: 0.75
   DecreaseRate: 0.15
+  DamageStartDelay: 3
+  DamagePerInterval: 1
+  DamageInterval: 1
+  DamageThresholdMin: 0.85
+  DamageThresholdMax: 1
