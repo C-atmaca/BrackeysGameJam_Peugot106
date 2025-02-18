@@ -5,12 +5,12 @@ public enum HandType {None, LeftHand, RightHand};
 
 public class HandMovement : MonoBehaviour
 {
-    [SerializeField] private Transform[] handOriginTransforms;
-    [SerializeField] private Transform[] handCurrentTargetTransforms;
+    [SerializeField] private Transform leftHandOriginalTransform;
+    [SerializeField] private Transform rightHandOriginalTransform;
+    [SerializeField] private Transform leftHandCurrentTargetTransform;
+    [SerializeField] private Transform rightHandCurrentTargetTransform;
     [SerializeField] private RaycastFromCamera raycastFromCamera;
     [SerializeField] private Camera playerCamera;
-    
-    private HandType handType;
     private Transform handTargetTransform;
 
 
@@ -27,39 +27,24 @@ public class HandMovement : MonoBehaviour
 
                 if (Input.GetButtonDown("Fire1"))
                 {
-                    handType = HandType.LeftHand;
-                    ChangeHandPosition(handTargetTransform);
+                    leftHandCurrentTargetTransform.DOMove(handTargetTransform.position, .5f); 
                 }
                 else if (Input.GetButtonUp("Fire1"))
                 {
-                    ChangeHandPosition(handOriginTransforms[0]);
-                    handType = HandType.None;
+                    leftHandCurrentTargetTransform.DOMove(leftHandOriginalTransform.position, .5f); 
                 }
-                if (Input.GetButton("Fire2"))
+                if (Input.GetButtonDown("Fire2"))
                 {
-                    handType = HandType.RightHand;
-                    ChangeHandPosition(handTargetTransform);
+                    rightHandCurrentTargetTransform.DOMove(handTargetTransform.position, .5f);
                 }
                 else if (Input.GetButtonUp("Fire2"))
                 {
-                    ChangeHandPosition(handOriginTransforms[1]);
-                    handType = HandType.None;
+                    rightHandCurrentTargetTransform.DOMove(rightHandOriginalTransform.position, .5f);
                 }
             }
         }
           
     }
 
-    private void ChangeHandPosition(Transform targetTransform)
-    {
-        switch (handType)
-        {
-            case HandType.LeftHand:
-                handCurrentTargetTransforms[0].DOMove(targetTransform.position, 2f);         
-            break;
-            case HandType.RightHand:
-                handCurrentTargetTransforms[1].DOMove(targetTransform.position, 2f); 
-            break;
-        }
-    }
+
 }
