@@ -5,8 +5,10 @@ public class RaycastFromCamera : MonoBehaviour
 {
     [SerializeField] private Transform targetObject;
     [SerializeField] private float rayDistance;
+    [SerializeField] private HandMovement handmovement;
 
     private Outline lastOutlinedObject = null;
+
 
 
     private void FixedUpdate()
@@ -36,6 +38,7 @@ public class RaycastFromCamera : MonoBehaviour
                     if (HandManager.Instance.LeftHandSolutionSystem != null && HandManager.Instance.RightHandSolutionSystem == solutionSystem) return;
 
                     HandManager.Instance.LeftHandSolutionSystem = solutionSystem;
+                    handmovement.LeftHandMove();
                     solutionSystem.StartExecuteSolution();
                 }
                 else if (Input.GetButton("Fire2"))
@@ -43,8 +46,18 @@ public class RaycastFromCamera : MonoBehaviour
                     if (HandManager.Instance.RightHandSolutionSystem != null && HandManager.Instance.LeftHandSolutionSystem == solutionSystem) return;
 
                     HandManager.Instance.RightHandSolutionSystem = solutionSystem;
+                    handmovement.RightHandMove();
                     solutionSystem.StartExecuteSolution();
                 }
+                if (HandManager.Instance.LeftHandSolutionSystem == null)
+                {
+                    handmovement.LeftHandOriginalPos();
+                }
+                if (HandManager.Instance.RightHandSolutionSystem == null)
+                {
+                    handmovement.RightHandOriginalPos();
+                }
+
             }
             else
             {
