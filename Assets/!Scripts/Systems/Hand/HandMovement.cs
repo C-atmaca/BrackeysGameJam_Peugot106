@@ -21,8 +21,14 @@ public class HandMovement : MonoBehaviour
     {
         if (handTargetTransform != null)
         {
-            LeftHandMove(handTargetTransform);
-            RightHandMove(handTargetTransform);
+            if (Input.GetButton("Fire1"))
+            {
+                LeftHandMove(handTargetTransform);
+            }
+            if (Input.GetButton("Fire2"))
+            {
+                RightHandMove(handTargetTransform);
+            }
             
         }
 
