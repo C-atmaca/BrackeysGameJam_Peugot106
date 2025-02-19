@@ -8,7 +8,6 @@ public class ValveSolutionModule : SolutionSystem
 
     private Camera mainCamera;
     private bool startedSolution = false;
-    private float lastRotationX;
 
     [SerializeField] private bool firstCheckpoint = false;
     [SerializeField] private bool secondCheckpoint = false;
@@ -17,7 +16,6 @@ public class ValveSolutionModule : SolutionSystem
     private void Start()
     {
         mainCamera = Camera.main;
-        lastRotationX = transform.rotation.eulerAngles.x;
     }
 
     private void Update()
