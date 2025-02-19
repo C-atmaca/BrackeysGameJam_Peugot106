@@ -27,20 +27,20 @@ public class RaycastFromCamera : MonoBehaviour
                         DisableLastOutline();
                     }
 
-                    outline.enabled = true;
+                    //outline.enabled = true;
                     lastOutlinedObject = outline;
                 }
                 hit.collider.TryGetComponent<SolutionSystem>(out SolutionSystem solutionSystem);
                 if (Input.GetButton("Fire1"))
                 {
-                    if (HandManager.Instance.LeftHandSolutionSystem != null && HandManager.Instance.RightHandSolutionSystem == solutionSystem) return;
+                    if (HandManager.Instance.LeftHandSolutionSystem != null || HandManager.Instance.RightHandSolutionSystem == solutionSystem) return;
 
                     HandManager.Instance.LeftHandSolutionSystem = solutionSystem;
                     solutionSystem.StartExecuteSolution();
                 }
                 else if (Input.GetButton("Fire2"))
                 {
-                    if (HandManager.Instance.RightHandSolutionSystem != null && HandManager.Instance.LeftHandSolutionSystem == solutionSystem) return;
+                    if (HandManager.Instance.RightHandSolutionSystem != null || HandManager.Instance.LeftHandSolutionSystem == solutionSystem) return;
 
                     HandManager.Instance.RightHandSolutionSystem = solutionSystem;
                     solutionSystem.StartExecuteSolution();

@@ -10,6 +10,11 @@ public class ConstantlyIncreasingSystem : MechSystem
     private float damageStartTimer = 0f;
     private float damageTimer = 0f;
 
+    private void Start()
+    {
+        SetIncreaseRate(Random.Range(data.IncreaseRateMinInclusive, data.IncreaseRateMaxExclusive));
+    }
+
     protected virtual void Update()
     {
         var increaseValue = increaseRate * SystemsManager.Instance.GlobalData.GlobalMultiplier * Time.deltaTime;
@@ -56,7 +61,7 @@ public class ConstantlyIncreasingSystem : MechSystem
 
         if (damageTimer >= data.DamageInterval)
         {
-            MechHealthSystem.Instance.ModifyCurrentHealth(-data.DamagePerInterval);
+            MechHealthSystem.Instance.ModifyCurrentHealth(data.DamagePerInterval * -1);
             damageTimer = 0;
         }
     }
