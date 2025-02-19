@@ -19,8 +19,12 @@ public class HandMovement : MonoBehaviour
 
     private void LateUpdate()
     {
-        LeftHandMove(handTargetTransform);
-        RightHandMove(handTargetTransform);
+        if (handTargetTransform != null)
+        {
+            LeftHandMove(handTargetTransform);
+            RightHandMove(handTargetTransform);
+            
+        }
 
 
         if (HandManager.Instance.LeftHandSolutionSystem == null)

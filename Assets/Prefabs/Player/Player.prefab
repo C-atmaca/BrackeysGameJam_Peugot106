@@ -443,7 +443,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8187588643035024572}
-  - component: {fileID: 4724892362570135444}
   - component: {fileID: 603987262994084715}
   - component: {fileID: 7195022883418590857}
   m_Layer: 0
@@ -471,26 +470,6 @@ Transform:
   - {fileID: 1707972780723595198}
   m_Father: {fileID: 7621677726637097148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4724892362570135444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6293133598542007985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5a1e9d9a89256743aa5b492179f9f41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftHandOriginalTransform: {fileID: 0}
-  rightHandOriginalTransform: {fileID: 0}
-  leftHandCurrentTargetTransform: {fileID: 0}
-  rightHandCurrentTargetTransform: {fileID: 0}
-  raycastFromCamera: {fileID: 0}
-  playerCamera: {fileID: 0}
-  leftHandModelTransform: {fileID: 0}
-  rightHandModelTransform: {fileID: 0}
 --- !u!95 &603987262994084715
 Animator:
   serializedVersion: 7
