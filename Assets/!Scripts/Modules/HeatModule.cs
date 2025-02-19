@@ -7,9 +7,9 @@ public class HeatModule : ConstantlyIncreasingSystem
     [SerializeField] private float countdownMaxExclusive = 6;
     [SerializeField] private float startRotation = 50f;
     [SerializeField] private float endRotation = -50f;
-    [SerializeField] private float twitchAmount = 0;
 
     private WaitForSeconds waitForSeconds;
+    private float twitchAmount = 0;
     private bool countdownHasStarted = false;
     private bool executeSolution = false;
 

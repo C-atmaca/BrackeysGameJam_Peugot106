@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IncreaseRateMinInclusive: 0.01
   IncreaseRateMaxExclusive: 0.04
-  DecreaseRate: 30
+  DecreaseRate: 25
   DamageStartDelay: 2
   DamagePerInterval: 2
   DamageInterval: 2

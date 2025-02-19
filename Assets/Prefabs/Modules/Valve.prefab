@@ -137,7 +137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6688056400112158374}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.023704823, y: 0.4138868, z: 0.115192264, w: 0.9026996}
+  m_LocalRotation: {x: 0.023703024, y: 0.4138882, z: 0.11519527, w: 0.90269864}
   m_LocalPosition: {x: -2.73, y: 1.6300001, z: -5.26}
   m_LocalScale: {x: 0.16584, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -232,12 +232,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   system: {fileID: 0}
+  handPlacementTarget: {fileID: 3532694271374630755}
   rotationSpeed: 2
-  rotationThreshold: 1
   distanceFromCamera: 10
-  firstCheckpoint: 0
-  secondCheckpoint: 0
-  thirdCheckpoint: 0
 --- !u!114 &1586689005701310012
 MonoBehaviour:
   m_ObjectHideFlags: 0

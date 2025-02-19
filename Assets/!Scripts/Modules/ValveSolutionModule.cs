@@ -3,15 +3,14 @@ using UnityEngine;
 public class ValveSolutionModule : SolutionSystem
 {
     [SerializeField] private float rotationSpeed = 2f;
-    [SerializeField] private float rotationThreshold = 1f;
     [SerializeField] private float distanceFromCamera = 10f;
 
     private Camera mainCamera;
     private bool startedSolution = false;
 
-    [SerializeField] private bool firstCheckpoint = false;
-    [SerializeField] private bool secondCheckpoint = false;
-    [SerializeField] private bool thirdCheckpoint = false;
+    private bool firstCheckpoint = false;
+    private bool secondCheckpoint = false;
+    private bool thirdCheckpoint = false;
 
     private void Start()
     {

@@ -210,8 +210,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   system: {fileID: 0}
+  handPlacementTarget: {fileID: 8777871126228241361}
   moveAmount: 0.5
   moveDuration: 0.1
+  animationStartDelay: 0.5
 --- !u!114 &1869714604224965512
 MonoBehaviour:
   m_ObjectHideFlags: 0
