@@ -27,23 +27,43 @@ public class HandMovement : MonoBehaviour
 
                 if (Input.GetButtonDown("Fire1"))
                 {
-                    leftHandCurrentTargetTransform.DOMove(handTargetTransform.position, .5f); 
+                    // leftHandCurrentTargetTransform.DOMove(handTargetTransform.position, .5f); 
                 }
                 else if (Input.GetButtonUp("Fire1"))
                 {
-                    leftHandCurrentTargetTransform.DOMove(leftHandOriginalTransform.position, .5f); 
+                    // leftHandCurrentTargetTransform.DOMove(leftHandOriginalTransform.position, .5f); 
                 }
                 if (Input.GetButtonDown("Fire2"))
                 {
-                    rightHandCurrentTargetTransform.DOMove(handTargetTransform.position, .5f);
+                    // rightHandCurrentTargetTransform.DOMove(handTargetTransform.position, .5f);
                 }
                 else if (Input.GetButtonUp("Fire2"))
                 {
-                    rightHandCurrentTargetTransform.DOMove(rightHandOriginalTransform.position, .5f);
+                    // rightHandCurrentTargetTransform.DOMove(rightHandOriginalTransform.position, .5f);
                 }
             }
         }
           
+    }
+
+    public void LeftHandMove()
+    {
+        leftHandCurrentTargetTransform.DOMove(handTargetTransform.position, .5f); 
+    }
+
+    public void RightHandMove()
+    {
+        rightHandCurrentTargetTransform.DOMove(handTargetTransform.position, .5f);
+    }
+
+    public void LeftHandOriginalPos()
+    {
+        leftHandCurrentTargetTransform.DOMove(leftHandOriginalTransform.position, .5f);
+    }
+
+    public void RightHandOriginalPos()
+    {
+        rightHandCurrentTargetTransform.DOMove(rightHandOriginalTransform.position, .5f);
     }
 
 
