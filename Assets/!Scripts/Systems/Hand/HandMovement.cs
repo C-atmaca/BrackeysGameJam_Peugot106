@@ -1,8 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
 
-public enum HandType {None, LeftHand, RightHand};
-
 public class HandMovement : MonoBehaviour
 {
     [SerializeField] private Transform leftHandOriginalTransform;
@@ -13,57 +11,49 @@ public class HandMovement : MonoBehaviour
     [SerializeField] private Camera playerCamera;
     private Transform handTargetTransform;
 
+    private bool fire1 = false;
+    private bool fire2 = false;
 
-    private void Update() 
+
+    private void LateUpdate()
     {
-        Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        LeftHandMove(handTargetTransform);
+        RightHandMove(handTargetTransform);
 
-        if (Physics.Raycast(ray, out hit)) 
+
+        if (HandManager.Instance.LeftHandSolutionSystem == null)
         {
-            if (hit.collider.CompareTag("ActionObject"))
-            {
-                handTargetTransform = hit.collider.transform;
-
-                if (Input.GetButtonDown("Fire1"))
-                {
-                    // leftHandCurrentTargetTransform.DOMove(handTargetTransform.position, .5f); 
-                }
-                else if (Input.GetButtonUp("Fire1"))
-                {
-                    // leftHandCurrentTargetTransform.DOMove(leftHandOriginalTransform.position, .5f); 
-                }
-                if (Input.GetButtonDown("Fire2"))
-                {
-                    // rightHandCurrentTargetTransform.DOMove(handTargetTransform.position, .5f);
-                }
-                else if (Input.GetButtonUp("Fire2"))
-                {
-                    // rightHandCurrentTargetTransform.DOMove(rightHandOriginalTransform.position, .5f);
-                }
-            }
+            LeftHandOriginalPos();
         }
-          
+        if (HandManager.Instance.RightHandSolutionSystem == null)
+        {
+            RightHandOriginalPos();
+        }
     }
 
-    public void LeftHandMove()
+    private void LeftHandMove(Transform targetTransform)
     {
-        leftHandCurrentTargetTransform.DOMove(handTargetTransform.position, .5f); 
+        leftHandCurrentTargetTransform.DOMove(targetTransform.position, .5f); 
     }
 
-    public void RightHandMove()
+    private void RightHandMove(Transform targetTransform)
     {
-        rightHandCurrentTargetTransform.DOMove(handTargetTransform.position, .5f);
+        rightHandCurrentTargetTransform.DOMove(targetTransform.position, .5f);
     }
 
-    public void LeftHandOriginalPos()
+    private void LeftHandOriginalPos()
     {
         leftHandCurrentTargetTransform.DOMove(leftHandOriginalTransform.position, .5f);
     }
 
-    public void RightHandOriginalPos()
+    private void RightHandOriginalPos()
     {
         rightHandCurrentTargetTransform.DOMove(rightHandOriginalTransform.position, .5f);
+    }
+
+    public void SetTargetTransform(Transform target)
+    {
+        handTargetTransform = target;
     }
 
 

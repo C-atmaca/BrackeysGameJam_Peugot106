@@ -733,7 +733,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1132083837}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bbce1193a3c43d42bfef168a9df0588, type: 3}
   m_Name: 
@@ -802,7 +802,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LeftHandSolutionSystem: {fileID: 0}
   RightHandSolutionSystem: {fileID: 0}
-  handmovement: {fileID: 0}
 --- !u!20 &979604615 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 8511767281429042814, guid: bd58d32b83bbfdb4e87b26e47983994d, type: 3}
@@ -1114,8 +1113,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2139170915117738880, guid: bd58d32b83bbfdb4e87b26e47983994d, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2139170915117738880, guid: bd58d32b83bbfdb4e87b26e47983994d, type: 3}
+      propertyPath: handmovement
+      value: 
+      objectReference: {fileID: 891004445}
     - target: {fileID: 2197181496302799908, guid: bd58d32b83bbfdb4e87b26e47983994d, type: 3}
       propertyPath: orientation
       value: 
