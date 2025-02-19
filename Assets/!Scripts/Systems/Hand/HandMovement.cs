@@ -5,10 +5,12 @@ public class HandMovement : MonoBehaviour
 {
     [SerializeField] private Transform leftHandOriginalTransform;
     [SerializeField] private Transform rightHandOriginalTransform;
-    [SerializeField] private Transform leftHandCurrentTargetTransform;
+    [SerializeField] public Transform leftHandCurrentTargetTransform;
     [SerializeField] private Transform rightHandCurrentTargetTransform;
     [SerializeField] private RaycastFromCamera raycastFromCamera;
     [SerializeField] private Camera playerCamera;
+    [SerializeField] private Transform leftHandModelTransform;
+    [SerializeField] private Transform rightHandModelTransform;
     private Transform handTargetTransform;
 
     private bool fire1 = false;
@@ -33,7 +35,7 @@ public class HandMovement : MonoBehaviour
 
     private void LeftHandMove(Transform targetTransform)
     {
-        leftHandCurrentTargetTransform.DOMove(targetTransform.position, .5f); 
+        leftHandCurrentTargetTransform.DOMove(targetTransform.position, .5f);
     }
 
     private void RightHandMove(Transform targetTransform)
@@ -54,6 +56,15 @@ public class HandMovement : MonoBehaviour
     public void SetTargetTransform(Transform target)
     {
         handTargetTransform = target;
+    }
+
+    public Transform GetLeftHandCurrentTransform()
+    {
+        return leftHandModelTransform;
+    }
+    public Transform GetRightHandCurrentTransform()
+    {
+        return rightHandModelTransform;
     }
 
 
