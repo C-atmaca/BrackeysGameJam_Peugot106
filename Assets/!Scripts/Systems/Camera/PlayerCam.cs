@@ -39,9 +39,9 @@ public class PlayerCam : Singleton<PlayerCam>
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 
-    public void OverrideCamera(Transform frontWindow, float rotationSpeed = 5f)
+    public void OverrideCamera(Transform target, float rotationSpeed = 5f)
     {
-        Quaternion targetRotation = Quaternion.LookRotation(frontWindow.position - transform.position);
+        Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
     }
 }
