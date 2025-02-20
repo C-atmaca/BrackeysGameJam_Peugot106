@@ -38,7 +38,7 @@ public class RaycastFromCamera : MonoBehaviour
                     if (HandManager.Instance.LeftHandSolutionSystem != null || HandManager.Instance.RightHandSolutionSystem == solutionSystem) return;
 
                     HandManager.Instance.LeftHandSolutionSystem = solutionSystem;
-                    handmovement.SetTargetTransform(solutionSystem.handPlacementTarget);
+                    // handmovement.SetTargetTransform(solutionSystem.handPlacementTarget);
                     solutionSystem.StartExecuteSolution();
                 }
                 else if (Input.GetButton("Fire2"))
@@ -46,7 +46,7 @@ public class RaycastFromCamera : MonoBehaviour
                     if (HandManager.Instance.RightHandSolutionSystem != null || HandManager.Instance.LeftHandSolutionSystem == solutionSystem) return;
 
                     HandManager.Instance.RightHandSolutionSystem = solutionSystem;
-                    handmovement.SetTargetTransform(solutionSystem.handPlacementTarget);
+                    // handmovement.SetTargetTransform(solutionSystem.handPlacementTarget);
                     solutionSystem.StartExecuteSolution();
                 }
             }

@@ -13,25 +13,22 @@ public class HandMovement : MonoBehaviour
     [SerializeField] private Transform rightHandModelTransform;
     private Transform handTargetTransform;
 
-    private bool fire1 = false;
-    private bool fire2 = false;
-
 
     private void LateUpdate()
     {
-        if (handTargetTransform != null)
+        // if (handTargetTransform != null)
+        // {
+        //     LeftHandMove(handTargetTransform);
+        //     RightHandMove(handTargetTransform);
+        // }
+        if (HandManager.Instance.LeftHandSolutionSystem != null)
         {
-            if (Input.GetButton("Fire1"))
-            {
-                LeftHandMove(handTargetTransform);
-            }
-            if (Input.GetButton("Fire2"))
-            {
-                RightHandMove(handTargetTransform);
-            }
-            
+            LeftHandMove(HandManager.Instance.LeftHandSolutionSystem.handPlacementTarget);
         }
-
+        else if (HandManager.Instance.RightHandSolutionSystem != null)
+        {
+            RightHandMove(HandManager.Instance.RightHandSolutionSystem.handPlacementTarget);
+        }
 
         if (HandManager.Instance.LeftHandSolutionSystem == null)
         {
