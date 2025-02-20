@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class RaycastFromCamera : MonoBehaviour
 {
@@ -33,19 +32,24 @@ public class RaycastFromCamera : MonoBehaviour
                     lastOutlinedObject = outline;
                 }
                 hit.collider.TryGetComponent<SolutionSystem>(out SolutionSystem solutionSystem);
+                Debug.Log(solutionSystem.gameObject.name);
                 if (Input.GetButton("Fire1"))
                 {
-                    if (HandManager.Instance.LeftHandSolutionSystem != null || HandManager.Instance.RightHandSolutionSystem == solutionSystem) return;
-                    HandManager.Instance.LeftHandSolutionSystem = solutionSystem;
-                    // handmovement.SetTargetTransform(solutionSystem.handPlacementTarget);
-                    solutionSystem.StartExecuteSolution();
+                    if (HandManager.Instance.LeftHandSolutionSystem == null && HandManager.Instance.RightHandSolutionSystem != solutionSystem)
+                    {
+                        HandManager.Instance.LeftHandSolutionSystem = solutionSystem;
+                        // handmovement.SetTargetTransform(solutionSystem.handPlacementTarget);
+                        solutionSystem.StartExecuteSolution();
+                    }
                 }
                 if (Input.GetButton("Fire2"))
                 {
-                    if (HandManager.Instance.RightHandSolutionSystem != null || HandManager.Instance.LeftHandSolutionSystem == solutionSystem) return;
-                    HandManager.Instance.RightHandSolutionSystem = solutionSystem;
-                    // handmovement.SetTargetTransform(solutionSystem.handPlacementTarget);
-                    solutionSystem.StartExecuteSolution();
+                    if (HandManager.Instance.RightHandSolutionSystem == null && HandManager.Instance.LeftHandSolutionSystem != solutionSystem)
+                    {
+                        HandManager.Instance.RightHandSolutionSystem = solutionSystem;
+                        // handmovement.SetTargetTransform(solutionSystem.handPlacementTarget);
+                        solutionSystem.StartExecuteSolution();
+                    }
                 }
             }
             else if (hit.collider.CompareTag("PickMe"))
@@ -56,7 +60,7 @@ public class RaycastFromCamera : MonoBehaviour
                 {
                     grabObject.SetGrabTransform(handmovement.GetLeftHandCurrentTransform());
                 }
-                else if (Input.GetButton("Fire2"))
+                if (Input.GetButton("Fire2"))
                 {
                     grabObject.SetGrabTransform(handmovement.GetRightHandCurrentTransform());
                 }
