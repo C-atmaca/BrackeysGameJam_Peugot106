@@ -32,7 +32,7 @@ public class RaycastFromCamera : MonoBehaviour
                     lastOutlinedObject = outline;
                 }
                 hit.collider.TryGetComponent<SolutionSystem>(out SolutionSystem solutionSystem);
-                Debug.Log(solutionSystem.gameObject.name);
+
                 if (Input.GetButton("Fire1"))
                 {
                     if (HandManager.Instance.LeftHandSolutionSystem == null && HandManager.Instance.RightHandSolutionSystem != solutionSystem)
