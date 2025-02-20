@@ -25,7 +25,7 @@ public class HandMovement : MonoBehaviour
         {
             LeftHandMove(HandManager.Instance.LeftHandSolutionSystem.handPlacementTarget);
         }
-        else if (HandManager.Instance.RightHandSolutionSystem != null)
+        if (HandManager.Instance.RightHandSolutionSystem != null)
         {
             RightHandMove(HandManager.Instance.RightHandSolutionSystem.handPlacementTarget);
         }

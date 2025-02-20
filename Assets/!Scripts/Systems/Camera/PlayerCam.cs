@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerCam : MonoBehaviour
+public class PlayerCam : Singleton<PlayerCam>
 {
     public float sensX;
     public float sensY;
@@ -11,6 +11,8 @@ public class PlayerCam : MonoBehaviour
     float xRotation;
     float yRotation;
 
+    public bool stopPlayerRotation = false;
+
     private void Start() 
     {
         Cursor.lockState = CursorLockMode.Locked;  
@@ -19,6 +21,11 @@ public class PlayerCam : MonoBehaviour
 
     private void Update() 
     {
+        if (stopPlayerRotation)
+        {
+            return;
+        }
+
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
@@ -32,4 +39,9 @@ public class PlayerCam : MonoBehaviour
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 
+    public void OverrideCamera(Transform frontWindow, float rotationSpeed = 5f)
+    {
+        Quaternion targetRotation = Quaternion.LookRotation(frontWindow.position - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+    }
 }
