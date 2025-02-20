@@ -3,7 +3,6 @@ using UnityEngine;
 public class ConstantlyIncreasingSystem : MechSystem
 {
     [SerializeField] protected ConstantlyIncreasingSystemSO data;
-
     [SerializeField] protected float currentValue;
 
     private float increaseRate;

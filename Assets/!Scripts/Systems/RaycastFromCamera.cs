@@ -67,7 +67,9 @@ public class RaycastFromCamera : MonoBehaviour
             }
             else if (hit.collider.CompareTag("PickMe"))
             {
+                Debug.Log("deneme");
                 hit.collider.TryGetComponent<GrabObject>(out GrabObject grabObject);
+                Debug.Log(grabObject);
 
                 if (Input.GetButton("Fire1"))
                 {
