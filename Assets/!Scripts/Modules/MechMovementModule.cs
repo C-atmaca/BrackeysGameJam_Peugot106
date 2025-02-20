@@ -4,9 +4,9 @@ public class MechMovementModule : MechSystem
 {
     [SerializeField] private MechMovementSystemSO data;
 
-    private int currentMoveSpeedLevel = 0;
-    private float targetMoveSpeed;
-    private float currentMoveSpeed;
+    [SerializeField] private int currentMoveSpeedLevel = 0;
+    [SerializeField] private float targetMoveSpeed;
+    [SerializeField] private float currentMoveSpeed;
 
     private void Update()
     {
@@ -17,6 +17,11 @@ public class MechMovementModule : MechSystem
         else if (currentMoveSpeed > targetMoveSpeed)
         {
             currentMoveSpeed = Mathf.MoveTowards(currentMoveSpeed, targetMoveSpeed, data.Deceleration * Time.deltaTime);
+        }
+
+        if (currentMoveSpeed > 0)
+        {
+            transform.Translate(Vector3.forward * currentMoveSpeed * Time.deltaTime);
         }
     }
 
@@ -33,6 +38,6 @@ public class MechMovementModule : MechSystem
     {
         currentMoveSpeedLevel = 0;
         targetMoveSpeed = data.MaxSpeedForMoveSpeedLevels[currentMoveSpeedLevel];
-        // stop suddenly
+        currentMoveSpeed = 0;
     }
 }
