@@ -50,13 +50,15 @@ public class RaycastFromCamera : MonoBehaviour
             }
             else if (hit.collider.CompareTag("PickMe"))
             {
+                Debug.Log("deneme");
                 hit.collider.TryGetComponent<GrabObject>(out GrabObject grabObject);
+                Debug.Log(grabObject);
 
                 if (Input.GetButton("Fire1"))
                 {
                     grabObject.SetGrabTransform(handmovement.GetLeftHandCurrentTransform());
                 }
-                else if (Input.GetButton("Fire2"))
+                if (Input.GetButton("Fire2"))
                 {
                     grabObject.SetGrabTransform(handmovement.GetRightHandCurrentTransform());
                 }

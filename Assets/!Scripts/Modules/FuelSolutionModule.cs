@@ -1,16 +1,26 @@
+using System.Collections;
 using UnityEngine;
 
-public class FuelSolutionModule : MonoBehaviour
+public class FuelSolutionModule : SolutionSystem
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private WaitForSeconds waitForSeconds;
+    private Coroutine coroutine;
+
+
+    public override void StartExecuteSolution()
     {
-        
+        coroutine = StartCoroutine(MoveUp());
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void StopExecuteSolution()
     {
-        
+        StopCoroutine(coroutine);
+        system.SetExecuteSolution(false);
+    }
+
+    private IEnumerator MoveUp()
+    {
+        yield return waitForSeconds;
+        system.SetExecuteSolution(true);
     }
 }
