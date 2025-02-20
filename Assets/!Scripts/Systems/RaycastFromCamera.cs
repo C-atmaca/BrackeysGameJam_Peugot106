@@ -8,17 +8,31 @@ public class RaycastFromCamera : MonoBehaviour
 
     private Outline lastOutlinedObject = null;
 
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+            }
+            else
+            {
+                Time.timeScale = 0;
+            }
+        }
+    }
 
     private void FixedUpdate()
     {
         Vector3 rayOrigin = targetObject.position;
         Vector3 rayDirection = targetObject.forward;
 
-        if (Physics.Raycast(rayOrigin, rayDirection, out RaycastHit hit, rayDistance))
+        if (Physics.SphereCast(rayOrigin, .25f, rayDirection, out RaycastHit hit, rayDistance))
         {
             if (hit.collider.CompareTag("ActionObject"))
             {
+                Debug.Log("HIT ACTION OBJECT!");
                 Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.green);
                 
                 if (hit.collider.TryGetComponent<Outline>(out Outline outline))

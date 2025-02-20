@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class MechMovementSolutionModule : SolutionSystem
 {
+    [SerializeField] private bool isHandbrake = false;
+
     private bool beingUsed = false;
 
     private void Update()
@@ -10,7 +12,6 @@ public class MechMovementSolutionModule : SolutionSystem
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                Debug.Log("W Pressed.");
                 ((MechMovementModule)system).IncreaseMovementLevel();
             }
         }
@@ -18,6 +19,12 @@ public class MechMovementSolutionModule : SolutionSystem
 
     public override void StartExecuteSolution()
     {
+        if (isHandbrake)
+        {
+            ((MechMovementModule)system).StopMech();
+            return;
+        }
+
         beingUsed = true;
     }
 
