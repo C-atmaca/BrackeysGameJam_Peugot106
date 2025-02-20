@@ -26,7 +26,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.829, y: 1.532, z: -1.727}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.38128, y: 0.38128, z: 0.38128}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1726169479026262314}
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   system: {fileID: 2802370126913871904}
   handPlacementTarget: {fileID: 9074986558368036652}
-  moveAmount: 0.1
+  moveAmount: 0.05
   moveDuration: 0.1
   animationStartDelay: 0.5
 --- !u!114 &7232855375528815157

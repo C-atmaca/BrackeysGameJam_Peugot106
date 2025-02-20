@@ -32,7 +32,6 @@ public class RaycastFromCamera : MonoBehaviour
         {
             if (hit.collider.CompareTag("ActionObject"))
             {
-                Debug.Log("HIT ACTION OBJECT!");
                 Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.green);
                 
                 if (hit.collider.TryGetComponent<Outline>(out Outline outline))

@@ -21,7 +21,7 @@ public class MechMovementModule : MechSystem
 
         if (currentMoveSpeed > 0)
         {
-            transform.Translate(Vector3.forward * currentMoveSpeed * Time.deltaTime);
+            transform.Translate(currentMoveSpeed * Time.deltaTime * Vector3.forward);
         }
     }
 
