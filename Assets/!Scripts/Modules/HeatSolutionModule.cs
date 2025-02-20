@@ -1,6 +1,5 @@
 using DG.Tweening;
 using System.Collections;
-using TMPro;
 using UnityEngine;
 
 public class HeatSolutionModule : SolutionSystem
@@ -12,6 +11,7 @@ public class HeatSolutionModule : SolutionSystem
     private WaitForSeconds waitForSeconds;
     private Vector3 startPosition;
     private Vector3 endPosition;
+    private Coroutine coroutine;
 
     private void Start()
     {
@@ -23,12 +23,13 @@ public class HeatSolutionModule : SolutionSystem
 
     public override void StartExecuteSolution()
     {
-        StartCoroutine(MoveDown(endPosition));
-        system.SetExecuteSolution(true);
+        coroutine = StartCoroutine(MoveDown(endPosition));
     }
 
     public override void StopExecuteSolution()
     {
+        StopCoroutine(coroutine);
+        transform.DOKill();
         transform.DOMoveY(startPosition.y, moveDuration).SetEase(Ease.InSine);
         system.SetExecuteSolution(false);
     }
@@ -37,5 +38,6 @@ public class HeatSolutionModule : SolutionSystem
     {
         yield return waitForSeconds;
         transform.DOMoveY(targetPosition.y, moveDuration).SetEase(Ease.InSine);
+        system.SetExecuteSolution(true);
     }
 }
