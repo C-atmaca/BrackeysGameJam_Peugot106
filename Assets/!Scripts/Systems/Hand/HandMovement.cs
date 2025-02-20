@@ -73,6 +73,4 @@ public class HandMovement : MonoBehaviour
     {
         return rightHandModelTransform;
     }
-
-
 }

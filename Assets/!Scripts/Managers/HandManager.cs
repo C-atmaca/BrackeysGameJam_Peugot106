@@ -12,7 +12,6 @@ public class HandManager : Singleton<HandManager>
             if (Input.GetButtonUp("Fire1"))
             {
                 LeftHandSolutionSystem.StopExecuteSolution();
-                
                 LeftHandSolutionSystem = null;
             }
         }
