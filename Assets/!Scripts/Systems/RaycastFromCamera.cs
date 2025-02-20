@@ -36,7 +36,6 @@ public class RaycastFromCamera : MonoBehaviour
                 if (Input.GetButton("Fire1"))
                 {
                     if (HandManager.Instance.LeftHandSolutionSystem != null || HandManager.Instance.RightHandSolutionSystem == solutionSystem) return;
-                    Debug.Log("Left Hand Is Being Used!");
                     HandManager.Instance.LeftHandSolutionSystem = solutionSystem;
                     handmovement.SetTargetTransform(solutionSystem.handPlacementTarget);
                     solutionSystem.StartExecuteSolution();
@@ -44,7 +43,6 @@ public class RaycastFromCamera : MonoBehaviour
                 if (Input.GetButton("Fire2"))
                 {
                     if (HandManager.Instance.RightHandSolutionSystem != null || HandManager.Instance.LeftHandSolutionSystem == solutionSystem) return;
-                    Debug.Log("Right Hand Is Being Used!");
                     HandManager.Instance.RightHandSolutionSystem = solutionSystem;
                     handmovement.SetTargetTransform(solutionSystem.handPlacementTarget);
                     solutionSystem.StartExecuteSolution();

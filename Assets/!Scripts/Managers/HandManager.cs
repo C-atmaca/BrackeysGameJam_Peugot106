@@ -11,8 +11,6 @@ public class HandManager : Singleton<HandManager>
         {
             if (Input.GetButtonUp("Fire1"))
             {
-                Debug.Log("Left Hand Has Stopped Being Used!");
-
                 LeftHandSolutionSystem.StopExecuteSolution();
                 LeftHandSolutionSystem = null;
             }
@@ -21,8 +19,6 @@ public class HandManager : Singleton<HandManager>
         {
             if (Input.GetButtonUp("Fire2"))
             {
-                Debug.Log("Right Hand Has Stopped Being Used!");
-
                 RightHandSolutionSystem.StopExecuteSolution();
                 RightHandSolutionSystem = null;
             }
