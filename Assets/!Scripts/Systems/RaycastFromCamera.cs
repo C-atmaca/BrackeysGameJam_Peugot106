@@ -28,7 +28,7 @@ public class RaycastFromCamera : MonoBehaviour
         Vector3 rayOrigin = targetObject.position;
         Vector3 rayDirection = targetObject.forward;
 
-        if (Physics.SphereCast(rayOrigin, .25f, rayDirection, out RaycastHit hit, rayDistance))
+        if (Physics.SphereCast(rayOrigin, .10f, rayDirection, out RaycastHit hit, rayDistance))
         {
             if (hit.collider.CompareTag("ActionObject"))
             {

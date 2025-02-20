@@ -21,7 +21,7 @@ public class MechRotationModule : MechSystem
             xRotation -= mouseY;
             xRotation = Mathf.Clamp(xRotation, -data.XRotationLimit, data.XRotationLimit);
 
-            PlayerCam.Instance.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+            //PlayerCam.Instance.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
 
             Vector3 mechForward = transform.forward;
             Vector3 cameraForward = PlayerCam.Instance.transform.forward;
