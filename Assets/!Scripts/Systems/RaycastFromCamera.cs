@@ -34,13 +34,7 @@ public class RaycastFromCamera : MonoBehaviour
         {
             
             if (hit.collider.CompareTag("ActionObject"))
-<<<<<<< HEAD
             {         
-=======
-            {
-                //Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.green);
-                
->>>>>>> fcc1f2953fc33bae2771793627c7f12458fb496e
                 if (hit.collider.TryGetComponent<Outline>(out Outline outline))
                 {
                     if (lastOutlinedObject != outline)

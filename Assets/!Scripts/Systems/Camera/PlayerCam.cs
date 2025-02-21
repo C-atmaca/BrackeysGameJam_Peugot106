@@ -7,6 +7,7 @@ public class PlayerCam : Singleton<PlayerCam>
     public float sensY;
 
     public Transform orientation;
+    public Transform mechOrientation;
 
     float xRotation;
     float yRotation;
@@ -30,13 +31,15 @@ public class PlayerCam : Singleton<PlayerCam>
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
         yRotation += mouseX;
-        yRotation = Mathf.Clamp(yRotation, -90f, 90f);
+        yRotation = Mathf.Clamp(yRotation, -90f,  90f);
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
+        float mechYRotation = mechOrientation.eulerAngles.y;
 
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+
+        transform.rotation = Quaternion.Euler(xRotation, mechYRotation + yRotation, 0);
+        orientation.rotation = Quaternion.Euler(0, mechYRotation + yRotation, 0);
     }
 
     public void OverrideCamera(Transform target, float rotationSpeed = 5f)

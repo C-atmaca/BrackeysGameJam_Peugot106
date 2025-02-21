@@ -694,6 +694,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   system: {fileID: 123985403}
+  activateWithObject: 0
+  grabObject: {fileID: 0}
   handPlacementTarget: {fileID: 123985397}
 --- !u!114 &123985403
 MonoBehaviour:
@@ -4507,6 +4509,10 @@ PrefabInstance:
       objectReference: {fileID: 1159901268}
     - target: {fileID: 2197181496302799908, guid: bd58d32b83bbfdb4e87b26e47983994d, type: 3}
       propertyPath: mechTransform
+      value: 
+      objectReference: {fileID: 1152057456}
+    - target: {fileID: 2197181496302799908, guid: bd58d32b83bbfdb4e87b26e47983994d, type: 3}
+      propertyPath: mechOrientation
       value: 
       objectReference: {fileID: 1152057456}
     - target: {fileID: 4145238373345549543, guid: bd58d32b83bbfdb4e87b26e47983994d, type: 3}
