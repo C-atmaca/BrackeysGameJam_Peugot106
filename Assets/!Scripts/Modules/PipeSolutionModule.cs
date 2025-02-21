@@ -1,19 +1,25 @@
+using System.Collections;
 using UnityEngine;
 
 public class PipeSolutionModule : SolutionSystem
 {
-    private void Update()
-    {
-        
-    }
+    private WaitForSeconds waitForSeconds;
+    private Coroutine coroutine;
 
     public override void StartExecuteSolution()
     {
-        system.SetExecuteSolution(true);
+        coroutine = StartCoroutine(FixThePipe());
     }
 
     public override void StopExecuteSolution()
     {
+        StopCoroutine(coroutine);
         system.SetExecuteSolution(false);
     } 
+
+    private IEnumerator FixThePipe()
+    {
+        yield return waitForSeconds;
+        system.SetExecuteSolution(true);
+    }
 }
