@@ -1,28 +1,37 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnInsideMesh : MonoBehaviour
 {
-    public GameObject objectToSpawn;
-    public MeshFilter targetMeshFilter;
-    public int spawnCount = 5;
+    public GameObject strongMineSpot;
+    public GameObject weakMineSpot;
+    public int strongSpawnCount = 5;
+    public int weakSpawnCount = 3;
+    [SerializeField] private List<MeshFilter> rockMeshes;
 
     void Start()
     {
-        if (targetMeshFilter == null || objectToSpawn == null)
+        foreach (var mesh in rockMeshes)
         {
-            Debug.LogError("MeshFilter is missing.");
-            return;
-        }
+            for (int i = 0; i < strongSpawnCount; i++)
+            {
+                Vector3 spawnPosition = GetRandomPointInMesh(mesh);
+                var spawnedObject = Instantiate(strongMineSpot, spawnPosition, Quaternion.identity);
+                spawnedObject.transform.SetParent(mesh.transform, true);
+            }
 
-        for (int i = 0; i < spawnCount; i++)
-        {
-            Vector3 spawnPosition = GetRandomPointInMesh(targetMeshFilter.mesh);
-            Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
+            for (int i = 0; i < weakSpawnCount; i++)
+            {
+                Vector3 spawnPosition = GetRandomPointInMesh(mesh);
+                var spawnedObject = Instantiate(weakMineSpot, spawnPosition, Quaternion.identity);
+                spawnedObject.transform.SetParent(mesh.transform, true);
+            }
         }
     }
 
-    Vector3 GetRandomPointInMesh(Mesh mesh)
+    Vector3 GetRandomPointInMesh(MeshFilter meshFilter)
     {
+        var mesh = meshFilter.mesh;
         int[] triangles = mesh.triangles;
         Vector3[] vertices = mesh.vertices;
 
@@ -32,7 +41,7 @@ public class SpawnInsideMesh : MonoBehaviour
         Vector3 v1 = vertices[triangles[triangleIndex + 1]];
         Vector3 v2 = vertices[triangles[triangleIndex + 2]];
 
-        Transform meshTransform = targetMeshFilter.transform;
+        Transform meshTransform = meshFilter.transform;
         v0 = meshTransform.TransformPoint(v0);
         v1 = meshTransform.TransformPoint(v1);
         v2 = meshTransform.TransformPoint(v2);

@@ -32,7 +32,7 @@ public class RaycastFromCamera : MonoBehaviour
         {
             if (hit.collider.CompareTag("ActionObject"))
             {
-                Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.green);
+                //Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.green);
                 
                 if (hit.collider.TryGetComponent<Outline>(out Outline outline))
                 {
@@ -83,13 +83,13 @@ public class RaycastFromCamera : MonoBehaviour
             }
             else
             {
-                Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.red);
+                //Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.red);
                 DisableLastOutline();
             }
         }
         else
         {
-            Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.red);
+            //Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.red);
             DisableLastOutline();
         }
     }

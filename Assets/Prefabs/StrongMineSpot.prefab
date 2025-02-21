@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6308657786633018260}
   - component: {fileID: 8743447169587855976}
   m_Layer: 0
-  m_Name: Sphere
-  m_TagString: Untagged
+  m_Name: StrongMineSpot
+  m_TagString: StrongMineSpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,7 +49,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3168570881838128352}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
