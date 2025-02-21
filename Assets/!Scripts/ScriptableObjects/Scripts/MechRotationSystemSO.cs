@@ -7,4 +7,5 @@ public class MechRotationSystemSO : ScriptableObject
     public float LookSensitivityY;
     public float XRotationLimit;
     public float YRotationLimit;
+    public float MechTurnSpeed;
 }

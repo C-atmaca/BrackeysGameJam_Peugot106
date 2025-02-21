@@ -28,6 +28,7 @@ public class MechHealthSystem : Singleton<MechHealthSystem>
 
     public void ModifyCurrentHealth(int value)
     {
+        if (currentHealth <= 0) return;
         currentHealth += value;
         SetHealthText();
     }

@@ -30,11 +30,17 @@ public class RaycastFromCamera : MonoBehaviour
         Vector3 rayOrigin = targetObject.position;
         Vector3 rayDirection = targetObject.forward;
 
-        if (Physics.SphereCast(rayOrigin, .25f, rayDirection, out RaycastHit hit, rayDistance))
+        if (Physics.SphereCast(rayOrigin, .10f, rayDirection, out RaycastHit hit, rayDistance))
         {
             
             if (hit.collider.CompareTag("ActionObject"))
+<<<<<<< HEAD
             {         
+=======
+            {
+                //Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.green);
+                
+>>>>>>> fcc1f2953fc33bae2771793627c7f12458fb496e
                 if (hit.collider.TryGetComponent<Outline>(out Outline outline))
                 {
                     if (lastOutlinedObject != outline)
@@ -83,13 +89,13 @@ public class RaycastFromCamera : MonoBehaviour
             }
             else
             {
-                Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.red);
+                //Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.red);
                 DisableLastOutline();
             }
         }
         else
         {
-            Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.red);
+            //Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.red);
             DisableLastOutline();
         }
     }

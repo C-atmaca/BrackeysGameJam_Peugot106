@@ -6,6 +6,9 @@ TagManager:
   tags:
   - ActionObject
   - PickMe
+  - Rock
+  - StrongMineSpot
+  - WeakMineSpot
   layers:
   - Default
   - TransparentFX
