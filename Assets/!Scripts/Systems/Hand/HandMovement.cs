@@ -13,10 +13,8 @@ public class HandMovement : MonoBehaviour
     [SerializeField] private Camera playerCamera;
     [SerializeField] private Transform leftHandModelTransform;
     [SerializeField] private Transform rightHandModelTransform;
-    private Transform handTargetTransform;
 
-
-    private void LateUpdate()
+    private void Update()
     {
         if (HandManager.Instance.LeftHandSolutionSystem != null)
         {
@@ -65,27 +63,22 @@ public class HandMovement : MonoBehaviour
 
     private void LeftHandMove(Transform targetTransform)
     {
-        leftHandCurrentTargetTransform.DOMove(targetTransform.position, .5f);
+        leftHandCurrentTargetTransform.DOMove(targetTransform.position, 0.1f);
     }
 
     private void RightHandMove(Transform targetTransform)
     {
-        rightHandCurrentTargetTransform.DOMove(targetTransform.position, .5f);
+        rightHandCurrentTargetTransform.DOMove(targetTransform.position, 0.1f);
     }
 
     private void LeftHandOriginalPos()
     {
-        leftHandCurrentTargetTransform.DOMove(leftHandOriginalTransform.position, .5f);
+        leftHandCurrentTargetTransform.DOMove(leftHandOriginalTransform.position, 0.1f);
     }
 
     private void RightHandOriginalPos()
     {
-        rightHandCurrentTargetTransform.DOMove(rightHandOriginalTransform.position, .5f);
-    }
-
-    public void SetTargetTransform(Transform target)
-    {
-        handTargetTransform = target;
+        rightHandCurrentTargetTransform.DOMove(rightHandOriginalTransform.position, 0.1f);
     }
 
     public Transform GetLeftHandCurrentTransform()
