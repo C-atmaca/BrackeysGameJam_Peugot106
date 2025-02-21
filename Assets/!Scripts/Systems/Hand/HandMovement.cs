@@ -1,5 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Timeline;
+using UnityEngine.XR;
 
 public class HandMovement : MonoBehaviour
 {
@@ -16,18 +18,39 @@ public class HandMovement : MonoBehaviour
 
     private void LateUpdate()
     {
-        // if (handTargetTransform != null)
-        // {
-        //     LeftHandMove(handTargetTransform);
-        //     RightHandMove(handTargetTransform);
-        // }
         if (HandManager.Instance.LeftHandSolutionSystem != null)
         {
-            LeftHandMove(HandManager.Instance.LeftHandSolutionSystem.handPlacementTarget);
+            if (HandManager.Instance.LeftHandSolutionSystem.activateWithObject)
+            {
+                if (HandManager.Instance.LeftHandGrabbedObject != null)
+                {
+                    if (HandManager.Instance.LeftHandGrabbedObject == HandManager.Instance.LeftHandSolutionSystem.grabObject)
+                    {
+                        LeftHandMove(HandManager.Instance.LeftHandSolutionSystem.handPlacementTarget);
+                    }
+                }
+            }
+            else
+            {
+                LeftHandMove(HandManager.Instance.LeftHandSolutionSystem.handPlacementTarget);
+            }
         }
         if (HandManager.Instance.RightHandSolutionSystem != null)
         {
-            RightHandMove(HandManager.Instance.RightHandSolutionSystem.handPlacementTarget);
+            if (HandManager.Instance.RightHandSolutionSystem.activateWithObject)
+            {
+                if (HandManager.Instance.RightHandGrabbedObject != null)
+                {
+                    if (HandManager.Instance.RightHandGrabbedObject == HandManager.Instance.RightHandSolutionSystem.grabObject)
+                    {
+                        RightHandMove(HandManager.Instance.RightHandSolutionSystem.handPlacementTarget);
+                    }
+                }
+            }
+            else
+            {
+                RightHandMove(HandManager.Instance.RightHandSolutionSystem.handPlacementTarget);
+            }
         }
 
         if (HandManager.Instance.LeftHandSolutionSystem == null)

@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UIElements;
+using UnityEngine.XR;
 
 public class RaycastFromCamera : MonoBehaviour
 {
@@ -30,17 +32,15 @@ public class RaycastFromCamera : MonoBehaviour
 
         if (Physics.SphereCast(rayOrigin, .25f, rayDirection, out RaycastHit hit, rayDistance))
         {
+            
             if (hit.collider.CompareTag("ActionObject"))
-            {
-                Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.green);
-                
+            {         
                 if (hit.collider.TryGetComponent<Outline>(out Outline outline))
                 {
                     if (lastOutlinedObject != outline)
                     {
                         DisableLastOutline();
                     }
-
                     //outline.enabled = true;
                     lastOutlinedObject = outline;
                 }
@@ -67,17 +67,17 @@ public class RaycastFromCamera : MonoBehaviour
             }
             else if (hit.collider.CompareTag("PickMe"))
             {
-                Debug.Log("deneme");
                 hit.collider.TryGetComponent<GrabObject>(out GrabObject grabObject);
-                Debug.Log(grabObject);
-
+                
                 if (Input.GetButton("Fire1"))
                 {
                     grabObject.SetGrabTransform(handmovement.GetLeftHandCurrentTransform());
+                    HandManager.Instance.LeftHandGrabbedObject = grabObject;
                 }
                 if (Input.GetButton("Fire2"))
                 {
                     grabObject.SetGrabTransform(handmovement.GetRightHandCurrentTransform());
+                    HandManager.Instance.RightHandGrabbedObject = grabObject;
                 }
 
             }
@@ -93,6 +93,7 @@ public class RaycastFromCamera : MonoBehaviour
             DisableLastOutline();
         }
     }
+
 
     private void DisableLastOutline()
     {

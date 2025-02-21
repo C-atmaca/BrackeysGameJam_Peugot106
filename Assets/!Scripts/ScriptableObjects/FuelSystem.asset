@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FuelSystem
   m_EditorClassIdentifier: 
   IncreaseRateMinInclusive: 0.1
-  IncreaseRateMaxExclusive: 0.2
-  DecreaseRate: 0.1
+  IncreaseRateMaxExclusive: 0.75
+  DecreaseRate: 0.15
   DamageStartDelay: 3
   DamagePerInterval: 1
   DamageInterval: 1
