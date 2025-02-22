@@ -3,6 +3,7 @@ using UnityEngine;
 public class MoneyManager : Singleton<MoneyManager>
 {
     [SerializeField] private int moneyPerRock = 10;
+    [SerializeField] private int costPerDamage = 5;
 
     private int numberOfRocksCollectedThisRun;
 
@@ -11,13 +12,18 @@ public class MoneyManager : Singleton<MoneyManager>
         numberOfRocksCollectedThisRun++;
     }
 
-    public int CalculateReward()
+    public int GetRocksCollected()
+    {
+        return numberOfRocksCollectedThisRun;
+    }
+
+    public int CalculateMoneyEarned()
     {
         return numberOfRocksCollectedThisRun * moneyPerRock;
     }
 
     public int CalculateCostOfDamages()
     {
-        return 0;
+        return (MechHealthSystem.Instance.GetMaxHealth() - MechHealthSystem.Instance.GetCurrentHealth()) * costPerDamage;
     }
 }

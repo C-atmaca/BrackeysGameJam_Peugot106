@@ -3,7 +3,6 @@ using UnityEngine;
 public class MechRotationModule : MechSystem
 {
     [SerializeField] private MechRotationSystemSO data;
-    [SerializeField] private Transform mechFrontWindow;
     [SerializeField] private SkinnedMeshRenderer rotationJoystickSkinnedMesh;
     [SerializeField] private Transform handTarget;
 
