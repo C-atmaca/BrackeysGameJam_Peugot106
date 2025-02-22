@@ -4977,7 +4977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   system: {fileID: 8367260221999736316}
-  activateWithObject: 0
+  activateWithObject: 1
   grabObject: {fileID: 0}
   handPlacementTarget: {fileID: 2260202901447042823}
 --- !u!114 &3304141386819115095
