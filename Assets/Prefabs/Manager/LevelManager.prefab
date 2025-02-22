@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8661264751608573021}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -56,9 +56,9 @@ MonoBehaviour:
   cantPayButton: {fileID: 0}
   debtText: {fileID: 0}
   LevelLength:
-  - 3
-  - 10
-  - 5
+  - 300
+  - 420
+  - 540
   timer: {fileID: 0}
   endOfLevelScreenMoveAmount: 2
   endOfLevelScreenMoveDuration: 0.3
