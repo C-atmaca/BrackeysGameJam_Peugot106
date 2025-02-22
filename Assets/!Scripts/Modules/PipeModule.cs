@@ -43,7 +43,6 @@ public class PipeModule : ConstantlyIncreasingSystem
     private void LateUpdate() 
     {
         currentValue = GetCurrentValue();
-        Debug.Log(currentValue);    
     }
 
     public override void SetExecuteSolution(bool value)
