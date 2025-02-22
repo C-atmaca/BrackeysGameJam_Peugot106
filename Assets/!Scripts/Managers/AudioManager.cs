@@ -15,6 +15,12 @@ public class AudioManager : Singleton<AudioManager>
 
     public void ButtonVoiceStop()
     {
+        StartCoroutine(ButtonVoiceStopTimer(.5f));
+    }
+
+    private IEnumerator ButtonVoiceStopTimer(float timer)
+    {
+        yield return new WaitForSeconds(timer);
         StopSound(audioClips[0]);
     }
 
