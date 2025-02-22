@@ -17,6 +17,8 @@ public class TriggerOnceSystem : MechSystem
 
     protected virtual void Update()
     {
+        if (LevelManager.Instance.GetPause()) return;
+
         if (triggered) 
         {
             damageStartTimer += Time.deltaTime;

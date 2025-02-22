@@ -1,12 +1,11 @@
 using UnityEngine;
-using UnityEngine.UIElements;
-using UnityEngine.XR;
 
 public class RaycastFromCamera : MonoBehaviour
 {
     [SerializeField] private Transform targetObject;
     [SerializeField] private float rayDistance;
     [SerializeField] private HandMovement handmovement;
+    [SerializeField] private LayerMask worldButtonLayer;
 
     private Outline lastOutlinedObject = null;
 
@@ -30,9 +29,22 @@ public class RaycastFromCamera : MonoBehaviour
         Vector3 rayOrigin = targetObject.position;
         Vector3 rayDirection = targetObject.forward;
 
+        if (LevelManager.Instance.GetPause())
+        {
+            if (Physics.Raycast(rayOrigin, rayDirection, out RaycastHit worldButtonHit, rayDistance, worldButtonLayer))
+            {
+                worldButtonHit.collider.TryGetComponent<WorldButton>(out WorldButton worldButton);
+
+                if (Input.GetButton("Fire1"))
+                {
+                    worldButton.OnClick();
+                }
+            }
+            return;
+        }
+
         if (Physics.SphereCast(rayOrigin, .10f, rayDirection, out RaycastHit hit, rayDistance))
         {
-            
             if (hit.collider.CompareTag("ActionObject"))
             {         
                 if (hit.collider.TryGetComponent<Outline>(out Outline outline))

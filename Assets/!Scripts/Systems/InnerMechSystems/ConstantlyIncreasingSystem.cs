@@ -16,6 +16,8 @@ public class ConstantlyIncreasingSystem : MechSystem
 
     protected virtual void Update()
     {
+        if (LevelManager.Instance.GetPause()) return;
+
         var increaseValue = increaseRate * SystemsManager.Instance.GlobalData.GlobalMultiplier * Time.deltaTime;
         ModifyCurrentValue(increaseValue);
 

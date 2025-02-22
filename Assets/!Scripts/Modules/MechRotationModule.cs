@@ -25,6 +25,8 @@ public class MechRotationModule : MechSystem
 
     private void Update()
     {
+        if (LevelManager.Instance.GetPause()) return;
+
         if (isControllingMech)
         {
             float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * data.LookSensitivityX;
