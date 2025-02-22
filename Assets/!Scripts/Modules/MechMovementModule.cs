@@ -18,7 +18,7 @@ public class MechMovementModule : MechSystem
 
     private bool handbrakeOnOff = false;
 
-    private bool isSoundOn = false;
+    private bool isMechMoving = false;
 
     private void Update()
     {
@@ -26,7 +26,12 @@ public class MechMovementModule : MechSystem
         {
             currentMoveSpeedLevel = 0;
             targetMoveSpeed = data.MaxSpeedForMoveSpeedLevels[currentMoveSpeedLevel];
-            isSoundOn = false;
+            
+            if (isMechMoving) 
+            {
+                AudioManager.Instance.MechStepSoundStop();
+                isMechMoving = false;
+            }
         }
 
         float joystickRotation = Mathf.Lerp(-40f, 40f, (float)currentMoveSpeedLevel / 3);
@@ -43,7 +48,11 @@ public class MechMovementModule : MechSystem
 
         if (currentMoveSpeed > 0)
         {
-            isSoundOn = true;
+            if (!isMechMoving) 
+            {
+                AudioManager.Instance.MechStepSoundPlay();
+                isMechMoving = true;
+            }
             transform.Translate(currentMoveSpeed * Time.deltaTime * Vector3.forward);
 
             float rotationValue = Mathf.PingPong(Time.time * rotationSpeed, rotationAmount * 2) - rotationAmount;
@@ -55,6 +64,11 @@ public class MechMovementModule : MechSystem
 
             mechBody.localRotation = Quaternion.Euler(currentRotation.x, currentRotation.y, rotationValue);
             mechBody.localPosition = new Vector3(currentPosition.x, currentPosition.y + verticalSway, currentPosition.z);
+        }
+        else if (isMechMoving)
+        {
+            AudioManager.Instance.MechStepSoundStop();
+            isMechMoving = false;
         }
     }
 

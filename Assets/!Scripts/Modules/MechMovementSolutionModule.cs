@@ -22,6 +22,7 @@ public class MechMovementSolutionModule : SolutionSystem
     {
         if (isHandbrake)
         {
+            AudioManager.Instance.HandBrakePlay();
             handbrakeOnOff = !handbrakeOnOff;
             ((MechMovementModule)system).SwitchHandbreak(handbrakeOnOff);
 
@@ -41,6 +42,7 @@ public class MechMovementSolutionModule : SolutionSystem
 
     public override void StopExecuteSolution()
     {
+        AudioManager.Instance.HandBrakeStop();
         beingUsed = false;
     }
 }

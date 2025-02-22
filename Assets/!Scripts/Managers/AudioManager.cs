@@ -31,7 +31,7 @@ public class AudioManager : Singleton<AudioManager>
     private IEnumerator HeatReleasePlayWaiter(float time, AudioClip clip)
     {
         yield return new WaitForSeconds(time);
-        PlaySound(clip);
+        PlaySound(clip, loop: true);
     }
 
     public void ValveRotationPlay()
@@ -53,6 +53,27 @@ public class AudioManager : Singleton<AudioManager>
     {
         StopSound(audioClips[3]);
     }
+
+    public void MechRotationSoundPlay()
+    {
+        PlaySound(audioClips[5], loop: true);
+    }
+
+    public void MechRotationSoundStop()
+    {
+        StopSound(audioClips[5]);
+    }
+
+    public void HandBrakePlay()
+    {
+        PlaySound(audioClips[4]);
+    }
+
+    public void HandBrakeStop()
+    {
+        StopSound(audioClips[4], 0.5f);
+    }
+
 
     private void PlaySound(AudioClip clip, bool loop = false)
     {   
