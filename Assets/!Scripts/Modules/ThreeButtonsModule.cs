@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class ThreeButtonsModule : TriggerOnceSystem
 {
-    [SerializeField] private GameObject lightObject;
+    [SerializeField] private MeshRenderer lightBulb;
 
     private bool executeSolution = false;
 
     protected override void Start()
     {
-        lightObject.SetActive(false);
+        lightBulb.material.DisableKeyword("_EMISSION");
 
         base.Start();
     }
@@ -21,7 +21,14 @@ public class ThreeButtonsModule : TriggerOnceSystem
             return;
         }
 
-        lightObject.SetActive(GetTriggered());
+        if (GetTriggered())
+        {
+            lightBulb.material.EnableKeyword("_EMISSION");
+        }
+        else
+        {
+            lightBulb.material.DisableKeyword("_EMISSION");
+        }
 
         base.Update();
     }

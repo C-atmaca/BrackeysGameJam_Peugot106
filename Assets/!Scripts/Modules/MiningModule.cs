@@ -4,6 +4,7 @@ using UnityEngine.UIElements;
 public class MiningModule : MechSystem
 {
     [SerializeField] private Rock rock;
+    [SerializeField] private MeshRenderer lightBulb;
     [SerializeField] private float rayDistance = 10;
     [SerializeField] private int damage = 10;
     [SerializeField] private int maxDamageMultiplier = 3;
@@ -24,10 +25,27 @@ public class MiningModule : MechSystem
             rock.doingDamage = startMining;
         }
 
-        if (!startMining) return;
-
         Vector3 rayOrigin = mainCamTransform.position;
         Vector3 rayDirection = mainCamTransform.forward;
+
+        if (Physics.SphereCast(rayOrigin, .10f, rayDirection, out RaycastHit hitt, rayDistance))
+        {
+            var collider = hitt.collider;
+            if (collider.CompareTag("StrongMineSpot") || collider.CompareTag("WeakMineSpot") || collider.CompareTag("Rock"))
+            {
+                lightBulb.material.EnableKeyword("_EMISSION");
+            }
+            else
+            {
+                lightBulb.material.DisableKeyword("_EMISSION");
+            }
+        }
+        else
+        {
+            lightBulb.material.DisableKeyword("_EMISSION");
+        }
+
+        if (!startMining) return;
 
         if (Physics.SphereCast(rayOrigin, .10f, rayDirection, out RaycastHit hit, rayDistance))
         {
@@ -35,6 +53,15 @@ public class MiningModule : MechSystem
             if (collider.CompareTag("Rock"))
             {
                 rock = collider.gameObject.GetComponent<Rock>();
+                lightBulb.material.EnableKeyword("_EMISSION");
+            }
+            if (collider.CompareTag("StrongMineSpot") || collider.CompareTag("WeakMineSpot") || collider.CompareTag("Rock"))
+            {
+                lightBulb.material.EnableKeyword("_EMISSION");
+            }
+            else
+            {
+                lightBulb.material.DisableKeyword("_EMISSION");
             }
 
             if (rock != null)

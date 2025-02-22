@@ -32,6 +32,10 @@ public class Rock : MonoBehaviour
         threeUpArrow.SetActive(false);
         oneUpArrow.SetActive(false);
         twoDownArrow.SetActive(false);
+
+        sweetSpotMin = Random.Range(20, 71);
+        sweetSpotMax = sweetSpotMin + 10;
+        breakThreshold = sweetSpotMax + 1;
     }
 
     private void Update()
@@ -42,18 +46,15 @@ public class Rock : MonoBehaviour
 
         if (currentProgress >= maxProgress)
         {
-            Debug.Log("ROCK GOT BROKEN!");
             Destroy(gameObject);
         }
 
         if (currentProgress >= breakThreshold)
         {
-            Debug.Log("in breakthreshold");
             breakTimer += Time.deltaTime;
 
             if (breakTimer > breakInterval)
             {
-                Debug.Log("ROCK GOT BROKEN!");
                 Destroy(gameObject);
             }
         }
@@ -64,12 +65,10 @@ public class Rock : MonoBehaviour
 
         if (currentProgress <= sweetSpotMax && currentProgress >= sweetSpotMin)
         {
-            Debug.Log("in sweetSpot");
             successTimer += Time.deltaTime;
 
             if (successTimer > successInterval)
             {
-                Debug.Log("ROCK SUCCESFULLY MINED!");
                 MoneyManager.Instance.RockCollected();
                 Destroy(gameObject);
             }

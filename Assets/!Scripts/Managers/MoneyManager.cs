@@ -7,7 +7,7 @@ public class MoneyManager : Singleton<MoneyManager>
     [SerializeField] private int costPerDamage = 5;
     [SerializeField] private TextMeshProUGUI collectedRockAmountText;
 
-    private int numberOfRocksCollectedThisRun;
+    private int numberOfRocksCollectedThisRun = 0;
 
     private void Update()
     {
