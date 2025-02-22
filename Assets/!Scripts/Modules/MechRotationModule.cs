@@ -4,12 +4,25 @@ public class MechRotationModule : MechSystem
 {
     [SerializeField] private MechRotationSystemSO data;
     [SerializeField] private Transform mechFrontWindow;
-    [SerializeField] private float maxLeanAmount;
+    [SerializeField] private SkinnedMeshRenderer rotationJoystickSkinnedMesh;
+    [SerializeField] private Transform handTarget;
 
     private float xRotation;
     private float yRotation;
     private bool isControllingMech = false;
     private Quaternion mechTargetRotation;
+    private float previousYRotation;
+
+    private Vector3 turnLeftHandTargetPosition;
+    private Vector3 turnRightHandTargetPosition;
+    private Vector3 middleHandTargetPosition;
+
+    private void Start()
+    {
+        turnLeftHandTargetPosition = new Vector3(-0.0348000005f, 0.055399999f, 0);
+        turnRightHandTargetPosition = new Vector3(0.0324000008f, 0.055399999f, 0);
+        middleHandTargetPosition = new Vector3(0, 0.0649999976f, 0);
+    }
 
     private void Update()
     {
@@ -37,7 +50,32 @@ public class MechRotationModule : MechSystem
             float turnSpeedMultiplier = Mathf.Clamp01(Mathf.Abs(angleDifference) / 90f);
             float dynamicTurnSpeed = Mathf.Lerp(0.5f, data.MechTurnSpeed, turnSpeedMultiplier);
 
-            transform.rotation = Quaternion.Lerp(transform.rotation, mechTargetRotation, Time.deltaTime * dynamicTurnSpeed); 
+            float currentYRotation = transform.eulerAngles.y;
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, mechTargetRotation, Time.deltaTime * dynamicTurnSpeed);
+            float rotationDelta = Mathf.DeltaAngle(previousYRotation, currentYRotation);
+
+            previousYRotation = currentYRotation;
+
+
+            if (rotationDelta > 0)
+            {
+                rotationJoystickSkinnedMesh.SetBlendShapeWeight(0, 0);
+                rotationJoystickSkinnedMesh.SetBlendShapeWeight(1, 100);
+                handTarget.localPosition = turnRightHandTargetPosition;
+            }
+            else if (rotationDelta < 0)
+            {
+                rotationJoystickSkinnedMesh.SetBlendShapeWeight(0, 100);
+                rotationJoystickSkinnedMesh.SetBlendShapeWeight(1, 0);
+                handTarget.localPosition = turnLeftHandTargetPosition;
+            }
+            else
+            {
+                rotationJoystickSkinnedMesh.SetBlendShapeWeight(0, 0);
+                rotationJoystickSkinnedMesh.SetBlendShapeWeight(1, 0);
+                handTarget.localPosition = middleHandTargetPosition;
+            }
         }
     }
 

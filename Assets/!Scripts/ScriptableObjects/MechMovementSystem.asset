@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxSpeedForMoveSpeedLevels: 00000000010000000300000005000000
   Acceleration: 2
-  Deceleration: 2
+  Deceleration: 3
