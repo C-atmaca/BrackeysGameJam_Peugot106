@@ -12,6 +12,8 @@ public class MainMenuManager : MonoBehaviour
 
     public void QuitGame()
     {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
         Application.Quit();
     }
 }

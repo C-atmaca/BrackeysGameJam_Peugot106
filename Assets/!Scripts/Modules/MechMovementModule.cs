@@ -22,6 +22,8 @@ public class MechMovementModule : MechSystem
 
     private void Update()
     {
+        if (LevelManager.Instance.GetPause()) return;
+
         if (handbrakeOnOff)
         {
             currentMoveSpeedLevel = 0;

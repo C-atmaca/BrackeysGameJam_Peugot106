@@ -30,7 +30,7 @@ public class LevelManager : Singleton<LevelManager>
     private int previousDayIncome = 0;
 
     private float levelTimer;
-    [SerializeField] private float LevelLength;
+    [SerializeField] private List<float> LevelLength;
     [SerializeField] private TextMeshProUGUI timer;
 
     private Vector3 startPosition;
@@ -43,8 +43,6 @@ public class LevelManager : Singleton<LevelManager>
 
     private void Start()
     {
-        DontDestroyOnLoad(gameObject);
-
         startPosition = endOfLevelScreen.position;
         endPosition = startPosition - new Vector3(0f, endOfLevelScreenMoveAmount, 0f);
 
@@ -74,7 +72,17 @@ public class LevelManager : Singleton<LevelManager>
 
     public void StartLevel()
     {
-        levelTimer = LevelLength;
+        currentLevel = PlayerPrefs.GetInt("CurrentLevel", 0);
+
+        if (currentLevel <= LevelLength.Count)
+        {
+            levelTimer = LevelLength[currentLevel];
+        }
+        else
+        {
+            levelTimer = LevelLength[0];
+        }
+
         levelEnded = false;
 
         endOfLevelScreen.DOMoveY(startPosition.y, endOfLevelScreenMoveDuration).SetEase(Ease.InSine);
@@ -87,6 +95,7 @@ public class LevelManager : Singleton<LevelManager>
         totalCost = costOfDamages + costOfDay;
         rocksCollected = MoneyManager.Instance.GetRocksCollected();
         moneyEarned = MoneyManager.Instance.CalculateMoneyEarned();
+        previousDayIncome = PlayerPrefs.GetInt("PreviousDayIncome", 0);
         totalIncome = moneyEarned - totalCost + previousDayIncome;
 
         rocksCollectedAmountText.text = rocksCollected.ToString();
@@ -115,7 +124,6 @@ public class LevelManager : Singleton<LevelManager>
 
     public void TryAgain()
     {
-        previousDayIncome = totalIncome;
         SetPause(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -123,6 +131,9 @@ public class LevelManager : Singleton<LevelManager>
     public void NextLevel()
     {
         previousDayIncome = totalIncome;
+        PlayerPrefs.SetInt("PreviousDayIncome", previousDayIncome);
+        currentLevel++;
+        PlayerPrefs.SetInt("CurrentLevel", currentLevel);
         SetPause(false);
 
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
@@ -151,5 +162,11 @@ public class LevelManager : Singleton<LevelManager>
         int minutes = totalSeconds / 60;
         int seconds = totalSeconds % 60;
         return $"{minutes:00}:{seconds:00}";
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
     }
 }
