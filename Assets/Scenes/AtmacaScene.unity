@@ -11886,6 +11886,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 1590630984}
   - {fileID: 361778352}
   - {fileID: 946647042}
   - {fileID: 2098523003}
@@ -13781,6 +13782,11 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!4 &1590630984 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1129709068298555435, guid: ccfdb63cf4831404581ac53aabe22bf4, type: 3}
+  m_PrefabInstance: {fileID: 1660752176023302518}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1607696921
 GameObject:
   m_ObjectHideFlags: 0
@@ -16403,6 +16409,11 @@ MonoBehaviour:
   weakSpawnCount: 12
   rockMeshes:
   - {fileID: 1256554561}
+  - {fileID: 192671709}
+  - {fileID: 839507146}
+  - {fileID: 948411566}
+  - {fileID: 1362634433}
+  - {fileID: 1195363550}
 --- !u!1 &2108349800
 GameObject:
   m_ObjectHideFlags: 0
@@ -17039,7 +17050,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1354294404}
     m_Modifications:
     - target: {fileID: 1129709068298555435, guid: ccfdb63cf4831404581ac53aabe22bf4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17652,7 +17663,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1989181222}
   - {fileID: 477434484}
-  - {fileID: 1660752176023302518}
   - {fileID: 1354294404}
   - {fileID: 1119691035}
   - {fileID: 1180886892}
