@@ -7506,6 +7506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyPerRock: 10
   costPerDamage: 5
+  collectedRockAmountText: {fileID: 0}
 --- !u!4 &946647042
 Transform:
   m_ObjectHideFlags: 0
@@ -10979,55 +10980,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1389310153}
   m_CullTransparentMesh: 1
---- !u!1 &1441456422
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1441456424}
-  - component: {fileID: 1441456423}
-  m_Layer: 0
-  m_Name: MineSpecialPointSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1441456423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441456422}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 399475432aaa8f44db32087ad6463b0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  strongMineSpot: {fileID: 0}
-  weakMineSpot: {fileID: 0}
-  strongSpawnCount: 5
-  weakSpawnCount: 3
-  rockMeshes: []
---- !u!4 &1441456424
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441456422}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1447602564
 GameObject:
   m_ObjectHideFlags: 0
@@ -16729,6 +16681,5 @@ SceneRoots:
   - {fileID: 1354294404}
   - {fileID: 1119691035}
   - {fileID: 1180886892}
-  - {fileID: 1441456424}
   - {fileID: 1527643041}
   - {fileID: 1032654091}

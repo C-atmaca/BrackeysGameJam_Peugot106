@@ -1,11 +1,18 @@
+using TMPro;
 using UnityEngine;
 
 public class MoneyManager : Singleton<MoneyManager>
 {
     [SerializeField] private int moneyPerRock = 10;
     [SerializeField] private int costPerDamage = 5;
+    [SerializeField] private TextMeshProUGUI collectedRockAmountText;
 
     private int numberOfRocksCollectedThisRun;
+
+    private void Update()
+    {
+        collectedRockAmountText.text = numberOfRocksCollectedThisRun.ToString();
+    }
 
     public void RockCollected()
     {
