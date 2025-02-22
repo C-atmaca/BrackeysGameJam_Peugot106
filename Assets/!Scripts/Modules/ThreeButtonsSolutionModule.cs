@@ -14,13 +14,8 @@ public class ThreeButtonsSolutionModule : SolutionSystem
 
     private void Start()
     {
-        startPosition = new Vector3(); ;
-        startPositionLocal = transform.localPosition;
-        endPosition = startPositionLocal - new Vector3(0f, moveAmount, 0f);
-        transform.position = endPosition;
-        Debug.Log("start pos" + startPosition);
-        Debug.Log("start pos local" + startPositionLocal);
-        Debug.Log("end pos" + endPosition);
+        startPosition = new Vector3(transform.localPosition.x, -0.1602f, transform.localPosition.z);
+        endPosition = new Vector3(transform.localPosition.x, -0.17389f, transform.localPosition.z);
     }
 
     private void Update()
@@ -32,12 +27,10 @@ public class ThreeButtonsSolutionModule : SolutionSystem
 
             if (currentState)
             {
-                Debug.Log("start pos");
-                transform.localPosition = startPositionLocal;
+                transform.localPosition = startPosition;
             }
             else
             {
-                Debug.Log("end pos");
                 transform.localPosition = endPosition;
             }
         }
