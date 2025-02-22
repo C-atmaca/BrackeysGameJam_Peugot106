@@ -4,13 +4,25 @@ public class MechRotationModule : MechSystem
 {
     [SerializeField] private MechRotationSystemSO data;
     [SerializeField] private Transform mechFrontWindow;
-    [SerializeField] private float maxLeanAmount;
+    [SerializeField] private SkinnedMeshRenderer rotationJoystickSkinnedMesh;
+    [SerializeField] private Transform handTarget;
 
     private float xRotation;
     private float yRotation;
     private bool isControllingMech = false;
     private Quaternion mechTargetRotation;
-    private float leanAmount = 0f;
+    private float previousYRotation;
+
+    private Vector3 turnLeftHandTargetPosition;
+    private Vector3 turnRightHandTargetPosition;
+    private Vector3 middleHandTargetPosition;
+
+    private void Start()
+    {
+        turnLeftHandTargetPosition = new Vector3(-0.0348000005f, 0.055399999f, 0);
+        turnRightHandTargetPosition = new Vector3(0.0324000008f, 0.055399999f, 0);
+        middleHandTargetPosition = new Vector3(0, 0.0649999976f, 0);
+    }
 
     private void Update()
     {
@@ -38,22 +50,32 @@ public class MechRotationModule : MechSystem
             float turnSpeedMultiplier = Mathf.Clamp01(Mathf.Abs(angleDifference) / 90f);
             float dynamicTurnSpeed = Mathf.Lerp(0.5f, data.MechTurnSpeed, turnSpeedMultiplier);
 
+            float currentYRotation = transform.eulerAngles.y;
+
             transform.rotation = Quaternion.Lerp(transform.rotation, mechTargetRotation, Time.deltaTime * dynamicTurnSpeed);
+            float rotationDelta = Mathf.DeltaAngle(previousYRotation, currentYRotation);
 
-            // Store the target lean amount (calculate based on rotation angle)
-            float targetLeanAmount = Mathf.Lerp(-maxLeanAmount, maxLeanAmount, Mathf.Abs(angleDifference) / 90f);
+            previousYRotation = currentYRotation;
 
-            // Adjust the sign of the lean amount based on the actual angle direction
-            targetLeanAmount = Mathf.Sign(angleDifference) * targetLeanAmount;
 
-            // Smoothly transition the lean value (to avoid snapping)
-            leanAmount = Mathf.Lerp(leanAmount, targetLeanAmount, Time.deltaTime * 5);
-
-            // Apply the lean effect (this can be to the mech body or a specific part of it)
-            Vector3 currentLean = transform.localRotation.eulerAngles;
-
-            // Adjust the Z rotation based on the smoothed lean amount
-            transform.localRotation = Quaternion.Euler(currentLean.x, currentLean.y, leanAmount);
+            if (rotationDelta > 0)
+            {
+                rotationJoystickSkinnedMesh.SetBlendShapeWeight(0, 0);
+                rotationJoystickSkinnedMesh.SetBlendShapeWeight(1, 100);
+                handTarget.localPosition = turnRightHandTargetPosition;
+            }
+            else if (rotationDelta < 0)
+            {
+                rotationJoystickSkinnedMesh.SetBlendShapeWeight(0, 100);
+                rotationJoystickSkinnedMesh.SetBlendShapeWeight(1, 0);
+                handTarget.localPosition = turnLeftHandTargetPosition;
+            }
+            else
+            {
+                rotationJoystickSkinnedMesh.SetBlendShapeWeight(0, 0);
+                rotationJoystickSkinnedMesh.SetBlendShapeWeight(1, 0);
+                handTarget.localPosition = middleHandTargetPosition;
+            }
         }
     }
 

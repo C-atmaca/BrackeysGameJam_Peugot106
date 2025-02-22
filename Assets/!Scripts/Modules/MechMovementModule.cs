@@ -3,6 +3,7 @@ using UnityEngine;
 public class MechMovementModule : MechSystem
 {
     [SerializeField] private MechMovementSystemSO data;
+    [SerializeField] public Transform speedJoystick;
 
     [SerializeField] private int currentMoveSpeedLevel = 0;
     [SerializeField] private float targetMoveSpeed;
@@ -15,8 +16,19 @@ public class MechMovementModule : MechSystem
     [SerializeField] public float verticalSwayAmount = 3f;
     [SerializeField] public float verticalSwaySpeed = 2f;
 
+    [SerializeField] private bool handbrakeOnOff = false;
+
     private void Update()
     {
+        if (handbrakeOnOff)
+        {
+            currentMoveSpeedLevel = 0;
+            targetMoveSpeed = data.MaxSpeedForMoveSpeedLevels[currentMoveSpeedLevel];
+        }
+
+        float joystickRotation = Mathf.Lerp(-40f, 40f, (float)currentMoveSpeedLevel / 3);
+        speedJoystick.localRotation = Quaternion.Euler(joystickRotation, 0, 0);
+
         if (currentMoveSpeed < targetMoveSpeed)
         {
             currentMoveSpeed = Mathf.MoveTowards(currentMoveSpeed, targetMoveSpeed, data.Acceleration * Time.deltaTime);
@@ -51,9 +63,8 @@ public class MechMovementModule : MechSystem
         }
     }
 
-    public void StopMech()
+    public void SwitchHandbreak(bool handbreak)
     {
-        currentMoveSpeedLevel = 0;
-        targetMoveSpeed = data.MaxSpeedForMoveSpeedLevels[currentMoveSpeedLevel];
+        handbrakeOnOff = handbreak;
     }
 }

@@ -14,7 +14,7 @@ public class ThreeButtonsSolutionModule : SolutionSystem
 
     private void Start()
     {
-        startPosition = transform.position;
+        startPosition = transform.localPosition;
         endPosition = startPosition - new Vector3(moveDuration / 4, moveAmount, moveDuration / 2);
         transform.DOMoveY(endPosition.y, moveDuration).SetEase(Ease.InSine);
         waitForSeconds = new WaitForSeconds(animationStartDelay);
@@ -29,11 +29,11 @@ public class ThreeButtonsSolutionModule : SolutionSystem
 
             if (currentState)
             {
-                transform.DOMoveY(startPosition.y, moveDuration).SetEase(Ease.InSine);
+                transform.DOLocalMoveY(startPosition.y, moveDuration).SetEase(Ease.InSine);
             }
             else
             {
-                transform.DOMoveY(endPosition.y, moveDuration).SetEase(Ease.InSine);
+                transform.DOLocalMoveY(endPosition.y, moveDuration).SetEase(Ease.InSine);
             }
         }
     }
