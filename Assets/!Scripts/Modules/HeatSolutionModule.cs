@@ -23,11 +23,13 @@ public class HeatSolutionModule : SolutionSystem
 
     public override void StartExecuteSolution()
     {
+        AudioManager.Instance.HeatReleasePlay();
         coroutine = StartCoroutine(MoveDown(endPosition));
     }
 
     public override void StopExecuteSolution()
     {
+        AudioManager.Instance.HeatReleaseStop();
         StopCoroutine(coroutine);
         transform.DOKill();
         transform.DOMoveY(startPosition.y, moveDuration).SetEase(Ease.InSine);

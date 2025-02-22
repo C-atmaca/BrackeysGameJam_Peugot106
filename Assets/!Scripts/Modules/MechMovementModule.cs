@@ -18,12 +18,15 @@ public class MechMovementModule : MechSystem
 
     private bool handbrakeOnOff = false;
 
+    private bool isSoundOn = false;
+
     private void Update()
     {
         if (handbrakeOnOff)
         {
             currentMoveSpeedLevel = 0;
             targetMoveSpeed = data.MaxSpeedForMoveSpeedLevels[currentMoveSpeedLevel];
+            isSoundOn = false;
         }
 
         float joystickRotation = Mathf.Lerp(-40f, 40f, (float)currentMoveSpeedLevel / 3);
@@ -40,6 +43,7 @@ public class MechMovementModule : MechSystem
 
         if (currentMoveSpeed > 0)
         {
+            isSoundOn = true;
             transform.Translate(currentMoveSpeed * Time.deltaTime * Vector3.forward);
 
             float rotationValue = Mathf.PingPong(Time.time * rotationSpeed, rotationAmount * 2) - rotationAmount;

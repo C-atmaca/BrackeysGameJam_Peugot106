@@ -208,7 +208,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 35022232}
-  - component: {fileID: 35022231}
   - component: {fileID: 35022233}
   m_Layer: 0
   m_Name: AudioManager
@@ -217,103 +216,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!82 &35022231
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 35022230}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!4 &35022232
 Transform:
   m_ObjectHideFlags: 0
@@ -322,12 +224,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35022230}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.2933803, y: 1.5505966, z: -11.957864}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1354294404}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &35022233
 MonoBehaviour:
@@ -341,12 +243,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b45bc400e245040b39a11c74f59a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 35022231}
   audioClips:
-  - {fileID: 8300000, guid: 35b5f9f137f8d22428bcca90c809edad, type: 3}
-  - {fileID: 8300000, guid: 39cede60282bf2b4380eb59d2d9b0ef5, type: 3}
-  - {fileID: 8300000, guid: a59c040bff2d6ba4b98992aa00cc55aa, type: 3}
-  - {fileID: 8300000, guid: a09fac7ed55871a44845c8d21df41411, type: 3}
+  - {fileID: 8300000, guid: c703e5e8e0b4d5045be594666d03155f, type: 3}
+  - {fileID: 8300000, guid: 4d91e8eb215ea644a92c23ee9d571231, type: 3}
+  - {fileID: 8300000, guid: 8b19485763e02b741a68359e6a7103c7, type: 3}
+  - {fileID: 8300000, guid: 499a026aa03baac44b3bf92921007895, type: 3}
 --- !u!1 &57368963
 GameObject:
   m_ObjectHideFlags: 0
@@ -6303,6 +6204,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyPerRock: 10
+  costPerDamage: 5
+  collectedRockAmountText: {fileID: 0}
 --- !u!4 &946647042
 Transform:
   m_ObjectHideFlags: 0
@@ -7125,7 +7028,6 @@ MonoBehaviour:
   rotationSpeed: 7
   verticalSwayAmount: 0.005
   verticalSwaySpeed: 7
-  handbrakeOnOff: 0
 --- !u!114 &1152057458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7139,7 +7041,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 69af42587f287b443bd2af86ab6a5244, type: 2}
-  mechFrontWindow: {fileID: 1526975483}
   rotationJoystickSkinnedMesh: {fileID: 637082934}
   handTarget: {fileID: 1263848494}
 --- !u!1001 &1159901266
@@ -8812,6 +8713,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 361778352}
+  - {fileID: 35022232}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1360348252 stripped
@@ -10172,6 +10074,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredAmountOfMoneyPerLevel: 
+  endOfLevelScreen: {fileID: 0}
+  rocksCollectedAmountText: {fileID: 0}
+  moneyEarnedAmountText: {fileID: 0}
+  livingCostMoneyText: {fileID: 0}
+  mechRepairCostMoneyText: {fileID: 0}
+  totalIncomeMoneyText: {fileID: 0}
+  dayText: {fileID: 0}
+  LevelLength: 0
+  timer: {fileID: 0}
+  endOfLevelScreenMoveAmount: 0
+  endOfLevelScreenMoveDuration: 0
 --- !u!1 &1607696921
 GameObject:
   m_ObjectHideFlags: 0
@@ -12903,4 +12816,3 @@ SceneRoots:
   - {fileID: 2098523003}
   - {fileID: 946647042}
   - {fileID: 1590630984}
-  - {fileID: 35022232}

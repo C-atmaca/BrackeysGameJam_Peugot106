@@ -39,11 +39,12 @@ public class ThreeButtonsSolutionModule : SolutionSystem
     public override void StartExecuteSolution()
     {
         system.SetExecuteSolution(true);
-        AudioManager.Instance.ButtonVoice();
+        AudioManager.Instance.ButtonVoicePlay();
     }
 
     public override void StopExecuteSolution()
     {
         system.SetExecuteSolution(false);
+        AudioManager.Instance.ButtonVoiceStop();
     }
 }
