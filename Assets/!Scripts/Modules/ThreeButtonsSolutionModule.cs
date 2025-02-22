@@ -41,6 +41,7 @@ public class ThreeButtonsSolutionModule : SolutionSystem
     public override void StartExecuteSolution()
     {
         system.SetExecuteSolution(true);
+        AudioManager.Instance.ButtonVoice();
     }
 
     public override void StopExecuteSolution()
