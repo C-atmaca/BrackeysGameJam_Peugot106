@@ -27,6 +27,8 @@ public class RaycastFromCamera : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (LevelManager.Instance.GetPause()) return;
+
         Vector3 rayOrigin = targetObject.position;
         Vector3 rayDirection = targetObject.forward;
 

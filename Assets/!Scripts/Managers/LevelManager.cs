@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : Singleton<LevelManager>
 {
@@ -13,15 +14,20 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private TextMeshProUGUI livingCostMoneyText;
     [SerializeField] private TextMeshProUGUI mechRepairCostMoneyText;
     [SerializeField] private TextMeshProUGUI totalIncomeMoneyText;
+    [SerializeField] private TextMeshProUGUI previousDayIncomeMoneyText;
     [SerializeField] private TextMeshProUGUI dayText;
 
-    private int TotalCost;
-    private int CostOfDamages;
-    private int CostOfDay;
-    private int RocksCollected;
-    private int MoneyEarned;
-    private int TotalIncome;
-    private int CurrentLevel = 0;
+    [SerializeField] private GameObject cantPayButton;
+    [SerializeField] private GameObject debtText;
+
+    private int totalCost;
+    private int costOfDamages;
+    private int costOfDay;
+    private int rocksCollected;
+    private int moneyEarned;
+    private int totalIncome;
+    private int currentLevel = 0;
+    private int previousDayIncome = 0;
 
     private float levelTimer;
     [SerializeField] private float LevelLength;
@@ -33,9 +39,12 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private float endOfLevelScreenMoveDuration;
 
     private bool levelEnded = false;
+    private bool pause = false;
 
     private void Start()
     {
+        DontDestroyOnLoad(gameObject);
+
         startPosition = endOfLevelScreen.position;
         endPosition = startPosition - new Vector3(0f, endOfLevelScreenMoveAmount, 0f);
 
@@ -44,6 +53,8 @@ public class LevelManager : Singleton<LevelManager>
 
     private void Update()
     {
+        if (pause) return;
+
         if (!levelEnded)
         {
             levelTimer -= Time.deltaTime;
@@ -71,22 +82,68 @@ public class LevelManager : Singleton<LevelManager>
 
     public void EndLevel()
     {
-        CostOfDamages = MoneyManager.Instance.CalculateCostOfDamages();
-        CostOfDay = requiredAmountOfMoneyPerLevel[CurrentLevel];
-        TotalCost = CostOfDamages + CostOfDay;
-        RocksCollected = MoneyManager.Instance.GetRocksCollected();
-        MoneyEarned = MoneyManager.Instance.CalculateMoneyEarned();
-        TotalIncome = MoneyEarned - TotalCost;
+        costOfDamages = MoneyManager.Instance.CalculateCostOfDamages();
+        costOfDay = requiredAmountOfMoneyPerLevel[currentLevel];
+        totalCost = costOfDamages + costOfDay;
+        rocksCollected = MoneyManager.Instance.GetRocksCollected();
+        moneyEarned = MoneyManager.Instance.CalculateMoneyEarned();
+        totalIncome = moneyEarned - totalCost + previousDayIncome;
 
-        rocksCollectedAmountText.text = RocksCollected.ToString();
-        moneyEarnedAmountText.text = MoneyEarned.ToString();
-        livingCostMoneyText.text = CostOfDay.ToString();
-        mechRepairCostMoneyText.text = CostOfDamages.ToString();
-        totalIncomeMoneyText.text = TotalIncome.ToString();
-        dayText.text = "Day " + (CurrentLevel + 1);
+        rocksCollectedAmountText.text = rocksCollected.ToString();
+        moneyEarnedAmountText.text = "+" + moneyEarned;
+        livingCostMoneyText.text = "-" + costOfDay;
+        mechRepairCostMoneyText.text = "-" + costOfDamages;
+        totalIncomeMoneyText.text = totalIncome.ToString();
+        previousDayIncomeMoneyText.text = previousDayIncome.ToString();
+        dayText.text = "Day " + (currentLevel + 1);
+
+        if (totalIncome < 0)
+        {
+            cantPayButton.SetActive(true);
+            debtText.SetActive(true);
+        }
+        else
+        {
+            cantPayButton.SetActive(false);
+            debtText.SetActive(false);
+        }
 
         endOfLevelScreen.DOMoveY(endPosition.y, endOfLevelScreenMoveDuration).SetEase(Ease.InSine);
         levelEnded = false;
+        SetPause(true);
+    }
+
+    public void TryAgain()
+    {
+        previousDayIncome = totalIncome;
+        SetPause(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void NextLevel()
+    {
+        previousDayIncome = totalIncome;
+        SetPause(false);
+
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            Debug.Log("No more scenes to load.");
+        }
+    }
+
+    public void SetPause(bool isPause)
+    {
+        pause = isPause;
+    }
+
+    public bool GetPause()
+    {
+        return pause;
     }
 
     public string ConvertSecondsToMinutes(int totalSeconds)

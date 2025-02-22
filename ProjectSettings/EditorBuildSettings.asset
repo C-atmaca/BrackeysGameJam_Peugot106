@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AtmacaScene.unity
     guid: 7361d0dc42ca5634698ef762d0761224
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 8fc489f27fa211f4c90c3a269ead5d1d
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: ac4c7cf3166e39f4a8794e992e699359
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
