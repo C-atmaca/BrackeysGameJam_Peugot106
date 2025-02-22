@@ -64,12 +64,10 @@ public class Rock : MonoBehaviour
 
         if (currentProgress <= sweetSpotMax && currentProgress >= sweetSpotMin)
         {
-            Debug.Log("in sweetSpot");
             successTimer += Time.deltaTime;
 
             if (successTimer > successInterval)
             {
-                Debug.Log("ROCK SUCCESFULLY MINED!");
                 MoneyManager.Instance.RockCollected();
                 Destroy(gameObject);
             }

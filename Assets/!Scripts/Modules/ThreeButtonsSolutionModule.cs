@@ -8,14 +8,19 @@ public class ThreeButtonsSolutionModule : SolutionSystem
     [SerializeField] private float animationStartDelay = 0.5f;
 
     private Vector3 startPosition;
+    private Vector3 startPositionLocal;
     private Vector3 endPosition;
     private bool previousState;
 
     private void Start()
     {
-        startPosition = transform.position;
-        endPosition = startPosition - new Vector3(0f, moveAmount, 0f);
-        transform.DOMoveY(endPosition.y, moveDuration).SetEase(Ease.InSine);
+        startPosition = new Vector3(); ;
+        startPositionLocal = transform.localPosition;
+        endPosition = startPositionLocal - new Vector3(0f, moveAmount, 0f);
+        transform.position = endPosition;
+        Debug.Log("start pos" + startPosition);
+        Debug.Log("start pos local" + startPositionLocal);
+        Debug.Log("end pos" + endPosition);
     }
 
     private void Update()
@@ -27,11 +32,13 @@ public class ThreeButtonsSolutionModule : SolutionSystem
 
             if (currentState)
             {
-                transform.DOMoveY(startPosition.y, moveDuration).SetEase(Ease.InSine);
+                Debug.Log("start pos");
+                transform.localPosition = startPositionLocal;
             }
             else
             {
-                transform.DOMoveY(endPosition.y, moveDuration).SetEase(Ease.InSine);
+                Debug.Log("end pos");
+                transform.localPosition = endPosition;
             }
         }
     }
