@@ -3,6 +3,7 @@ using UnityEngine;
 public class MechMovementModule : MechSystem
 {
     [SerializeField] private MechMovementSystemSO data;
+    [SerializeField] public Transform movementJoystick;
 
     [SerializeField] private int currentMoveSpeedLevel = 0;
     [SerializeField] private float targetMoveSpeed;
@@ -17,6 +18,9 @@ public class MechMovementModule : MechSystem
 
     private void Update()
     {
+        float joystickRotation = Mathf.Lerp(-40f, 40f, (float)currentMoveSpeedLevel / 3);
+        movementJoystick.rotation = Quaternion.Euler(joystickRotation, 0, 0);
+
         if (currentMoveSpeed < targetMoveSpeed)
         {
             currentMoveSpeed = Mathf.MoveTowards(currentMoveSpeed, targetMoveSpeed, data.Acceleration * Time.deltaTime);
