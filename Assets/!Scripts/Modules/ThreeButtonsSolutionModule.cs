@@ -27,11 +27,11 @@ public class ThreeButtonsSolutionModule : SolutionSystem
 
             if (currentState)
             {
-                transform.DOLocalMoveY(startPosition.y, moveDuration).SetEase(Ease.InSine);
+                transform.DOMoveY(startPosition.y, moveDuration).SetEase(Ease.InSine);
             }
             else
             {
-                transform.DOLocalMoveY(endPosition.y, moveDuration).SetEase(Ease.InSine);
+                transform.DOMoveY(endPosition.y, moveDuration).SetEase(Ease.InSine);
             }
         }
     }
