@@ -71,11 +71,15 @@ public class RaycastFromCamera : MonoBehaviour
                 
                 if (Input.GetButton("Fire1"))
                 {
+                    if (HandManager.Instance.LeftHandGrabbedObject != null) return;
+
                     grabObject.SetGrabTransform(handmovement.GetLeftHandCurrentTransform());
                     HandManager.Instance.LeftHandGrabbedObject = grabObject;
                 }
                 if (Input.GetButton("Fire2"))
                 {
+                    if (HandManager.Instance.RightHandGrabbedObject != null) return;
+
                     grabObject.SetGrabTransform(handmovement.GetRightHandCurrentTransform());
                     HandManager.Instance.RightHandGrabbedObject = grabObject;
                 }
