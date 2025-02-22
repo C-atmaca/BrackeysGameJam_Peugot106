@@ -41,7 +41,7 @@ public class RaycastFromCamera : MonoBehaviour
                     {
                         DisableLastOutline();
                     }
-                    //outline.enabled = true;
+                    outline.enabled = true;
                     lastOutlinedObject = outline;
                 }
                 hit.collider.TryGetComponent<SolutionSystem>(out SolutionSystem solutionSystem);

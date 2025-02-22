@@ -38,6 +38,11 @@ public class MechHealthSystem : Singleton<MechHealthSystem>
         return currentHealth;
     }
 
+    public int GetMaxHealth()
+    {
+        return data.MaxHealth;
+    }
+
     private void SetHealthText()
     {
         healthText.text = currentHealth.ToString() + '%';

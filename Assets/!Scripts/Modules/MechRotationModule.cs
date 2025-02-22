@@ -3,7 +3,6 @@ using UnityEngine;
 public class MechRotationModule : MechSystem
 {
     [SerializeField] private MechRotationSystemSO data;
-    [SerializeField] private Transform mechFrontWindow;
     [SerializeField] private SkinnedMeshRenderer rotationJoystickSkinnedMesh;
     [SerializeField] private Transform handTarget;
 
@@ -76,6 +75,12 @@ public class MechRotationModule : MechSystem
                 rotationJoystickSkinnedMesh.SetBlendShapeWeight(1, 0);
                 handTarget.localPosition = middleHandTargetPosition;
             }
+        }
+        else
+        {
+            rotationJoystickSkinnedMesh.SetBlendShapeWeight(0, 0);
+            rotationJoystickSkinnedMesh.SetBlendShapeWeight(1, 0);
+            handTarget.localPosition = middleHandTargetPosition;
         }
     }
 

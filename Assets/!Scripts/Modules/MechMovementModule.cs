@@ -16,7 +16,7 @@ public class MechMovementModule : MechSystem
     [SerializeField] public float verticalSwayAmount = 3f;
     [SerializeField] public float verticalSwaySpeed = 2f;
 
-    [SerializeField] private bool handbrakeOnOff = false;
+    private bool handbrakeOnOff = false;
 
     private void Update()
     {

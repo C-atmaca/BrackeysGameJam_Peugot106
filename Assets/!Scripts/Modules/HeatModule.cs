@@ -13,7 +13,9 @@ public class HeatModule : ConstantlyIncreasingSystem
     private bool countdownHasStarted = false;
     private bool executeSolution = false;
 
-    [SerializeField] private Transform heatNeedleTransform;
+    [SerializeField] private Transform heatNeedleTransform1;
+    [SerializeField] private Transform heatNeedleTransform2;
+    [SerializeField] private Transform heatNeedleTransform3;
 
     protected override void Update()
     {
@@ -51,11 +53,13 @@ public class HeatModule : ConstantlyIncreasingSystem
     {
         if (currentValue > data.DamageThresholdMin)
         {
-            twitchAmount = Mathf.Sin(Time.time * 50f) * Random.Range(-2f, 2f);
+            twitchAmount = Mathf.Sin(Time.time * 70f) * Random.Range(-2f, 2f);
         }
 
         float rotation = Mathf.Lerp(startRotation, endRotation, currentValue) + twitchAmount;
-        heatNeedleTransform.localRotation = Quaternion.Euler(0, rotation, 0);
+        heatNeedleTransform1.localRotation = Quaternion.Euler(0, rotation, 0);
+        heatNeedleTransform2.localRotation = Quaternion.Euler(0, rotation, 0);
+        heatNeedleTransform3.localRotation = Quaternion.Euler(0, rotation, 0);
     }
 
     private IEnumerator Countdown()

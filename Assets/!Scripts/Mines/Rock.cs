@@ -70,6 +70,7 @@ public class Rock : MonoBehaviour
             if (successTimer > successInterval)
             {
                 Debug.Log("ROCK SUCCESFULLY MINED!");
+                MoneyManager.Instance.RockCollected();
                 Destroy(gameObject);
             }
         }

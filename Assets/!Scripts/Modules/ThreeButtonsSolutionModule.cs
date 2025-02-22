@@ -7,17 +7,15 @@ public class ThreeButtonsSolutionModule : SolutionSystem
     [SerializeField] private float moveDuration;
     [SerializeField] private float animationStartDelay = 0.5f;
 
-    private WaitForSeconds waitForSeconds;
     private Vector3 startPosition;
     private Vector3 endPosition;
     private bool previousState;
 
     private void Start()
     {
-        startPosition = transform.localPosition;
-        endPosition = startPosition - new Vector3(moveDuration / 4, moveAmount, moveDuration / 2);
+        startPosition = transform.position;
+        endPosition = startPosition - new Vector3(0f, moveAmount, 0f);
         transform.DOMoveY(endPosition.y, moveDuration).SetEase(Ease.InSine);
-        waitForSeconds = new WaitForSeconds(animationStartDelay);
     }
 
     private void Update()
@@ -29,11 +27,11 @@ public class ThreeButtonsSolutionModule : SolutionSystem
 
             if (currentState)
             {
-                transform.DOLocalMoveY(startPosition.y, moveDuration).SetEase(Ease.InSine);
+                transform.DOMoveY(startPosition.y, moveDuration).SetEase(Ease.InSine);
             }
             else
             {
-                transform.DOLocalMoveY(endPosition.y, moveDuration).SetEase(Ease.InSine);
+                transform.DOMoveY(endPosition.y, moveDuration).SetEase(Ease.InSine);
             }
         }
     }
