@@ -76,6 +76,12 @@ public class MechRotationModule : MechSystem
                 handTarget.localPosition = middleHandTargetPosition;
             }
         }
+        else
+        {
+            rotationJoystickSkinnedMesh.SetBlendShapeWeight(0, 0);
+            rotationJoystickSkinnedMesh.SetBlendShapeWeight(1, 0);
+            handTarget.localPosition = middleHandTargetPosition;
+        }
     }
 
     public override void SetExecuteSolution(bool value)

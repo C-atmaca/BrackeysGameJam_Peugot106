@@ -49,10 +49,9 @@ public class LevelManager : Singleton<LevelManager>
             levelTimer -= Time.deltaTime;
         }
 
-        if (levelTimer <= LevelLength)
+        if (levelTimer <= 0)
         {
             levelEnded = true;
-
             if (levelEnded)
             {
                 EndLevel();
@@ -67,7 +66,7 @@ public class LevelManager : Singleton<LevelManager>
         levelTimer = LevelLength;
         levelEnded = false;
 
-        endOfLevelScreen.DOLocalMoveY(startPosition.y, endOfLevelScreenMoveDuration).SetEase(Ease.InSine);
+        endOfLevelScreen.DOMoveY(startPosition.y, endOfLevelScreenMoveDuration).SetEase(Ease.InSine);
     }
 
     public void EndLevel()
@@ -86,7 +85,7 @@ public class LevelManager : Singleton<LevelManager>
         totalIncomeMoneyText.text = TotalIncome.ToString();
         dayText.text = "Day " + (CurrentLevel + 1);
 
-        endOfLevelScreen.DOLocalMoveY(endPosition.y, endOfLevelScreenMoveDuration).SetEase(Ease.InSine);
+        endOfLevelScreen.DOMoveY(endPosition.y, endOfLevelScreenMoveDuration).SetEase(Ease.InSine);
         levelEnded = false;
     }
 
