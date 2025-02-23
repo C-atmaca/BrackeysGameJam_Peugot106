@@ -9909,10 +9909,14 @@ MonoBehaviour:
   targetMoveSpeed: 0
   currentMoveSpeed: 0
   mechBody: {fileID: 543450652205947978}
+  raycastOrigin: {fileID: 0}
   rotationAmount: 3
   rotationSpeed: 7
   verticalSwayAmount: 0.005
   verticalSwaySpeed: 7
+  stopMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &1152057458
 MonoBehaviour:
   m_ObjectHideFlags: 0

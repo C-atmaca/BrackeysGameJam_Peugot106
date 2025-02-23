@@ -12,6 +12,7 @@ public class MiningModule : MechSystem
 
     private Transform mainCamTransform;
     private bool startMining;
+    private bool isSoundPlayed = false;
 
     private void Start()
     {
