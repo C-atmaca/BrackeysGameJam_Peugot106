@@ -6,6 +6,8 @@ public class ThreeButtonsModule : TriggerOnceSystem
 
     private bool executeSolution = false;
 
+    public bool isSoundPlayed = false;
+
     protected override void Start()
     {
         lightBulb.material.DisableKeyword("_EMISSION");
@@ -24,6 +26,11 @@ public class ThreeButtonsModule : TriggerOnceSystem
         if (GetTriggered())
         {
             lightBulb.material.EnableKeyword("_EMISSION");
+            if (!AudioManager.Instance.isLightPlayed)
+            {
+                AudioManager.Instance.LightBulbSoundPlay();
+                AudioManager.Instance.isLightPlayed = true;
+            }
         }
         else
         {

@@ -8,6 +8,8 @@ public class AudioManager : Singleton<AudioManager>
     public AudioClip[] audioClips;
     private Dictionary<AudioClip, AudioSource> activeSources = new Dictionary<AudioClip, AudioSource>();
 
+    public bool isLightPlayed = false;
+
     public void ButtonVoicePlay()
     {
         PlaySound(audioClips[0]);
@@ -26,20 +28,14 @@ public class AudioManager : Singleton<AudioManager>
 
     public void HeatReleasePlay()
     {
-        StartCoroutine(HeatReleasePlayWaiter(.1f, audioClips[1]));
+        PlaySound(audioClips[1]);
     }
 
     public void HeatReleaseStop()
     {
-        StopSound(audioClips[1], 0.5f);
+        StopSound(audioClips[1]);
     }
-
-    private IEnumerator HeatReleasePlayWaiter(float time, AudioClip clip)
-    {
-        yield return new WaitForSeconds(time);
-        PlaySound(clip, loop: true);
-    }
-
+    
     public void ValveRotationPlay()
     {
         PlaySound(audioClips[2], loop: true);
@@ -78,6 +74,16 @@ public class AudioManager : Singleton<AudioManager>
     public void HandBrakeStop()
     {
         StopSound(audioClips[4], 0.5f);
+    }
+
+    public void LightBulbSoundPlay()
+    {
+        PlaySound(audioClips[6], loop: true);
+    }
+
+    public void LightBulbSoundStop()
+    {
+        StopSound(audioClips[6]);
     }
 
 

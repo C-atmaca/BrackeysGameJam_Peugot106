@@ -23,23 +23,23 @@ public class HeatSolutionModule : SolutionSystem
 
     public override void StartExecuteSolution()
     {
-        AudioManager.Instance.HeatReleasePlay();
         coroutine = StartCoroutine(MoveDown(endPosition));
     }
 
     public override void StopExecuteSolution()
     {
-        AudioManager.Instance.HeatReleaseStop();
         StopCoroutine(coroutine);
         transform.DOKill();
         transform.DOMoveY(startPosition.y, moveDuration).SetEase(Ease.InSine);
         system.SetExecuteSolution(false);
+        AudioManager.Instance.HeatReleaseStop();
     }
 
     private IEnumerator MoveDown(Vector3 targetPosition)
     {
         yield return waitForSeconds;
         transform.DOMoveY(targetPosition.y, moveDuration).SetEase(Ease.InSine);
+        AudioManager.Instance.HeatReleasePlay();
         system.SetExecuteSolution(true);
     }
 }
