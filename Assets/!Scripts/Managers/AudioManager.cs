@@ -106,6 +106,30 @@ public class AudioManager : Singleton<AudioManager>
         StopSound(audioClips[8]);
     }
 
+    public void RockSuccesfullPlay()
+    {
+        PlaySound(audioClips[9]);
+        StartCoroutine(RockSuccesfullStop(.5f));
+    }
+
+    private IEnumerator RockSuccesfullStop(float time)
+    {
+        yield return new WaitForSeconds(time);
+        StopSound(audioClips[9]);
+    }
+
+    public void RockFailedPlay()
+    {
+        PlaySound(audioClips[10]);
+        StartCoroutine(RockFailedStop(.5f));
+    }
+
+    private IEnumerator RockFailedStop(float time)
+    {
+        yield return new WaitForSeconds(time);
+        StopSound(audioClips[10]);
+    }
+
     private void PlaySound(AudioClip clip, bool loop = false)
     {   
         if (clip == null) return;

@@ -10135,6 +10135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ValveErrorIndicator: {fileID: 773392023}
   FuelErrorIndicator: {fileID: 574644123}
+  HeatErrorIndicator: {fileID: 0}
 --- !u!1 &880392080
 GameObject:
   m_ObjectHideFlags: 0

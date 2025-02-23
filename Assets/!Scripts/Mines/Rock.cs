@@ -25,6 +25,8 @@ public class Rock : MonoBehaviour
 
     public bool doingDamage = false;
 
+    private bool isSoundPlayed = false;
+
     private void Start()
     {
         currentProgress = 0;
@@ -46,7 +48,11 @@ public class Rock : MonoBehaviour
 
         if (currentProgress >= maxProgress)
         {
-            // unsuccessfull
+            if (!isSoundPlayed)
+            {
+                AudioManager.Instance.RockFailedPlay();
+                isSoundPlayed = false;
+            }
             Destroy(gameObject);
         }
 
@@ -56,7 +62,11 @@ public class Rock : MonoBehaviour
 
             if (breakTimer > breakInterval)
             {
-                // unsuccessfull
+                if (!isSoundPlayed)
+                {
+                    AudioManager.Instance.RockFailedPlay();
+                    isSoundPlayed = false;
+                }
                 Destroy(gameObject);
             }
         }
@@ -71,7 +81,11 @@ public class Rock : MonoBehaviour
 
             if (successTimer > successInterval)
             {
-                // succesfull
+                if (!isSoundPlayed)
+                {
+                    AudioManager.Instance.RockSuccesfullPlay();
+                    isSoundPlayed = false;
+                }
                 MoneyManager.Instance.RockCollected();
                 Destroy(gameObject);
             }
