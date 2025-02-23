@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Rock : MonoBehaviour
@@ -26,6 +27,12 @@ public class Rock : MonoBehaviour
     public bool doingDamage = false;
 
     private bool isSoundPlayed = false;
+    private ParticleSystem particleSystem;
+
+    private void Awake() 
+    {
+        particleSystem = GetComponentInChildren<ParticleSystem>();  
+    }
 
     private void Start()
     {
@@ -51,9 +58,10 @@ public class Rock : MonoBehaviour
             if (!isSoundPlayed)
             {
                 AudioManager.Instance.RockFailedPlay();
-                isSoundPlayed = false;
+                particleSystem.Play();
+                isSoundPlayed = true;
             }
-            Destroy(gameObject);
+            StartCoroutine(DestroyLatency(0.9f, gameObject));
         }
 
         if (currentProgress >= breakThreshold)
@@ -65,9 +73,10 @@ public class Rock : MonoBehaviour
                 if (!isSoundPlayed)
                 {
                     AudioManager.Instance.RockFailedPlay();
-                    isSoundPlayed = false;
+                    particleSystem.Play();
+                    isSoundPlayed = true;
                 }
-                Destroy(gameObject);
+                StartCoroutine(DestroyLatency(0.9f, gameObject));
             }
         }
         else
@@ -84,10 +93,11 @@ public class Rock : MonoBehaviour
                 if (!isSoundPlayed)
                 {
                     AudioManager.Instance.RockSuccesfullPlay();
-                    isSoundPlayed = false;
+                    particleSystem.Play();
+                    isSoundPlayed = true;
                 }
                 MoneyManager.Instance.RockCollected();
-                Destroy(gameObject);
+                StartCoroutine(DestroyLatency(0.9f, gameObject));
             }
         }
         else 
@@ -133,5 +143,11 @@ public class Rock : MonoBehaviour
         }
 
         progressBar.color = Color.Lerp(progressBar.color, targetColor, Time.deltaTime * fillSpeed);
+    }
+
+    private IEnumerator DestroyLatency(float time, GameObject gameObject)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
     }
 }
