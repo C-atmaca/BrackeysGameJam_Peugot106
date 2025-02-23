@@ -122,6 +122,12 @@ public class LevelManager : Singleton<LevelManager>
         SetPause(true);
     }
 
+    public void LoadMainMenu()
+    {
+        SetPause(false);
+        SceneManager.LoadScene(0);
+    }
+
     public void TryAgain()
     {
         SetPause(false);
