@@ -60,8 +60,8 @@ MonoBehaviour:
   debtText: {fileID: 0}
   LevelLength:
   - 480
-  - 540
-  - 720
+  - 600
+  - 780
   timer: {fileID: 0}
   endOfLevelScreenMoveAmount: 2.1
   endOfLevelScreenMoveDuration: 0.3

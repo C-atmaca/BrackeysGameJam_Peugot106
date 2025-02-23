@@ -165,6 +165,8 @@ public class LevelManager : Singleton<LevelManager>
                 endOfGameScreenFree.SetActive(false);
                 endOfGameScreenDebt.SetActive(true);
             }
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
             Debug.Log("No more scenes to load.");
         }
     }
