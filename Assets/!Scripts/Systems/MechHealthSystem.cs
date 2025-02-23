@@ -41,6 +41,8 @@ public class MechHealthSystem : Singleton<MechHealthSystem>
     public void ModifyCurrentHealth(int value)
     {
         if (currentHealth <= 0) return;
+
+        AudioManager.Instance.MechDamageSoundPlay();
         currentHealth += value;
         SetHealthText();
     }

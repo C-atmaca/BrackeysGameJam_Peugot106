@@ -152,6 +152,20 @@ public class AudioManager : Singleton<AudioManager>
         StopSound(audioClips[12]);
     }
 
+    public void  MechDamageSoundPlay()
+    {
+        if(GameObject.Find("AudioSource_"+audioClips[13].name)) return;
+
+        PlaySound(audioClips[13]);
+        StartCoroutine(MechDamageSoundStop(1.2f));
+    }
+
+    private IEnumerator MechDamageSoundStop(float time)
+    {
+        yield return new WaitForSeconds(time);
+        StopSound(audioClips[13]);
+    }
+
     private void PlaySound(AudioClip clip, bool loop = false)
     {   
         if (clip == null) return;
