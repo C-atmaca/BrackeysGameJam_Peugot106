@@ -1453,6 +1453,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1032490423159677492, guid: e65ea7c610d6cf34086b3bd0e1307d62, type: 3}
   m_PrefabInstance: {fileID: 254122587}
   m_PrefabAsset: {fileID: 0}
+--- !u!33 &254122592 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: 4103564192314989932, guid: e65ea7c610d6cf34086b3bd0e1307d62, type: 3}
+  m_PrefabInstance: {fileID: 254122587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &258538287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10646,6 +10651,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789345308}
   m_CullTransparentMesh: 1
+--- !u!33 &789480148 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: 4103564192314989932, guid: e65ea7c610d6cf34086b3bd0e1307d62, type: 3}
+  m_PrefabInstance: {fileID: 299722941}
+  m_PrefabAsset: {fileID: 0}
 --- !u!65 &827774594
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12989,6 +12999,11 @@ PrefabInstance:
 --- !u!4 &1010319466 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1032490423159677492, guid: e65ea7c610d6cf34086b3bd0e1307d62, type: 3}
+  m_PrefabInstance: {fileID: 1010319465}
+  m_PrefabAsset: {fileID: 0}
+--- !u!33 &1010319470 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: 4103564192314989932, guid: e65ea7c610d6cf34086b3bd0e1307d62, type: 3}
   m_PrefabInstance: {fileID: 1010319465}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1024172183
@@ -16432,7 +16447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8295365685464831018, guid: 81d6acf3cb574194da6bc028f9821652, type: 3}
       propertyPath: rockMeshes.Array.size
-      value: 12
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8295365685464831018, guid: 81d6acf3cb574194da6bc028f9821652, type: 3}
       propertyPath: 'rockMeshes.Array.data[0]'
@@ -16441,45 +16456,73 @@ PrefabInstance:
     - target: {fileID: 8295365685464831018, guid: 81d6acf3cb574194da6bc028f9821652, type: 3}
       propertyPath: 'rockMeshes.Array.data[1]'
       value: 
-      objectReference: {fileID: 2061057839}
+      objectReference: {fileID: 2146178487}
     - target: {fileID: 8295365685464831018, guid: 81d6acf3cb574194da6bc028f9821652, type: 3}
       propertyPath: 'rockMeshes.Array.data[2]'
       value: 
-      objectReference: {fileID: 1225315264}
+      objectReference: {fileID: 1393455889}
     - target: {fileID: 8295365685464831018, guid: 81d6acf3cb574194da6bc028f9821652, type: 3}
       propertyPath: 'rockMeshes.Array.data[3]'
       value: 
-      objectReference: {fileID: 258538289}
+      objectReference: {fileID: 2061057839}
     - target: {fileID: 8295365685464831018, guid: 81d6acf3cb574194da6bc028f9821652, type: 3}
       propertyPath: 'rockMeshes.Array.data[4]'
       value: 
-      objectReference: {fileID: 1528920937}
+      objectReference: {fileID: 1225315264}
     - target: {fileID: 8295365685464831018, guid: 81d6acf3cb574194da6bc028f9821652, type: 3}
       propertyPath: 'rockMeshes.Array.data[5]'
       value: 
-      objectReference: {fileID: 1243561895}
+      objectReference: {fileID: 258538289}
     - target: {fileID: 8295365685464831018, guid: 81d6acf3cb574194da6bc028f9821652, type: 3}
       propertyPath: 'rockMeshes.Array.data[6]'
       value: 
-      objectReference: {fileID: 773654373}
+      objectReference: {fileID: 1010319470}
     - target: {fileID: 8295365685464831018, guid: 81d6acf3cb574194da6bc028f9821652, type: 3}
       propertyPath: 'rockMeshes.Array.data[7]'
       value: 
-      objectReference: {fileID: 313054892}
+      objectReference: {fileID: 1389751199}
     - target: {fileID: 8295365685464831018, guid: 81d6acf3cb574194da6bc028f9821652, type: 3}
       propertyPath: 'rockMeshes.Array.data[8]'
       value: 
-      objectReference: {fileID: 1450765045}
+      objectReference: {fileID: 1904300216}
     - target: {fileID: 8295365685464831018, guid: 81d6acf3cb574194da6bc028f9821652, type: 3}
       propertyPath: 'rockMeshes.Array.data[9]'
       value: 
-      objectReference: {fileID: 96222032}
+      objectReference: {fileID: 1528920937}
     - target: {fileID: 8295365685464831018, guid: 81d6acf3cb574194da6bc028f9821652, type: 3}
       propertyPath: 'rockMeshes.Array.data[10]'
       value: 
-      objectReference: {fileID: 1666968136}
+      objectReference: {fileID: 789480148}
     - target: {fileID: 8295365685464831018, guid: 81d6acf3cb574194da6bc028f9821652, type: 3}
       propertyPath: 'rockMeshes.Array.data[11]'
+      value: 
+      objectReference: {fileID: 254122592}
+    - target: {fileID: 8295365685464831018, guid: 81d6acf3cb574194da6bc028f9821652, type: 3}
+      propertyPath: 'rockMeshes.Array.data[12]'
+      value: 
+      objectReference: {fileID: 1243561895}
+    - target: {fileID: 8295365685464831018, guid: 81d6acf3cb574194da6bc028f9821652, type: 3}
+      propertyPath: 'rockMeshes.Array.data[13]'
+      value: 
+      objectReference: {fileID: 773654373}
+    - target: {fileID: 8295365685464831018, guid: 81d6acf3cb574194da6bc028f9821652, type: 3}
+      propertyPath: 'rockMeshes.Array.data[14]'
+      value: 
+      objectReference: {fileID: 313054892}
+    - target: {fileID: 8295365685464831018, guid: 81d6acf3cb574194da6bc028f9821652, type: 3}
+      propertyPath: 'rockMeshes.Array.data[15]'
+      value: 
+      objectReference: {fileID: 1450765045}
+    - target: {fileID: 8295365685464831018, guid: 81d6acf3cb574194da6bc028f9821652, type: 3}
+      propertyPath: 'rockMeshes.Array.data[16]'
+      value: 
+      objectReference: {fileID: 96222032}
+    - target: {fileID: 8295365685464831018, guid: 81d6acf3cb574194da6bc028f9821652, type: 3}
+      propertyPath: 'rockMeshes.Array.data[17]'
+      value: 
+      objectReference: {fileID: 1666968136}
+    - target: {fileID: 8295365685464831018, guid: 81d6acf3cb574194da6bc028f9821652, type: 3}
+      propertyPath: 'rockMeshes.Array.data[18]'
       value: 
       objectReference: {fileID: 1283527334}
     m_RemovedComponents: []
@@ -16806,6 +16849,16 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1032490423159677492, guid: e65ea7c610d6cf34086b3bd0e1307d62, type: 3}
   m_PrefabInstance: {fileID: 1389751194}
+  m_PrefabAsset: {fileID: 0}
+--- !u!33 &1389751199 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: 4103564192314989932, guid: e65ea7c610d6cf34086b3bd0e1307d62, type: 3}
+  m_PrefabInstance: {fileID: 1389751194}
+  m_PrefabAsset: {fileID: 0}
+--- !u!33 &1393455889 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: 4103564192314989932, guid: e65ea7c610d6cf34086b3bd0e1307d62, type: 3}
+  m_PrefabInstance: {fileID: 347158060}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1422238658
 GameObject:
@@ -20755,6 +20808,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1032490423159677492, guid: e65ea7c610d6cf34086b3bd0e1307d62, type: 3}
   m_PrefabInstance: {fileID: 1904300211}
   m_PrefabAsset: {fileID: 0}
+--- !u!33 &1904300216 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: 4103564192314989932, guid: e65ea7c610d6cf34086b3bd0e1307d62, type: 3}
+  m_PrefabInstance: {fileID: 1904300211}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1923134190
 GameObject:
   m_ObjectHideFlags: 0
@@ -22824,6 +22882,11 @@ PrefabInstance:
 --- !u!4 &2146178483 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1032490423159677492, guid: e65ea7c610d6cf34086b3bd0e1307d62, type: 3}
+  m_PrefabInstance: {fileID: 2146178482}
+  m_PrefabAsset: {fileID: 0}
+--- !u!33 &2146178487 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: 4103564192314989932, guid: e65ea7c610d6cf34086b3bd0e1307d62, type: 3}
   m_PrefabInstance: {fileID: 2146178482}
   m_PrefabAsset: {fileID: 0}
 --- !u!33 &97933367267180130
