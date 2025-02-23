@@ -97,7 +97,10 @@ public class LevelManager : Singleton<LevelManager>
     public void EndLevel()
     {
         costOfDamages = MoneyManager.Instance.CalculateCostOfDamages();
-        costOfDay = requiredAmountOfMoneyPerLevel[currentLevel];
+        if (requiredAmountOfMoneyPerLevel != null && currentLevel >= 0 && currentLevel < requiredAmountOfMoneyPerLevel.Count)
+        {
+            costOfDay = requiredAmountOfMoneyPerLevel[currentLevel];
+        }
         totalCost = costOfDamages + costOfDay;
         rocksCollected = MoneyManager.Instance.GetRocksCollected();
         moneyEarned = MoneyManager.Instance.CalculateMoneyEarned();
