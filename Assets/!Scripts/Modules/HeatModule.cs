@@ -29,11 +29,6 @@ public class HeatModule : ConstantlyIncreasingSystem
 
         if (currentValue > 0)
         {
-            if (!isSoundPlayed)
-            {
-                AudioManager.Instance.BreathingPlay();
-                isSoundPlayed = true;
-            }
             base.Update();
         }
         else
@@ -46,7 +41,6 @@ public class HeatModule : ConstantlyIncreasingSystem
         }
         if (currentValue == 0)
         {
-            AudioManager.Instance.BreathingStop();
             isSoundPlayed = false;
         }
     }
@@ -67,10 +61,17 @@ public class HeatModule : ConstantlyIncreasingSystem
         {
             twitchAmount = Mathf.Sin(Time.time * 70f) * Random.Range(-2f, 2f);
             GeneralIndicatorSystem.Instance.ToggleHeatErrorIndicator(true);
+
+            if (!isSoundPlayed)
+            {
+                AudioManager.Instance.BreathingPlay();
+                isSoundPlayed = true;
+            }
         }
         else
         {
             GeneralIndicatorSystem.Instance.ToggleHeatErrorIndicator(false);
+            AudioManager.Instance.BreathingStop();
         }
 
         float rotation = Mathf.Lerp(startRotation, endRotation, currentValue) + twitchAmount;
