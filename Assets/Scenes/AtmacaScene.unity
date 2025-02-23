@@ -11597,6 +11597,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1354294404}
     m_Modifications:
+    - target: {fileID: 918988980475904539, guid: 3df34d980a93c944c95d34fd1781749e, type: 3}
+      propertyPath: audioClips.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 918988980475904539, guid: 3df34d980a93c944c95d34fd1781749e, type: 3}
+      propertyPath: 'audioClips.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 8a4ed27856cebf740b53a5adf57529ce, type: 3}
+    - target: {fileID: 918988980475904539, guid: 3df34d980a93c944c95d34fd1781749e, type: 3}
+      propertyPath: 'audioClips.Array.data[6]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 2eaaac38d10bc474b91c2a1291214c3f, type: 3}
     - target: {fileID: 6028250332799819382, guid: 3df34d980a93c944c95d34fd1781749e, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -12673,6 +12685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: f582af232217bde46b04e8b2529ee813, type: 2}
   lightBulb: {fileID: 788507120}
+  isSoundPlayed: 0
 --- !u!114 &2802370126083570061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12687,6 +12700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: f582af232217bde46b04e8b2529ee813, type: 2}
   lightBulb: {fileID: 277296288}
+  isSoundPlayed: 0
 --- !u!4 &2994234216069123698 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2994234215346943443, guid: 7e08565165c853241b841ac88cf40c56, type: 3}
@@ -12976,6 +12990,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: f582af232217bde46b04e8b2529ee813, type: 2}
   lightBulb: {fileID: 170711649}
+  isSoundPlayed: 0
 --- !u!4 &7372001894358474518 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7372001895347627191, guid: 7e08565165c853241b841ac88cf40c56, type: 3}
