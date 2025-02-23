@@ -54,6 +54,11 @@ public class HeatModule : ConstantlyIncreasingSystem
         if (currentValue > data.DamageThresholdMin)
         {
             twitchAmount = Mathf.Sin(Time.time * 70f) * Random.Range(-2f, 2f);
+            GeneralIndicatorSystem.Instance.ToggleHeatErrorIndicator(true);
+        }
+        else
+        {
+            GeneralIndicatorSystem.Instance.ToggleHeatErrorIndicator(false);
         }
 
         float rotation = Mathf.Lerp(startRotation, endRotation, currentValue) + twitchAmount;
