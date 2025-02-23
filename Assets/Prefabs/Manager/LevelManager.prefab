@@ -58,7 +58,7 @@ MonoBehaviour:
   LevelLength:
   - 480
   - 480
-  - 540
+  - 720
   timer: {fileID: 0}
   endOfLevelScreenMoveAmount: 2.1
   endOfLevelScreenMoveDuration: 0.3
