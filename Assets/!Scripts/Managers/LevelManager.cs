@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class LevelManager : Singleton<LevelManager>
 {
     [SerializeField] private List<int> requiredAmountOfMoneyPerLevel;
     [SerializeField] private Transform endOfLevelScreen;
+    [SerializeField] private GameObject levelEndButtons;
     [SerializeField] private GameObject endOfGameScreen;
     [SerializeField] private GameObject endOfGameScreenDebt;
     [SerializeField] private GameObject endOfGameScreenFree;
@@ -48,6 +50,7 @@ public class LevelManager : Singleton<LevelManager>
     {
         startPosition = endOfLevelScreen.position;
         endPosition = startPosition - new Vector3(0f, endOfLevelScreenMoveAmount, 0f);
+        levelEndButtons.SetActive(false);
 
         StartLevel();
     }
@@ -123,8 +126,15 @@ public class LevelManager : Singleton<LevelManager>
         AudioManager.Instance.DestroyAllAudio();
 
         endOfLevelScreen.DOMoveY(endPosition.y, endOfLevelScreenMoveDuration).SetEase(Ease.InSine);
+        StartCoroutine(ShowButtonsAfterDelay());
         levelEnded = false;
         SetPause(true);
+    }
+
+    private IEnumerator ShowButtonsAfterDelay()
+    {
+        yield return new WaitForSeconds(2);
+        levelEndButtons.SetActive(true);
     }
 
     public void LoadMainMenu()
