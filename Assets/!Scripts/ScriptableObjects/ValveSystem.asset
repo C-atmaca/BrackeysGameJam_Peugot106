@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ValveSystem
   m_EditorClassIdentifier: 
   IncreaseRateMinInclusive: 0.01
-  IncreaseRateMaxExclusive: 0.04
+  IncreaseRateMaxExclusive: 0.035
   DecreaseRate: 25
   DamageStartDelay: 5
   DamagePerInterval: 1

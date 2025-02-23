@@ -39,10 +39,8 @@ public class MiningModule : MechSystem
         if (Physics.SphereCast(rayOrigin, .25f, rayDirection, out RaycastHit hitt, rayDistance, stopObjectMask))
         {
             var collider = hitt.collider;
-            Debug.Log(collider.tag);
             if (collider.CompareTag("StrongMineSpot") || collider.CompareTag("WeakMineSpot") || collider.CompareTag("Rock"))
             {
-                Debug.Log("here");
                 lightBulb.material.EnableKeyword("_EMISSION");
             }
             else
@@ -119,6 +117,14 @@ public class MiningModule : MechSystem
                     laserBeamGameObject.LookAt(endPoint);
                 }
             }
+            else
+            {
+                Debug.Log("rock is null");
+            }
+        }
+        else 
+        {
+            Debug.Log("no hit on raycast");
         }
     }
 
@@ -131,7 +137,7 @@ public class MiningModule : MechSystem
     //{
     //    Vector3 origin = mainCamTransform.position;
     //    Vector3 direction = mainCamTransform.forward;
-    //    float radius = .10f;
+    //    float radius = .05f;
     //    float maxDistance = rayDistance;
 
     //    int segments = 50;

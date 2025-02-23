@@ -94,9 +94,10 @@ public class Rock : MonoBehaviour
                 {
                     AudioManager.Instance.RockSuccesfullPlay();
                     particleSystem.Play();
+                    MoneyManager.Instance.RockCollected();
                     isSoundPlayed = true;
                 }
-                MoneyManager.Instance.RockCollected();
+
                 StartCoroutine(DestroyLatency(0.9f, gameObject));
             }
         }
