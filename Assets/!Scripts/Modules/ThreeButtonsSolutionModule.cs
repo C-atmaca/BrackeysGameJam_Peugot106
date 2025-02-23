@@ -45,6 +45,8 @@ public class ThreeButtonsSolutionModule : SolutionSystem
     public override void StopExecuteSolution()
     {
         system.SetExecuteSolution(false);
+        AudioManager.Instance.isLightPlayed = false;
         AudioManager.Instance.ButtonVoiceStop();
+        AudioManager.Instance.LightBulbSoundStop();
     }
 }
