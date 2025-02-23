@@ -46,6 +46,7 @@ public class Rock : MonoBehaviour
 
         if (currentProgress >= maxProgress)
         {
+            // unsuccessfull
             Destroy(gameObject);
         }
 
@@ -55,6 +56,7 @@ public class Rock : MonoBehaviour
 
             if (breakTimer > breakInterval)
             {
+                // unsuccessfull
                 Destroy(gameObject);
             }
         }
@@ -69,6 +71,7 @@ public class Rock : MonoBehaviour
 
             if (successTimer > successInterval)
             {
+                // succesfull
                 MoneyManager.Instance.RockCollected();
                 Destroy(gameObject);
             }
