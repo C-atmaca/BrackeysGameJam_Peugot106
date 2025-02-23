@@ -40,4 +40,12 @@ public class MainMenuManager : Singleton<MainMenuManager>
         PlayerPrefs.Save();
         Application.Quit();
     }
+
+    private void OnApplicationQuit()
+    {
+        if (!Application.isEditor)
+        {
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+        }
+    }
 }

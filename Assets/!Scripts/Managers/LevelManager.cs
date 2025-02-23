@@ -197,5 +197,10 @@ public class LevelManager : Singleton<LevelManager>
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
+
+        if (!Application.isEditor)
+        {
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+        }
     }
 }
