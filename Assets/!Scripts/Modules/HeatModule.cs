@@ -17,6 +17,8 @@ public class HeatModule : ConstantlyIncreasingSystem
     [SerializeField] private Transform heatNeedleTransform2;
     [SerializeField] private Transform heatNeedleTransform3;
 
+    private bool isSoundPlayed = false;
+
     protected override void Update()
     {
         if (executeSolution)
@@ -27,6 +29,11 @@ public class HeatModule : ConstantlyIncreasingSystem
 
         if (currentValue > 0)
         {
+            if (!isSoundPlayed)
+            {
+                AudioManager.Instance.BreathingPlay();
+                isSoundPlayed = true;
+            }
             base.Update();
         }
         else
@@ -36,6 +43,11 @@ public class HeatModule : ConstantlyIncreasingSystem
 
             StartCoroutine(Countdown());
             countdownHasStarted = true;
+        }
+        if (currentValue == 0)
+        {
+            AudioManager.Instance.BreathingStop();
+            isSoundPlayed = false;
         }
     }
 

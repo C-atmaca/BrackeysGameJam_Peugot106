@@ -130,6 +130,16 @@ public class AudioManager : Singleton<AudioManager>
         StopSound(audioClips[10]);
     }
 
+    public void BreathingPlay()
+    {
+        PlaySound(audioClips[11], loop: true);
+    }
+
+    public void BreathingStop()
+    {
+        StopSound(audioClips[11], 0.5f);
+    }
+
     private void PlaySound(AudioClip clip, bool loop = false)
     {   
         if (clip == null) return;

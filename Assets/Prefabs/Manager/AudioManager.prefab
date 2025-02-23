@@ -57,6 +57,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 26f63bf1465092745bde84aa479d502f, type: 3}
   - {fileID: 8300000, guid: b17644f72fc7820418b35e74d3066f29, type: 3}
   - {fileID: 8300000, guid: 57c0ff70152270343ab694d28ae0ea1a, type: 3}
+  - {fileID: 8300000, guid: a5ddaa18c5434cd46afe9e39378d28e3, type: 3}
   isLightPlayed: 0
 --- !u!82 &457661643462571529
 AudioSource:
