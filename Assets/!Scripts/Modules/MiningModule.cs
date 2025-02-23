@@ -39,7 +39,6 @@ public class MiningModule : MechSystem
         if (Physics.SphereCast(rayOrigin, .25f, rayDirection, out RaycastHit hitt, rayDistance, stopObjectMask))
         {
             var collider = hitt.collider;
-            Debug.Log(collider.tag);
             if (collider.CompareTag("StrongMineSpot") || collider.CompareTag("WeakMineSpot") || collider.CompareTag("Rock"))
             {
                 lightBulb.material.EnableKeyword("_EMISSION");
@@ -89,7 +88,6 @@ public class MiningModule : MechSystem
             {
                 if (collider.CompareTag("StrongMineSpot"))
                 {
-                    Debug.Log("do strong damage");
                     rock.DoDamage(damage * maxDamageMultiplier);
                     rock.threeUpArrow.SetActive(true);
                     rock.oneUpArrow.SetActive(false);
@@ -100,7 +98,6 @@ public class MiningModule : MechSystem
                 }
                 else if (collider.CompareTag("WeakMineSpot"))
                 {
-                    Debug.Log("do weak damage");
                     rock.DoDamage(damage * minDamageMultiplier);
                     rock.threeUpArrow.SetActive(false);
                     rock.oneUpArrow.SetActive(false);
@@ -111,7 +108,6 @@ public class MiningModule : MechSystem
                 }
                 else
                 {
-                    Debug.Log("do damage");
                     rock.DoDamage(damage);
                     rock.threeUpArrow.SetActive(false);
                     rock.oneUpArrow.SetActive(true);
