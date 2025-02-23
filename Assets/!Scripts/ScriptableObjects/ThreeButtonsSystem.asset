@@ -16,4 +16,4 @@ MonoBehaviour:
   TriggerTimeMaxExclusive: 70
   DamageStartDelay: 4
   DamagePerInterval: 1
-  DamageInterval: 5
+  DamageInterval: 4.5
