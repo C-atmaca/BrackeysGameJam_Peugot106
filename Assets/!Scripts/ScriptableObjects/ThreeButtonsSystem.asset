@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc529b085b4d2046bfa6e2ef332ae19, type: 3}
   m_Name: ThreeButtonsSystem
   m_EditorClassIdentifier: 
-  TriggerTimeMinInclusive: 10
-  TriggerTimeMaxExclusive: 12
+  TriggerTimeMinInclusive: 30
+  TriggerTimeMaxExclusive: 60
   DamageStartDelay: 3
   DamagePerInterval: 1
   DamageInterval: 3
