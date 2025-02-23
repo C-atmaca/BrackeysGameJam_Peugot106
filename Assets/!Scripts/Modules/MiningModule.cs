@@ -72,6 +72,15 @@ public class MiningModule : MechSystem
                 }
                 endPoint = hit.point;
                 laserBeamGameObject.LookAt(endPoint);
+                lightBulb.material.EnableKeyword("_EMISSION");
+            }
+            if (collider.CompareTag("StrongMineSpot") || collider.CompareTag("WeakMineSpot") || collider.CompareTag("Rock"))
+            {
+                lightBulb.material.EnableKeyword("_EMISSION");
+            }
+            else
+            {
+                lightBulb.material.DisableKeyword("_EMISSION");
             }
 
             if (rock != null)
