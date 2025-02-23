@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6028250332799819382}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.2933803, y: 1.5505966, z: -11.957864}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -47,11 +47,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: c703e5e8e0b4d5045be594666d03155f, type: 3}
-  - {fileID: 8300000, guid: 4d91e8eb215ea644a92c23ee9d571231, type: 3}
+  - {fileID: 8300000, guid: 8a4ed27856cebf740b53a5adf57529ce, type: 3}
   - {fileID: 8300000, guid: 8b19485763e02b741a68359e6a7103c7, type: 3}
   - {fileID: 8300000, guid: 499a026aa03baac44b3bf92921007895, type: 3}
   - {fileID: 8300000, guid: 344135ee39478804285418c9b972f406, type: 3}
   - {fileID: 8300000, guid: 0f33fcc78c436b147be1b365f8204e05, type: 3}
+  - {fileID: 8300000, guid: 2eaaac38d10bc474b91c2a1291214c3f, type: 3}
+  isLightPlayed: 0
 --- !u!82 &457661643462571529
 AudioSource:
   m_ObjectHideFlags: 0

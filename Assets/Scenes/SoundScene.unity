@@ -1276,6 +1276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   system: {fileID: 123985403}
+  handType: 0
   activateWithObject: 0
   grabObject: {fileID: 0}
   handPlacementTarget: {fileID: 123985397}
@@ -4264,6 +4265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   system: {fileID: 1152057457}
+  handType: 0
   activateWithObject: 0
   grabObject: {fileID: 0}
   handPlacementTarget: {fileID: 307327230}
@@ -4422,6 +4424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   system: {fileID: 7248842686342639037}
+  handType: 0
   activateWithObject: 0
   grabObject: {fileID: 0}
   handPlacementTarget: {fileID: 686905560}
@@ -5138,6 +5141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   system: {fileID: 2802370125176987685}
+  handType: 0
   activateWithObject: 0
   grabObject: {fileID: 0}
   handPlacementTarget: {fileID: 175890477}
@@ -5554,6 +5558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   system: {fileID: 1152057458}
+  handType: 0
   activateWithObject: 0
   grabObject: {fileID: 0}
   handPlacementTarget: {fileID: 1263848494}
@@ -6285,6 +6290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   system: {fileID: 2140763250}
+  handType: 0
   activateWithObject: 0
   grabObject: {fileID: 0}
   handPlacementTarget: {fileID: 1778902390}
@@ -6871,6 +6877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   system: {fileID: 2802370126083570061}
+  handType: 0
   activateWithObject: 0
   grabObject: {fileID: 0}
   handPlacementTarget: {fileID: 1049281609}
@@ -8285,6 +8292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   system: {fileID: 1360348253}
+  handType: 0
   activateWithObject: 0
   grabObject: {fileID: 0}
   handPlacementTarget: {fileID: 476108268}
@@ -13665,6 +13673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   system: {fileID: 1152057457}
+  handType: 0
   activateWithObject: 0
   grabObject: {fileID: 0}
   handPlacementTarget: {fileID: 1327232507}
@@ -17404,6 +17413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: f582af232217bde46b04e8b2529ee813, type: 2}
   lightBulb: {fileID: 788507120}
+  isSoundPlayed: 0
 --- !u!114 &2802370126083570061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17418,6 +17428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: f582af232217bde46b04e8b2529ee813, type: 2}
   lightBulb: {fileID: 277296288}
+  isSoundPlayed: 0
 --- !u!4 &2994234216069123698 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2994234215346943443, guid: 7e08565165c853241b841ac88cf40c56, type: 3}
@@ -17707,6 +17718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: f582af232217bde46b04e8b2529ee813, type: 2}
   lightBulb: {fileID: 170711649}
+  isSoundPlayed: 0
 --- !u!4 &7372001894358474518 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7372001895347627191, guid: 7e08565165c853241b841ac88cf40c56, type: 3}
