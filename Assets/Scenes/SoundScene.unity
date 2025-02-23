@@ -6290,7 +6290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   system: {fileID: 2140763250}
-  handType: 0
+  handType: 1
   activateWithObject: 0
   grabObject: {fileID: 0}
   handPlacementTarget: {fileID: 1778902390}
@@ -16244,6 +16244,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1354294404}
     m_Modifications:
+    - target: {fileID: 918988980475904539, guid: 3df34d980a93c944c95d34fd1781749e, type: 3}
+      propertyPath: audioClips.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 918988980475904539, guid: 3df34d980a93c944c95d34fd1781749e, type: 3}
+      propertyPath: 'audioClips.Array.data[7]'
+      value: 
+      objectReference: {fileID: 8300000, guid: b23151f6a2e97294887cd511a85051c3, type: 3}
     - target: {fileID: 6028250332799819382, guid: 3df34d980a93c944c95d34fd1781749e, type: 3}
       propertyPath: m_Name
       value: AudioManager

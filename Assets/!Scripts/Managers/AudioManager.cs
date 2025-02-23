@@ -35,7 +35,7 @@ public class AudioManager : Singleton<AudioManager>
     {
         StopSound(audioClips[1]);
     }
-    
+
     public void ValveRotationPlay()
     {
         PlaySound(audioClips[2], loop: true);
@@ -86,6 +86,15 @@ public class AudioManager : Singleton<AudioManager>
         StopSound(audioClips[6]);
     }
 
+    public void HearthBeatPlay()
+    {
+        PlaySound(audioClips[7]);
+    }
+
+    public void HearthBeatStop()
+    {
+        StopSound(audioClips[7], 0.5f);
+    }
 
     private void PlaySound(AudioClip clip, bool loop = false)
     {   
