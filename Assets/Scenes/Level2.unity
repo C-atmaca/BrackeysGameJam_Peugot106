@@ -23850,6 +23850,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1751023159}
     - target: {fileID: 7806725987371850111, guid: ccfdb63cf4831404581ac53aabe22bf4, type: 3}
+      propertyPath: levelEndButtons
+      value: 
+      objectReference: {fileID: 838095949}
+    - target: {fileID: 7806725987371850111, guid: ccfdb63cf4831404581ac53aabe22bf4, type: 3}
       propertyPath: endOfLevelScreen
       value: 
       objectReference: {fileID: 849338360}

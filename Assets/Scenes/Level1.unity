@@ -11433,13 +11433,35 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 62d99bbfdd1cc2d4ca0298000354ea4f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2059125139}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 62d99bbfdd1cc2d4ca0298000354ea4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 849338362}
   m_SourcePrefab: {fileID: 100100000, guid: 62d99bbfdd1cc2d4ca0298000354ea4f, type: 3}
 --- !u!4 &849338360 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 62d99bbfdd1cc2d4ca0298000354ea4f, type: 3}
   m_PrefabInstance: {fileID: 849338359}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &849338361 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 62d99bbfdd1cc2d4ca0298000354ea4f, type: 3}
+  m_PrefabInstance: {fileID: 849338359}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &849338362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849338361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 495d0177b10faf84891799d3340d9ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons: {fileID: 838095949}
+  delay: 2
 --- !u!1 &855469294
 GameObject:
   m_ObjectHideFlags: 0
@@ -22402,6 +22424,10 @@ PrefabInstance:
       propertyPath: cantPayButton
       value: 
       objectReference: {fileID: 1221219536}
+    - target: {fileID: 7806725987371850111, guid: ccfdb63cf4831404581ac53aabe22bf4, type: 3}
+      propertyPath: levelEndButtons
+      value: 
+      objectReference: {fileID: 838095949}
     - target: {fileID: 7806725987371850111, guid: ccfdb63cf4831404581ac53aabe22bf4, type: 3}
       propertyPath: endOfLevelScreen
       value: 
