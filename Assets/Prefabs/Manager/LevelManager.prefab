@@ -59,7 +59,7 @@ MonoBehaviour:
   cantPayButton: {fileID: 0}
   debtText: {fileID: 0}
   LevelLength:
-  - 480
+  - 420
   - 600
   - 780
   timer: {fileID: 0}
