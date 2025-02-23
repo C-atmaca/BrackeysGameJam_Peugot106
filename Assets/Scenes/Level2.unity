@@ -23017,10 +23017,6 @@ PrefabInstance:
       propertyPath: previousDayIncomeMoneyText
       value: 
       objectReference: {fileID: 1199523351}
-    - target: {fileID: 7806725987371850111, guid: ccfdb63cf4831404581ac53aabe22bf4, type: 3}
-      propertyPath: 'requiredAmountOfMoneyPerLevel.Array.data[2]'
-      value: 500
-      objectReference: {fileID: 0}
     - target: {fileID: 8661264751608573021, guid: ccfdb63cf4831404581ac53aabe22bf4, type: 3}
       propertyPath: m_Name
       value: LevelManager
