@@ -15,7 +15,7 @@ MonoBehaviour:
   IncreaseRateMinInclusive: 0.1
   IncreaseRateMaxExclusive: 0.35
   DecreaseRate: 0.15
-  DamageStartDelay: 3
+  DamageStartDelay: 4
   DamagePerInterval: 1
   DamageInterval: 2
   DamageThresholdMin: 0.85

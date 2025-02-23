@@ -117,6 +117,8 @@ public class LevelManager : Singleton<LevelManager>
             debtText.SetActive(false);
         }
 
+        AudioManager.Instance.DestroyAllAudio();
+
         endOfLevelScreen.DOMoveY(endPosition.y, endOfLevelScreenMoveDuration).SetEase(Ease.InSine);
         levelEnded = false;
         SetPause(true);
@@ -151,6 +153,11 @@ public class LevelManager : Singleton<LevelManager>
         {
             Debug.Log("No more scenes to load.");
         }
+    }
+
+    public void LevelEndDoor()
+    {
+        levelTimer = -0;
     }
 
     public void SetPause(bool isPause)

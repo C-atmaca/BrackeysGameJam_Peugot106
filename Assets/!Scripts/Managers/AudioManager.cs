@@ -196,5 +196,16 @@ public class AudioManager : Singleton<AudioManager>
         Destroy(source.gameObject);
     }
 
+    public void DestroyAllAudio()
+    {
+        foreach (var source in activeSources.Values)
+        {
+            if (source != null)
+            {
+                GameObject.Destroy(source.gameObject);
+            }
+        }
 
+        activeSources.Clear();
+    }
 }
