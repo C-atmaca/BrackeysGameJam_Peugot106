@@ -4,13 +4,13 @@ public class MiningSolutionModule : SolutionSystem
 {
     public override void StartExecuteSolution()
     {
-        AudioManager.Instance.MiningLaserPlay();
         system.SetExecuteSolution(true);
     }
 
     public override void StopExecuteSolution()
     {
         AudioManager.Instance.MiningLaserStop();
+        ((MiningModule)system).isSongPlayed = false;
         system.SetExecuteSolution(false);
     }
 }

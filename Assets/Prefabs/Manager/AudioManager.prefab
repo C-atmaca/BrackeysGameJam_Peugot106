@@ -53,7 +53,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 344135ee39478804285418c9b972f406, type: 3}
   - {fileID: 8300000, guid: 0f33fcc78c436b147be1b365f8204e05, type: 3}
   - {fileID: 8300000, guid: 2eaaac38d10bc474b91c2a1291214c3f, type: 3}
-  - {fileID: 8300000, guid: b23151f6a2e97294887cd511a85051c3, type: 3}
+  - {fileID: 8300000, guid: 85f8e67431b42d440804aca1ea0739b9, type: 3}
   - {fileID: 8300000, guid: 26f63bf1465092745bde84aa479d502f, type: 3}
   isLightPlayed: 0
 --- !u!82 &457661643462571529

@@ -103,7 +103,7 @@ public class AudioManager : Singleton<AudioManager>
 
     public void MiningLaserStop()
     {
-        StopSound(audioClips[8], 0.5f);
+        StopSound(audioClips[8]);
     }
 
     private void PlaySound(AudioClip clip, bool loop = false)
