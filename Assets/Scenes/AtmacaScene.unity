@@ -11599,7 +11599,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 918988980475904539, guid: 3df34d980a93c944c95d34fd1781749e, type: 3}
       propertyPath: audioClips.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 918988980475904539, guid: 3df34d980a93c944c95d34fd1781749e, type: 3}
       propertyPath: 'audioClips.Array.data[1]'
@@ -11609,6 +11609,10 @@ PrefabInstance:
       propertyPath: 'audioClips.Array.data[6]'
       value: 
       objectReference: {fileID: 8300000, guid: 2eaaac38d10bc474b91c2a1291214c3f, type: 3}
+    - target: {fileID: 918988980475904539, guid: 3df34d980a93c944c95d34fd1781749e, type: 3}
+      propertyPath: 'audioClips.Array.data[7]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 8b19485763e02b741a68359e6a7103c7, type: 3}
     - target: {fileID: 6028250332799819382, guid: 3df34d980a93c944c95d34fd1781749e, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -12570,9 +12574,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1470982094}
     - target: {fileID: 7806725987371850111, guid: ccfdb63cf4831404581ac53aabe22bf4, type: 3}
+      propertyPath: 'LevelLength.Array.data[0]'
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 7806725987371850111, guid: ccfdb63cf4831404581ac53aabe22bf4, type: 3}
+      propertyPath: 'LevelLength.Array.data[1]'
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 7806725987371850111, guid: ccfdb63cf4831404581ac53aabe22bf4, type: 3}
+      propertyPath: 'LevelLength.Array.data[2]'
+      value: 480
+      objectReference: {fileID: 0}
+    - target: {fileID: 7806725987371850111, guid: ccfdb63cf4831404581ac53aabe22bf4, type: 3}
       propertyPath: previousDayIncomeMoneyText
       value: 
       objectReference: {fileID: 1199523351}
+    - target: {fileID: 7806725987371850111, guid: ccfdb63cf4831404581ac53aabe22bf4, type: 3}
+      propertyPath: 'requiredAmountOfMoneyPerLevel.Array.data[0]'
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7806725987371850111, guid: ccfdb63cf4831404581ac53aabe22bf4, type: 3}
+      propertyPath: 'requiredAmountOfMoneyPerLevel.Array.data[1]'
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7806725987371850111, guid: ccfdb63cf4831404581ac53aabe22bf4, type: 3}
+      propertyPath: 'requiredAmountOfMoneyPerLevel.Array.data[2]'
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 8661264751608573021, guid: ccfdb63cf4831404581ac53aabe22bf4, type: 3}
       propertyPath: m_Name
       value: LevelManager
