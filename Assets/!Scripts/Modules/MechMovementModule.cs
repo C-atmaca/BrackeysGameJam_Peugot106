@@ -10,6 +10,7 @@ public class MechMovementModule : MechSystem
     [SerializeField] private float currentMoveSpeed;
 
     [SerializeField] private Transform mechBody;
+    [SerializeField] private Transform raycastOrigin;
 
     [SerializeField] private float rotationAmount = 3f;
     [SerializeField] private float rotationSpeed = 2f;
@@ -19,6 +20,7 @@ public class MechMovementModule : MechSystem
     private bool handbrakeOnOff = false;
 
     private bool isMechMoving = false;
+    [SerializeField] private LayerMask stopMask;
 
     private void Update()
     {
@@ -28,8 +30,8 @@ public class MechMovementModule : MechSystem
         {
             currentMoveSpeedLevel = 0;
             targetMoveSpeed = data.MaxSpeedForMoveSpeedLevels[currentMoveSpeedLevel];
-            
-            if (isMechMoving) 
+
+            if (isMechMoving)
             {
                 AudioManager.Instance.MechStepSoundStop();
                 isMechMoving = false;
@@ -50,15 +52,22 @@ public class MechMovementModule : MechSystem
 
         if (currentMoveSpeed > 0)
         {
-            if (!isMechMoving) 
+            if (!isMechMoving)
             {
                 AudioManager.Instance.MechStepSoundPlay();
                 isMechMoving = true;
             }
-            transform.Translate(currentMoveSpeed * Time.deltaTime * Vector3.forward);
+
+            float moveDistance = currentMoveSpeed * Time.deltaTime;
+            Vector3 moveDirection = transform.forward * moveDistance;
+
+            Debug.DrawRay(raycastOrigin.position, raycastOrigin.forward * (moveDistance + 0.2f), Color.green);
+            if (!Physics.SphereCast(raycastOrigin.position, 1f, raycastOrigin.forward, out _, moveDistance + 0.2f, stopMask))
+            {
+                transform.Translate(moveDirection, Space.World);
+            }
 
             float rotationValue = Mathf.PingPong(Time.time * rotationSpeed, rotationAmount * 2) - rotationAmount;
-
             float verticalSway = Mathf.Lerp(-verticalSwayAmount, verticalSwayAmount, Mathf.Abs(rotationValue) / rotationAmount);
 
             Vector3 currentRotation = mechBody.localRotation.eulerAngles;
@@ -73,6 +82,7 @@ public class MechMovementModule : MechSystem
             isMechMoving = false;
         }
     }
+
 
     public void IncreaseMovementLevel()
     {

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f4d36bae07057149977b6dc19d5ac03, type: 3}
   m_Name: MechMovementSystem
   m_EditorClassIdentifier: 
-  MaxSpeedForMoveSpeedLevels: 00000000010000000300000005000000
+  MaxSpeedForMoveSpeedLevels: 00000000010000000200000003000000
   Acceleration: 2
   Deceleration: 3
