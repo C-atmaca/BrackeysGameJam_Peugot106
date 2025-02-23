@@ -9,21 +9,6 @@ public class RaycastFromCamera : MonoBehaviour
 
     private Outline lastOutlinedObject = null;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (Time.timeScale == 0)
-            {
-                Time.timeScale = 1;
-            }
-            else
-            {
-                Time.timeScale = 0;
-            }
-        }
-    }
-
     private void FixedUpdate()
     {
         Vector3 rayOrigin = targetObject.position;
