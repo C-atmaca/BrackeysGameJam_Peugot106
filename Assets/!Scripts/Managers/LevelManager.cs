@@ -8,6 +8,9 @@ public class LevelManager : Singleton<LevelManager>
 {
     [SerializeField] private List<int> requiredAmountOfMoneyPerLevel;
     [SerializeField] private Transform endOfLevelScreen;
+    [SerializeField] private GameObject endOfGameScreen;
+    [SerializeField] private GameObject endOfGameScreenDebt;
+    [SerializeField] private GameObject endOfGameScreenFree;
 
     [SerializeField] private TextMeshProUGUI rocksCollectedAmountText;
     [SerializeField] private TextMeshProUGUI moneyEarnedAmountText;
@@ -151,6 +154,17 @@ public class LevelManager : Singleton<LevelManager>
         }
         else
         {
+            endOfGameScreen.SetActive(true);
+            if (totalIncome >= 0)
+            {
+                endOfGameScreenFree.SetActive(true);
+                endOfGameScreenDebt.SetActive(false);
+            }
+            else
+            {
+                endOfGameScreenFree.SetActive(false);
+                endOfGameScreenDebt.SetActive(true);
+            }
             Debug.Log("No more scenes to load.");
         }
     }

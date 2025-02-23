@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ThreeButtonsSystem
   m_EditorClassIdentifier: 
   TriggerTimeMinInclusive: 30
-  TriggerTimeMaxExclusive: 60
-  DamageStartDelay: 3
+  TriggerTimeMaxExclusive: 70
+  DamageStartDelay: 4
   DamagePerInterval: 1
-  DamageInterval: 4
+  DamageInterval: 5
