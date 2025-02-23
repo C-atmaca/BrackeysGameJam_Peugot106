@@ -60,7 +60,7 @@ public class RaycastFromCamera : MonoBehaviour
 
                 if (Input.GetButton("Fire1"))
                 {
-                    if (HandManager.Instance.LeftHandSolutionSystem == null && HandManager.Instance.RightHandSolutionSystem != solutionSystem)
+                    if (HandManager.Instance.LeftHandSolutionSystem == null && HandManager.Instance.RightHandSolutionSystem != solutionSystem && solutionSystem.handType != HandType.HandTypeEnum.RIGHT )
                     {
                         HandManager.Instance.LeftHandSolutionSystem = solutionSystem;
                         // handmovement.SetTargetTransform(solutionSystem.handPlacementTarget);
@@ -69,7 +69,7 @@ public class RaycastFromCamera : MonoBehaviour
                 }
                 if (Input.GetButton("Fire2"))
                 {
-                    if (HandManager.Instance.RightHandSolutionSystem == null && HandManager.Instance.LeftHandSolutionSystem != solutionSystem)
+                    if (HandManager.Instance.RightHandSolutionSystem == null && HandManager.Instance.LeftHandSolutionSystem != solutionSystem && solutionSystem.handType != HandType.HandTypeEnum.LEFT)
                     {
                         HandManager.Instance.RightHandSolutionSystem = solutionSystem;
                         // handmovement.SetTargetTransform(solutionSystem.handPlacementTarget);
