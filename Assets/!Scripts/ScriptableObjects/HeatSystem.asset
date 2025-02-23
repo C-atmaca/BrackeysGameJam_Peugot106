@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: HeatSystem
   m_EditorClassIdentifier: 
   IncreaseRateMinInclusive: 0.1
-  IncreaseRateMaxExclusive: 0.35
+  IncreaseRateMaxExclusive: 0.3
   DecreaseRate: 0.15
   DamageStartDelay: 4
   DamagePerInterval: 1
-  DamageInterval: 2
+  DamageInterval: 2.5
   DamageThresholdMin: 0.85
   DamageThresholdMax: 1
