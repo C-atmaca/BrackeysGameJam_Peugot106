@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerTimeMinInclusive: 30
   TriggerTimeMaxExclusive: 70
-  DamageStartDelay: 4
+  DamageStartDelay: 5
   DamagePerInterval: 1
-  DamageInterval: 4.5
+  DamageInterval: 5

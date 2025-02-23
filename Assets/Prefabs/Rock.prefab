@@ -135,7 +135,7 @@ MonoBehaviour:
   twoDownArrow: {fileID: 3924647779405693227}
   damageInterval: 1.25
   successInterval: 4
-  breakInterval: 4
+  breakInterval: 6
   doingDamage: 0
 --- !u!1 &492722413020835517
 GameObject:

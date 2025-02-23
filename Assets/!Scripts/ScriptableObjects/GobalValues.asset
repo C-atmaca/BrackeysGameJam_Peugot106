@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42c4003ef908f4c4eb0f1d46a984d1ec, type: 3}
   m_Name: GobalValues
   m_EditorClassIdentifier: 
-  GlobalMultiplier: 1
+  GlobalMultiplier: 0.85
