@@ -11198,7 +11198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &838095950
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15220,9 +15220,9 @@ RectTransform:
   - {fileID: 352174140}
   m_Father: {fileID: 838095950}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1221219538
@@ -20986,9 +20986,9 @@ RectTransform:
   - {fileID: 230759479}
   m_Father: {fileID: 838095950}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 248, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2029953624
@@ -22424,6 +22424,10 @@ PrefabInstance:
       propertyPath: cantPayButton
       value: 
       objectReference: {fileID: 1221219536}
+    - target: {fileID: 7806725987371850111, guid: ccfdb63cf4831404581ac53aabe22bf4, type: 3}
+      propertyPath: levelEndButtons
+      value: 
+      objectReference: {fileID: 838095949}
     - target: {fileID: 7806725987371850111, guid: ccfdb63cf4831404581ac53aabe22bf4, type: 3}
       propertyPath: endOfLevelScreen
       value: 
