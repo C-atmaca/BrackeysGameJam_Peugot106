@@ -96,6 +96,16 @@ public class AudioManager : Singleton<AudioManager>
         StopSound(audioClips[7], 0.5f);
     }
 
+    public void MiningLaserPlay()
+    {
+        PlaySound(audioClips[8]);
+    }
+
+    public void MiningLaserStop()
+    {
+        StopSound(audioClips[8], 0.5f);
+    }
+
     private void PlaySound(AudioClip clip, bool loop = false)
     {   
         if (clip == null) return;
