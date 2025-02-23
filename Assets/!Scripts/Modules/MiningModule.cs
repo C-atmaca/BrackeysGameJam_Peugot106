@@ -1,5 +1,6 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+using static UnityEngine.UI.Image;
+using UnityEngine.Animations.Rigging;
 
 public class MiningModule : MechSystem
 {
@@ -9,13 +10,17 @@ public class MiningModule : MechSystem
     [SerializeField] private int damage = 10;
     [SerializeField] private int maxDamageMultiplier = 3;
     [SerializeField] private int minDamageMultiplier = -2;
+    [SerializeField] private LineRenderer laserBeam;
+    [SerializeField] private Transform laserBeamGameObject;
 
     private Transform mainCamTransform;
     private bool startMining;
+    private Vector3 endPoint;
 
     private void Start()
     {
         mainCamTransform = Camera.main.transform;
+        laserBeamGameObject.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -45,7 +50,11 @@ public class MiningModule : MechSystem
             lightBulb.material.DisableKeyword("_EMISSION");
         }
 
-        if (!startMining) return;
+        if (!startMining) 
+        {
+            laserBeamGameObject.gameObject.SetActive(false);
+            return;
+        }
 
         if (Physics.SphereCast(rayOrigin, .10f, rayDirection, out RaycastHit hit, rayDistance))
         {
@@ -53,15 +62,9 @@ public class MiningModule : MechSystem
             if (collider.CompareTag("Rock"))
             {
                 rock = collider.gameObject.GetComponent<Rock>();
-                lightBulb.material.EnableKeyword("_EMISSION");
-            }
-            if (collider.CompareTag("StrongMineSpot") || collider.CompareTag("WeakMineSpot") || collider.CompareTag("Rock"))
-            {
-                lightBulb.material.EnableKeyword("_EMISSION");
-            }
-            else
-            {
-                lightBulb.material.DisableKeyword("_EMISSION");
+                laserBeamGameObject.gameObject.SetActive(true);
+                endPoint = hit.point;
+                laserBeamGameObject.LookAt(endPoint);
             }
 
             if (rock != null)
@@ -72,6 +75,8 @@ public class MiningModule : MechSystem
                     rock.threeUpArrow.SetActive(true);
                     rock.oneUpArrow.SetActive(false);
                     rock.twoDownArrow.SetActive(false);
+                    endPoint = hit.point;
+                    laserBeamGameObject.LookAt(endPoint);
                 }
                 else if (collider.CompareTag("WeakMineSpot"))
                 {
@@ -79,6 +84,8 @@ public class MiningModule : MechSystem
                     rock.threeUpArrow.SetActive(false);
                     rock.oneUpArrow.SetActive(false);
                     rock.twoDownArrow.SetActive(true);
+                    endPoint = hit.point;
+                    laserBeamGameObject.LookAt(endPoint);
                 }
                 else
                 {
@@ -86,6 +93,8 @@ public class MiningModule : MechSystem
                     rock.threeUpArrow.SetActive(false);
                     rock.oneUpArrow.SetActive(true);
                     rock.twoDownArrow.SetActive(false);
+                    endPoint = hit.point;
+                    laserBeamGameObject.LookAt(endPoint);
                 }
             }
         }

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LaserMaterial
+  m_Name: Shader Graphs_LaserBeam
   m_Shader: {fileID: -6465566751694194690, guid: 952f067ba7df0924f948acb10563ce01, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -25,7 +25,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: e742d6068b6b2ba41851bb9f18d01d44, type: 3}
+        m_Texture: {fileID: 2800000, guid: 335a969ff6ec9114483ab0a27821781f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 2800000, guid: 4633caa45d9d0fb4c8b353c4a7303965, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -42,14 +46,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DissolveAmount: 0.5
+    - _NoiseAmount: 0.15
+    - _NoisePower: 2
+    - _NoiseScale: 25
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 0.64, g: 0.64, b: 0.64, a: 1}
+    - _Color: {r: 135.58704, g: 135.58704, b: 135.58704, a: 1}
     - _MainSpeed: {r: -0.5, g: 0, b: 0, a: 0}
+    - _NoiseSpeed: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &4832528752126814860
+--- !u!114 &1613868055641061241
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
