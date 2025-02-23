@@ -12,6 +12,7 @@ public class MiningModule : MechSystem
     [SerializeField] private int minDamageMultiplier = -2;
     [SerializeField] private LineRenderer laserBeam;
     [SerializeField] private Transform laserBeamGameObject;
+    [SerializeField] private LayerMask stopObjectMask;
 
     private Transform mainCamTransform;
     private bool startMining;
@@ -35,11 +36,13 @@ public class MiningModule : MechSystem
         Vector3 rayOrigin = mainCamTransform.position;
         Vector3 rayDirection = mainCamTransform.forward;
 
-        if (Physics.SphereCast(rayOrigin, .10f, rayDirection, out RaycastHit hitt, rayDistance))
+        if (Physics.SphereCast(rayOrigin, .25f, rayDirection, out RaycastHit hitt, rayDistance, stopObjectMask))
         {
             var collider = hitt.collider;
+            Debug.Log(collider.tag);
             if (collider.CompareTag("StrongMineSpot") || collider.CompareTag("WeakMineSpot") || collider.CompareTag("Rock"))
             {
+                Debug.Log("here");
                 lightBulb.material.EnableKeyword("_EMISSION");
             }
             else
@@ -58,7 +61,7 @@ public class MiningModule : MechSystem
             return;
         }
 
-        if (Physics.SphereCast(rayOrigin, .10f, rayDirection, out RaycastHit hit, rayDistance))
+        if (Physics.SphereCast(rayOrigin, .05f, rayDirection, out RaycastHit hit, rayDistance))
         {
             var collider = hit.collider;
             if (collider.CompareTag("Rock"))
@@ -91,6 +94,7 @@ public class MiningModule : MechSystem
                     rock.threeUpArrow.SetActive(true);
                     rock.oneUpArrow.SetActive(false);
                     rock.twoDownArrow.SetActive(false);
+                    laserBeamGameObject.gameObject.SetActive(true);
                     endPoint = hit.point;
                     laserBeamGameObject.LookAt(endPoint);
                 }
@@ -100,6 +104,7 @@ public class MiningModule : MechSystem
                     rock.threeUpArrow.SetActive(false);
                     rock.oneUpArrow.SetActive(false);
                     rock.twoDownArrow.SetActive(true);
+                    laserBeamGameObject.gameObject.SetActive(true);
                     endPoint = hit.point;
                     laserBeamGameObject.LookAt(endPoint);
                 }
@@ -109,6 +114,7 @@ public class MiningModule : MechSystem
                     rock.threeUpArrow.SetActive(false);
                     rock.oneUpArrow.SetActive(true);
                     rock.twoDownArrow.SetActive(false);
+                    laserBeamGameObject.gameObject.SetActive(true);
                     endPoint = hit.point;
                     laserBeamGameObject.LookAt(endPoint);
                 }
