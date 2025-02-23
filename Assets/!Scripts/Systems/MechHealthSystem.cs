@@ -6,6 +6,7 @@ public class MechHealthSystem : Singleton<MechHealthSystem>
     [SerializeField] private HealthSO data;
     [SerializeField] private int currentHealth;
     [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private GameObject gameOverCanvas;
 
     private void Start()
     {
@@ -16,7 +17,11 @@ public class MechHealthSystem : Singleton<MechHealthSystem>
     {
         if (currentHealth <= 0)
         {
-            Debug.Log("MECH EXPLODED!");
+            // play death audio and vfx then you can maybe wait a sec for the vfx to finish or something
+            gameOverCanvas.SetActive(true);
+            LevelManager.Instance.SetPause(true);
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
         }
     }
 
