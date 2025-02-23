@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3079bfbc35c557c4d95d4f5149da650d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredAmountOfMoneyPerLevel: 00000000640000005e010000
+  requiredAmountOfMoneyPerLevel: 0000000064000000f4010000
   endOfLevelScreen: {fileID: 0}
   rocksCollectedAmountText: {fileID: 0}
   moneyEarnedAmountText: {fileID: 0}
