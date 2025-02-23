@@ -61,8 +61,8 @@ public class MechMovementModule : MechSystem
             float moveDistance = currentMoveSpeed * Time.deltaTime;
             Vector3 moveDirection = transform.forward * moveDistance;
 
-            Debug.DrawRay(raycastOrigin.position, raycastOrigin.forward * (moveDistance + 0.2f), Color.green);
-            if (!Physics.SphereCast(raycastOrigin.position, 1f, raycastOrigin.forward, out _, moveDistance + 0.2f, stopMask))
+            //Debug.DrawRay(raycastOrigin.position, raycastOrigin.forward * (moveDistance + 0.5f), Color.green);
+            if (!Physics.SphereCast(raycastOrigin.position, 1f, raycastOrigin.forward, out _, moveDistance + 3f, stopMask))
             {
                 transform.Translate(moveDirection, Space.World);
             }

@@ -42,7 +42,6 @@ public class MiningModule : MechSystem
             Debug.Log(collider.tag);
             if (collider.CompareTag("StrongMineSpot") || collider.CompareTag("WeakMineSpot") || collider.CompareTag("Rock"))
             {
-                Debug.Log("here");
                 lightBulb.material.EnableKeyword("_EMISSION");
             }
             else
@@ -90,6 +89,7 @@ public class MiningModule : MechSystem
             {
                 if (collider.CompareTag("StrongMineSpot"))
                 {
+                    Debug.Log("do strong damage");
                     rock.DoDamage(damage * maxDamageMultiplier);
                     rock.threeUpArrow.SetActive(true);
                     rock.oneUpArrow.SetActive(false);
@@ -100,6 +100,7 @@ public class MiningModule : MechSystem
                 }
                 else if (collider.CompareTag("WeakMineSpot"))
                 {
+                    Debug.Log("do weak damage");
                     rock.DoDamage(damage * minDamageMultiplier);
                     rock.threeUpArrow.SetActive(false);
                     rock.oneUpArrow.SetActive(false);
@@ -110,6 +111,7 @@ public class MiningModule : MechSystem
                 }
                 else
                 {
+                    Debug.Log("do damage");
                     rock.DoDamage(damage);
                     rock.threeUpArrow.SetActive(false);
                     rock.oneUpArrow.SetActive(true);
@@ -119,6 +121,14 @@ public class MiningModule : MechSystem
                     laserBeamGameObject.LookAt(endPoint);
                 }
             }
+            else
+            {
+                Debug.Log("rock is null");
+            }
+        }
+        else 
+        {
+            Debug.Log("no hit on raycast");
         }
     }
 
@@ -131,7 +141,7 @@ public class MiningModule : MechSystem
     //{
     //    Vector3 origin = mainCamTransform.position;
     //    Vector3 direction = mainCamTransform.forward;
-    //    float radius = .10f;
+    //    float radius = .05f;
     //    float maxDistance = rayDistance;
 
     //    int segments = 50;
