@@ -8,6 +8,8 @@ public class MechHealthSystem : Singleton<MechHealthSystem>
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private GameObject gameOverCanvas;
 
+    private bool isSoundPlayed = false;
+
     private void Start()
     {
         currentHealth = data.MaxHealth;
@@ -18,6 +20,11 @@ public class MechHealthSystem : Singleton<MechHealthSystem>
         if (currentHealth <= 0)
         {
             // play death audio and vfx then you can maybe wait a sec for the vfx to finish or something
+            if (!isSoundPlayed)
+            {
+                AudioManager.Instance.MechExplosionPlay();
+                isSoundPlayed = true;
+            }
             gameOverCanvas.SetActive(true);
             LevelManager.Instance.SetPause(true);
             Cursor.lockState = CursorLockMode.Confined;

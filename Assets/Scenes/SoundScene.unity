@@ -16640,6 +16640,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 0654fd6d1ad47e44384f61b544cddb10, type: 2}
   currentHealth: 0
   healthText: {fileID: 1814949159}
+  gameOverCanvas: {fileID: 0}
 --- !u!1 &1989181220
 GameObject:
   m_ObjectHideFlags: 0

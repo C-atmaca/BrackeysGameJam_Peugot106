@@ -140,6 +140,18 @@ public class AudioManager : Singleton<AudioManager>
         StopSound(audioClips[11], 0.5f);
     }
 
+    public void MechExplosionPlay()
+    {
+        PlaySound(audioClips[12]);
+        StartCoroutine(MechExplosionStop(.5f));
+    }
+
+    public IEnumerator MechExplosionStop(float time)
+    {
+        yield return new WaitForSeconds(time);
+        StopSound(audioClips[12]);
+    }
+
     private void PlaySound(AudioClip clip, bool loop = false)
     {   
         if (clip == null) return;
