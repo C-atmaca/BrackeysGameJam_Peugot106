@@ -483,7 +483,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 314204096}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: TutorialPage1
+        m_MethodName: TutorialMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -857,8 +857,13 @@ MonoBehaviour:
   - {fileID: 1457639104}
   - {fileID: 1697002544}
   - {fileID: 1090490195}
-  image: {fileID: 0}
-  sprites: []
+  image: {fileID: 1819743015}
+  sprites:
+  - {fileID: 21300000, guid: e709f02f478da6c4981bc8a42e2b91ef, type: 3}
+  - {fileID: 21300000, guid: 7e4f2a0fb9831384f813201f761c6a3f, type: 3}
+  - {fileID: 21300000, guid: 5b1b39b49c581f242958cd61edaae7d0, type: 3}
+  - {fileID: 21300000, guid: 0c24ec846d087174aab67b060632571e, type: 3}
+  - {fileID: 21300000, guid: b6217f480dcc1cb48bef57b4816ba44d, type: 3}
 --- !u!1 &332297097
 GameObject:
   m_ObjectHideFlags: 0
@@ -5106,7 +5111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1819743014
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5116,7 +5121,7 @@ RectTransform:
   m_GameObject: {fileID: 1819743013}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.44735527, y: 1, z: 1}
+  m_LocalScale: {x: 0.44735527, y: 1.0312, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1821733994}
@@ -5125,7 +5130,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 80, y: 0}
+  m_AnchoredPosition: {x: 80, y: -34}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1819743015
@@ -5178,8 +5183,8 @@ GameObject:
   - component: {fileID: 1821733999}
   - component: {fileID: 1821733998}
   - component: {fileID: 1821733997}
-  - component: {fileID: 1821733996}
   - component: {fileID: 1821733995}
+  - component: {fileID: 1821734000}
   m_Layer: 8
   m_Name: NextButton
   m_TagString: Untagged
@@ -5228,18 +5233,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 150, y: 30, z: 70}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1821733996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1821733993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b57affd84ad4664fb247ed8aff322e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1821733997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5286,7 +5279,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 314204096}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: TutorialPage1
+        m_MethodName: TutorialNextPage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5334,6 +5327,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821733993}
   m_CullTransparentMesh: 1
+--- !u!114 &1821734000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821733993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b57affd84ad4664fb247ed8aff322e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1865768144
 PrefabInstance:
   m_ObjectHideFlags: 0

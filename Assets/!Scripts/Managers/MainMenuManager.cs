@@ -10,8 +10,9 @@ public class MainMenuManager : Singleton<MainMenuManager>
     [SerializeField] private Image image;
     [SerializeField] private Sprite[] sprites;
     private Transform camTransform;
+    private bool isTutorialMode = false;
 
-    private int pageNumber = -1;
+    private int pageNumber = 0;
 
     private void Start()
     {
@@ -40,22 +41,26 @@ public class MainMenuManager : Singleton<MainMenuManager>
         SceneManager.LoadScene(startSceneName);
     }
 
+    public void TutorialMode()
+    {
+        isTutorialMode = true;
+        image.gameObject.SetActive(true);
+        foreach (var item in objects)
+        {
+            item.SetActive(false);
+        }
+        image.sprite = sprites[0];
+    }
+
     public void TutorialNextPage()
     {
-        pageNumber++;
+        if (isTutorialMode)
+        {
+            pageNumber++;
+        }
 
-        Debug.Log(pageNumber);
-        Debug.Log(image.sprite);
         switch (pageNumber)
         {
-            case 0:
-                image.gameObject.SetActive(true);
-                foreach (var item in objects)
-                {
-                    item.SetActive(false);
-                }
-                image.sprite = sprites[0];
-            break;
             case 1:
                 image.sprite = sprites[1];
             break;
@@ -74,7 +79,8 @@ public class MainMenuManager : Singleton<MainMenuManager>
                     item.SetActive(true);
                 }
                 image.gameObject.SetActive(false);
-                pageNumber = -1;
+                pageNumber = 0;
+                isTutorialMode = false;
             break;
         }
 
