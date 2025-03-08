@@ -13,6 +13,10 @@ public class MainMenuManager : Singleton<MainMenuManager>
     private bool isTutorialMode = false;
 
     private int pageNumber = 0;
+    [Header("Starting Scene")]
+    public LoadEventChannelSO onPlayButtonPress;
+	public GameSceneSO[] locationsToLoad;
+	public bool showLoadScreen;
 
     private void Start()
     {
@@ -38,7 +42,7 @@ public class MainMenuManager : Singleton<MainMenuManager>
 
     public void StartGame()
     {
-        SceneManager.LoadScene(startSceneName);
+        onPlayButtonPress.RaiseEvent(locationsToLoad, showLoadScreen);
     }
 
     public void TutorialMode()
