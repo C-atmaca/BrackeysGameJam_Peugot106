@@ -39,14 +39,14 @@ public class ThreeButtonsSolutionModule : SolutionSystem
     public override void StartExecuteSolution()
     {
         system.SetExecuteSolution(true);
-        AudioManager.Instance.ButtonVoicePlay();
+        // AudioManager.Instance.ButtonVoicePlay();
     }
 
     public override void StopExecuteSolution()
     {
         system.SetExecuteSolution(false);
-        AudioManager.Instance.isLightPlayed = false;
-        AudioManager.Instance.ButtonVoiceStop();
-        AudioManager.Instance.LightBulbSoundStop();
+        // AudioManager.Instance.isLightPlayed = false;
+        // AudioManager.Instance.ButtonVoiceStop();
+        // AudioManager.Instance.LightBulbSoundStop();
     }
 }

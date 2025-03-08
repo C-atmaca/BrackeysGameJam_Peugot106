@@ -4,13 +4,13 @@ public class MechRotationSolutionModule : SolutionSystem
 {
     public override void StartExecuteSolution()
     {
-        AudioManager.Instance.MechRotationSoundPlay();
+        // AudioManager.Instance.MechRotationSoundPlay();
         system.SetExecuteSolution(true);
     }
 
     public override void StopExecuteSolution()
     {
-        AudioManager.Instance.MechRotationSoundStop();
+        // AudioManager.Instance.MechRotationSoundStop();
         system.SetExecuteSolution(false);
     }
 }

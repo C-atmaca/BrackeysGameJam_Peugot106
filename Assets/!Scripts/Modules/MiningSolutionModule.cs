@@ -9,7 +9,7 @@ public class MiningSolutionModule : SolutionSystem
 
     public override void StopExecuteSolution()
     {
-        AudioManager.Instance.MiningLaserStop();
+        // AudioManager.Instance.MiningLaserStop();
         ((MiningModule)system).isSongPlayed = false;
         system.SetExecuteSolution(false);
     }

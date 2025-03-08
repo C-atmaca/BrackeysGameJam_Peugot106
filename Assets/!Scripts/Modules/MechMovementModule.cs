@@ -33,7 +33,7 @@ public class MechMovementModule : MechSystem
 
             if (isMechMoving)
             {
-                AudioManager.Instance.MechStepSoundStop();
+                // AudioManager.Instance.MechStepSoundStop();
                 isMechMoving = false;
             }
         }
@@ -54,7 +54,7 @@ public class MechMovementModule : MechSystem
         {
             if (!isMechMoving)
             {
-                AudioManager.Instance.MechStepSoundPlay();
+                // AudioManager.Instance.MechStepSoundPlay();
                 isMechMoving = true;
             }
 
@@ -78,7 +78,7 @@ public class MechMovementModule : MechSystem
         }
         else if (isMechMoving)
         {
-            AudioManager.Instance.MechStepSoundStop();
+            // AudioManager.Instance.MechStepSoundStop();
             isMechMoving = false;
         }
     }

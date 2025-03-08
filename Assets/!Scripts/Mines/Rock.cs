@@ -57,7 +57,7 @@ public class Rock : MonoBehaviour
         {
             if (!isSoundPlayed)
             {
-                AudioManager.Instance.RockFailedPlay();
+                // AudioManager.Instance.RockFailedPlay();
                 particleSystem.Play();
                 isSoundPlayed = true;
             }
@@ -72,7 +72,7 @@ public class Rock : MonoBehaviour
             {
                 if (!isSoundPlayed)
                 {
-                    AudioManager.Instance.RockFailedPlay();
+                    // AudioManager.Instance.RockFailedPlay();
                     particleSystem.Play();
                     isSoundPlayed = true;
                 }
@@ -92,7 +92,7 @@ public class Rock : MonoBehaviour
             {
                 if (!isSoundPlayed)
                 {
-                    AudioManager.Instance.RockSuccesfullPlay();
+                    // AudioManager.Instance.RockSuccesfullPlay();
                     particleSystem.Play();
                     MoneyManager.Instance.RockCollected();
                     isSoundPlayed = true;

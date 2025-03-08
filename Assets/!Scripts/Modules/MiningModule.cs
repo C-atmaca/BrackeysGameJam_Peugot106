@@ -68,7 +68,7 @@ public class MiningModule : MechSystem
                 laserBeamGameObject.gameObject.SetActive(true);
                 if (!isSongPlayed)
                 {
-                    AudioManager.Instance.MiningLaserPlay();
+                    // AudioManager.Instance.MiningLaserPlay();
                     isSongPlayed = true;
                 }
                 endPoint = hit.point;

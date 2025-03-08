@@ -22,7 +22,7 @@ public class MechHealthSystem : Singleton<MechHealthSystem>
             // play death audio and vfx then you can maybe wait a sec for the vfx to finish or something
             if (!isSoundPlayed)
             {
-                AudioManager.Instance.MechExplosionPlay();
+                // AudioManager.Instance.MechExplosionPlay();
                 isSoundPlayed = true;
             }
             gameOverCanvas.SetActive(true);
@@ -42,7 +42,7 @@ public class MechHealthSystem : Singleton<MechHealthSystem>
     {
         if (currentHealth <= 0) return;
 
-        AudioManager.Instance.MechDamageSoundPlay();
+        // AudioManager.Instance.MechDamageSoundPlay();
         currentHealth += value;
         SetHealthText();
     }

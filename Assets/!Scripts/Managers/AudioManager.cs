@@ -1,225 +1,105 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
-public class AudioManager : Singleton<AudioManager>
+public class AudioManager : MonoBehaviour
 {
-    public AudioClip[] audioClips;
-    private Dictionary<AudioClip, AudioSource> activeSources = new Dictionary<AudioClip, AudioSource>();
+    [Header("Sound Emitter Pool")]
+    [SerializeField] private SoundEmitterFactorySO _factory = default;
+    [SerializeField] private SoundEmitterPoolSO _pool = default;
+    [SerializeField] private int _initialSize = 10;
 
-    public bool isLightPlayed = false;
+    [Header("Listening on Channels")]
+    [Tooltip("The SoundManager listens to this event, fired by objects in any scene, to play SFXs")]
+    [SerializeField] private AudioCueEventChannelSO _SFXEventChannel = default;
+	[Tooltip("The SoundManager listens to this event, fired by objects in any scene, to play Music")]
+	[SerializeField] private AudioCueEventChannelSO _musicEventChannel = default;
+    
+    [Header("Audio control")]
+	[SerializeField] private AudioMixer audioMixer = default;
+	[Range(0f, 1f)]
+	[SerializeField] private float _masterVolume = 1f;
+	[Range(0f, 1f)]
+	[SerializeField] private float _musicVolume = 1f;
+	[Range(0f, 1f)]
+	[SerializeField] private float _sfxVolume = 1f;
 
-    public void ButtonVoicePlay()
+    private void Awake() 
     {
-        PlaySound(audioClips[0]);
+        _SFXEventChannel.OnAudioCueRequested += PlayAudioCue;
+		_musicEventChannel.OnAudioCueRequested += PlayAudioCue;
+
+        _pool.Prewarm(_initialSize);
+		_pool.SetParent(this.transform);   
     }
 
-    public void ButtonVoiceStop()
-    {
-        StartCoroutine(ButtonVoiceStopTimer(.5f));
-    }
+	void OnValidate()
+	{
+		if (Application.isPlaying)
+		{
+			SetGroupVolume("MasterVolume", _masterVolume);
+			SetGroupVolume("MusicVolume", _musicVolume);
+			SetGroupVolume("SFXVolume", _sfxVolume);
+		}
+	}
 
-    private IEnumerator ButtonVoiceStopTimer(float timer)
-    {
-        yield return new WaitForSeconds(timer);
-        StopSound(audioClips[0]);
-    }
-
-    public void HeatReleasePlay()
-    {
-        PlaySound(audioClips[1]);
-    }
-
-    public void HeatReleaseStop()
-    {
-        StopSound(audioClips[1]);
-    }
-
-    public void ValveRotationPlay()
-    {
-        PlaySound(audioClips[2], loop: true);
-    }
-
-    public void ValveRotationStop()
-    {
-        StopSound(audioClips[2], 0.5f);
-    }
-
-    public void MechStepSoundPlay()
-    {
-        PlaySound(audioClips[3], loop: true);
-    }
-
-    public void MechStepSoundStop()
-    {
-        StopSound(audioClips[3]);
-    }
-
-    public void MechRotationSoundPlay()
-    {
-        PlaySound(audioClips[5], loop: true);
-    }
-
-    public void MechRotationSoundStop()
-    {
-        StopSound(audioClips[5]);
-    }
-
-    public void HandBrakePlay()
-    {
-        PlaySound(audioClips[4]);
-    }
-
-    public void HandBrakeStop()
-    {
-        StopSound(audioClips[4], 0.5f);
-    }
-
-    public void LightBulbSoundPlay()
-    {
-        PlaySound(audioClips[6], loop: true);
-    }
-
-    public void LightBulbSoundStop()
-    {
-        StopSound(audioClips[6]);
-    }
-
-    public void HearthBeatPlay()
-    {
-        PlaySound(audioClips[7]);
-    }
-
-    public void HearthBeatStop()
-    {
-        StopSound(audioClips[7], 0.5f);
-    }
-
-    public void MiningLaserPlay()
-    {
-        PlaySound(audioClips[8]);
-    }
-
-    public void MiningLaserStop()
-    {
-        StopSound(audioClips[8]);
-    }
-
-    public void RockSuccesfullPlay()
-    {
-        PlaySound(audioClips[9]);
-        StartCoroutine(RockSuccesfullStop(.5f));
-    }
-
-    private IEnumerator RockSuccesfullStop(float time)
-    {
-        yield return new WaitForSeconds(time);
-        StopSound(audioClips[9]);
-    }
-
-    public void RockFailedPlay()
-    {
-        PlaySound(audioClips[10]);
-        StartCoroutine(RockFailedStop(.5f));
-    }
-
-    private IEnumerator RockFailedStop(float time)
-    {
-        yield return new WaitForSeconds(time);
-        StopSound(audioClips[10]);
-    }
-
-    public void BreathingPlay()
-    {
-        PlaySound(audioClips[11], loop: true);
-    }
-
-    public void BreathingStop()
-    {
-        StopSound(audioClips[11], 0.5f);
-    }
-
-    public void MechExplosionPlay()
-    {
-        PlaySound(audioClips[12]);
-        StartCoroutine(MechExplosionStop(.5f));
-    }
-
-    public IEnumerator MechExplosionStop(float time)
-    {
-        yield return new WaitForSeconds(time);
-        StopSound(audioClips[12]);
-    }
-
-    public void  MechDamageSoundPlay()
-    {
-        if(GameObject.Find("AudioSource_"+audioClips[13].name)) return;
-
-        PlaySound(audioClips[13]);
-        StartCoroutine(MechDamageSoundStop(1.2f));
-    }
-
-    private IEnumerator MechDamageSoundStop(float time)
-    {
-        yield return new WaitForSeconds(time);
-        StopSound(audioClips[13]);
-    }
-
-    private void PlaySound(AudioClip clip, bool loop = false)
-    {   
-        if (clip == null) return;
-
-        AudioSource newSource = new GameObject("AudioSource_" + clip.name).AddComponent<AudioSource>();
-        newSource.clip = clip;
-        newSource.loop = loop;
-        newSource.Play();
-
-        activeSources[clip] = newSource;
-    }
-
-    private void StopSound(AudioClip clip, float fadeTime = 0)
-    {
-        if (clip == null || !activeSources.ContainsKey(clip)) return;
+    public void SetGroupVolume(string parameterName, float normalizedVolume)
+	{
         
-        AudioSource source = activeSources[clip];
+        
+		bool volumeSet = audioMixer.SetFloat(parameterName, NormalizedToMixerValue(normalizedVolume));
+        
+		if (!volumeSet)
+			Debug.LogError("The AudioMixer parameter was not found");
+	}
 
-        if (source == null) return;
-
-        if (fadeTime > 0)
-        {
-            StartCoroutine(FadeOutAndDestroy(source, fadeTime));
-        }
-        else
-        {
-            Destroy(source.gameObject);
-        }
-        activeSources.Remove(clip);
+    public float GetGroupVolume(string parameterName)
+	{
+		if (audioMixer.GetFloat(parameterName, out float rawVolume))
+		{
+			return MixerValueToNormalized(rawVolume);
+		}
+		else
+		{
+			Debug.LogError("The AudioMixer parameter was not found");
+			return 0f;
+		}
     }
 
-    private IEnumerator FadeOutAndDestroy(AudioSource source, float fadeTime)
-    {
-        float startVolume = source.volume;
+    private float MixerValueToNormalized(float mixerValue)
+	{
+		return 1f + (mixerValue / 80f);
+	}
+	
+	private float NormalizedToMixerValue(float normalizedValue)
+	{
+		return (normalizedValue - 1f) * 80f;
+	}
 
-        while (source.volume > 0)
-        {
-            source.volume -= startVolume * Time.deltaTime / fadeTime;
-            yield return null;
-        }
+    public void PlayAudioCue(AudioCueSO audioCue, AudioConfigurationSO settings, Vector3 position = default)
+	{
+		AudioClip[] clipsToPlay = audioCue.GetClips();
+		int nOfClips = clipsToPlay.Length;
 
-        Destroy(source.gameObject);
-    }
+		for (int i = 0; i < nOfClips; i++)
+		{
+			SoundEmitter soundEmitter = _pool.Request();
+			if (soundEmitter != null)
+			{
+				soundEmitter.PlayAudioClip(clipsToPlay[i], settings, audioCue.looping, position);
+				if (!audioCue.looping)
+					soundEmitter.OnSoundFinishedPlaying += OnSoundEmitterFinishedPlaying;
+			}
+		}
+	}
 
-    public void DestroyAllAudio()
-    {
-        foreach (var source in activeSources.Values)
-        {
-            if (source != null)
-            {
-                GameObject.Destroy(source.gameObject);
-            }
-        }
-
-        activeSources.Clear();
-    }
+    private void OnSoundEmitterFinishedPlaying(SoundEmitter soundEmitter)
+	{
+		soundEmitter.OnSoundFinishedPlaying -= OnSoundEmitterFinishedPlaying;
+		soundEmitter.Stop();
+		_pool.Return(soundEmitter);
+	}
 }

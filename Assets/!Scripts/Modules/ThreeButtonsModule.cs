@@ -26,11 +26,11 @@ public class ThreeButtonsModule : TriggerOnceSystem
         if (GetTriggered())
         {
             lightBulb.material.EnableKeyword("_EMISSION");
-            if (!AudioManager.Instance.isLightPlayed)
-            {
-                AudioManager.Instance.LightBulbSoundPlay();
-                AudioManager.Instance.isLightPlayed = true;
-            }
+            // if (!AudioManager.Instance.isLightPlayed)
+            // {
+            //     AudioManager.Instance.LightBulbSoundPlay();
+            //     AudioManager.Instance.isLightPlayed = true;
+            // }
         }
         else
         {

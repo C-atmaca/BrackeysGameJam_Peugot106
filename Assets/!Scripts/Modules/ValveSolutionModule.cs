@@ -27,7 +27,7 @@ public class ValveSolutionModule : SolutionSystem
 
     public override void StartExecuteSolution()
     {
-        AudioManager.Instance.ValveRotationPlay();
+        // AudioManager.Instance.ValveRotationPlay();
         startedSolution = true;
     }
 
@@ -69,7 +69,7 @@ public class ValveSolutionModule : SolutionSystem
 
     public override void StopExecuteSolution()
     {
-        AudioManager.Instance.ValveRotationStop();
+        // AudioManager.Instance.ValveRotationStop();
         startedSolution = false;
     }
 }

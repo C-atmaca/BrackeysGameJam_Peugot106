@@ -10,14 +10,14 @@ public class ValveModule : ConstantlyIncreasingSystem
         {
             if (!isSoundPlayed)
             {
-                AudioManager.Instance.HearthBeatPlay();
+                // AudioManager.Instance.HearthBeatPlay();
                 isSoundPlayed = true;
             }
             GeneralIndicatorSystem.Instance.ToggleValveErrorIndicator(true);
         }
         else
         {
-            AudioManager.Instance.HearthBeatStop();
+            // AudioManager.Instance.HearthBeatStop();
             isSoundPlayed = false;
             GeneralIndicatorSystem.Instance.ToggleValveErrorIndicator(false);
         }

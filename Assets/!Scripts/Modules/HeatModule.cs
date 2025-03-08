@@ -64,14 +64,14 @@ public class HeatModule : ConstantlyIncreasingSystem
 
             if (!isSoundPlayed)
             {
-                AudioManager.Instance.BreathingPlay();
+                // AudioManager.Instance.BreathingPlay();
                 isSoundPlayed = true;
             }
         }
         else
         {
             GeneralIndicatorSystem.Instance.ToggleHeatErrorIndicator(false);
-            AudioManager.Instance.BreathingStop();
+            // AudioManager.Instance.BreathingStop();
         }
 
         float rotation = Mathf.Lerp(startRotation, endRotation, currentValue) + twitchAmount;

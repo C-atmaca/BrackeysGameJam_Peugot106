@@ -32,14 +32,14 @@ public class HeatSolutionModule : SolutionSystem
         transform.DOKill();
         transform.DOMoveY(startPosition.y, moveDuration).SetEase(Ease.InSine);
         system.SetExecuteSolution(false);
-        AudioManager.Instance.HeatReleaseStop();
+        // AudioManager.Instance.HeatReleaseStop();
     }
 
     private IEnumerator MoveDown(Vector3 targetPosition)
     {
         yield return waitForSeconds;
         transform.DOMoveY(targetPosition.y, moveDuration).SetEase(Ease.InSine);
-        AudioManager.Instance.HeatReleasePlay();
+        // AudioManager.Instance.HeatReleasePlay();
         system.SetExecuteSolution(true);
     }
 }
